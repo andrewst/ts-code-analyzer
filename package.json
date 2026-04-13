@@ -1,14 +1,35 @@
 {
   "name": "ts_code_analyzer",
   "version": "1.0.0",
-  "description": "",
+  "description": "A static analysis utility for detecting dead code in TypeScript libraries. Identifies exported symbols that are not consumed by the public API, library source code, or are only used in tests/demo code.",
   "main": "dist/index.js",
-  "scripts": {
-    "build": "tsc"
+  "bin": {
+    "detect-dead-code": "dist/index.js"
   },
-  "dependencies": {},
+  "type": "module",
+  "scripts": {
+    "build-go": "tsgo",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "clean": "rm -rf dist",
+    "rebuild": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "typescript",
+    "static-analysis",
+    "dead-code-detection",
+    "code-quality",
+    "ast-parser"
+  ],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
   "devDependencies": {
-    "typescript": "^5.5.3"
+    "@typescript/native-preview": "^7.0.0-dev.20260413.1",
+    "typescript": "^6.0.2"
   },
   "private": true
 }
