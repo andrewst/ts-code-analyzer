@@ -46,7 +46,6 @@ Each role applies a specific subset of rules. This is the single source of truth
 
 ## Resources
 
-- [Skills](agents/skills.md) — built-in and custom
 - [Best Practices](agents/best-practices.md) — before/while/after coding
 - [Reference](agents/reference.md) — commands, files, RFC sections
 - [Tooling](agents/tooling.md) — linting, testing, and build configuration

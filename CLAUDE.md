@@ -45,7 +45,6 @@ pnpm test             # Run tests
 
 ## Resources
 
-- [Skills](agents/skills.md) — built-in and custom capabilities
 - [Best Practices](agents/best-practices.md) — before/while/after coding
 - [Reference](agents/reference.md) — commands, files, RFC sections
 
