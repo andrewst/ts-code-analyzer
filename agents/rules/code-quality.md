@@ -11,4 +11,4 @@
 | R07 | **JSDoc on all exported functions/types** | Self-documenting |
 
 ---
-*See: [Architecture Rules](architecture.md) | [Testing Rules](testing.md) | [Git Rules](git-workflow.md)*
+*See: [Architecture Rules](architecture.md) | [Testing Rules](testing.md) | [Git Workflow Rules](git-workflow.md) | [Back to Rules Index](../AGENTS.md#rules)*

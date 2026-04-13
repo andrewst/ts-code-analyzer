@@ -9,4 +9,4 @@
 | A05 | **No circular dependencies**: unidirectional data flow | Clear architecture |
 
 ---
-*See: [Code Quality Rules](code-quality.md) | [Testing Rules](testing.md) | [Git Rules](git-workflow.md)*
+*See: [Code Quality Rules](code-quality.md) | [Testing Rules](testing.md) | [Git Workflow Rules](git-workflow.md) | [Back to Rules Index](../AGENTS.md#rules)*

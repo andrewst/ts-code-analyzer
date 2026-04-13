@@ -18,4 +18,4 @@ Refs: RFC Section X.Y
 ```
 
 ---
-*See: [Code Quality Rules](code-quality.md) | [Architecture Rules](architecture.md) | [Testing Rules](testing.md)*
+*See: [Code Quality Rules](code-quality.md) | [Architecture Rules](architecture.md) | [Testing Rules](testing.md) | [Back to Rules Index](../AGENTS.md#rules)*

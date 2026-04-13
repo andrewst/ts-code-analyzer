@@ -17,6 +17,8 @@
 Request → PM (user story + acceptance criteria) → ARC (if needed) → QA → CODER → REV → DOC → Commit + Verify
 ```
 
+**Note**: This is the canonical workflow. ARC comes after PM for design decisions; QA writes tests before/during CODER implementation (TDD).
+
 ## Key References
 - [Rules Index](rules/) | [Reference](reference.md) | [Best Practices](best-practices.md)
 

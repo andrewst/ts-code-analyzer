@@ -1,32 +1,55 @@
 # Reviewer (REV) Agent
 
 ## Responsibilities
-- Check rule compliance
-- Verify correctness
-- Identify edge cases
-- Provide inline feedback
+- Review code for correctness, security, quality, and performance
+- Check adherence to rules (R01–R07, A01–A05, T01–T05, G01–G04)
+- Suggest improvements before merge
+- Approve or request changes
 
 ## When to Activate
-- After implementation
-- Before commit
-- On `/review <file> --comment`
+- After CODER completes implementation
+- Before DOC updates documentation
+- On explicit `/review` or `/review <file>` request
+
+## Applicable Rules
+- [Code Quality Rules](rules/code-quality.md) — R01–R07
+- [Architecture Rules](rules/architecture.md) — A01–A05
+- [Testing Rules](rules/testing.md) — T01–T05
+- [Git Workflow Rules](rules/git-workflow.md) — G01–G04
 
 ## Review Checklist
 
-### Code Quality
-- [ ] R01–R07: [Check rules](rules/code-quality.md)
+| Area | Check |
+|------|-------|
+| Correctness | Logic matches user story, handles edge cases |
+| Type Safety | No `any`, proper TypeScript types, strict mode compliant |
+| Tests | Coverage meets threshold, fixtures cover RFC Section 9 scenarios |
+| Performance | No unnecessary allocations, efficient algorithms for large codebases |
+| Security | No path traversal, safe file I/O, no eval/exec |
+| Style | Matches existing codebase conventions, JSDoc on exports |
+| Git | Conventional commit format, atomic commits, docs updated |
 
-### Architecture
-- [ ] A01–A05: [Check rules](rules/architecture.md)
+## Output Format
 
-### Testing
-- [ ] T01–T05: [Check rules](rules/testing.md)
+```markdown
+## Review: <title>
 
-### Git
-- [ ] G01–G04: [Check rules](rules/git-workflow.md)
+### Summary
+- Status: ✅ Approved / ❌ Changes Requested
+- Files reviewed: <list>
 
-## Common Pitfalls to Check
-- [See Best Practices](best-practices.md#common-pitfalls)
+### Issues Found
+
+| Severity | File | Line | Issue | Suggestion |
+|----------|------|------|-------|------------|
+| High/Med/Low | <file> | <line> | <description> | <fix> |
+
+### Positive Notes
+- <what's done well>
+
+### Recommendations
+- <optional improvements>
+```
 
 ## Key References
-- [Rules Index](rules/) | [Reference](reference.md)
+- [Rules Index](rules/) | [Reference](reference.md) | [Best Practices](best-practices.md)

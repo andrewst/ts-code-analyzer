@@ -9,4 +9,4 @@
 | T05 | **Naming**: `describe('<ComponentName>')`, `it('should <behavior>')` | Clarity |
 
 ---
-*See: [Code Quality Rules](code-quality.md) | [Architecture Rules](architecture.md) | [Git Rules](git-workflow.md)*
+*See: [Code Quality Rules](code-quality.md) | [Architecture Rules](architecture.md) | [Git Workflow Rules](git-workflow.md) | [Back to Rules Index](../AGENTS.md#rules)*
