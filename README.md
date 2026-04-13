@@ -1,5 +1,9 @@
 # TypeScript Code Analyzer
 
+> ⚠️ **Early Development**: This project is in its initial stages of development. Features, APIs, and documentation are subject to change.
+
+> 📖 **Documentation & Roadmap**: Detailed design documents, ideas, and development plans are available in the [`./docs`](./docs) directory.
+
 A static analysis utility for detecting dead code in TypeScript libraries. This tool identifies exported symbols that are not consumed by the public API, library source code, or are only used in tests/demo code.
 
 ## Features
@@ -21,10 +25,26 @@ npm install
 ## Build
 
 ```bash
-npm run build
+npm run build          # Compile TypeScript to JavaScript
+npm run rebuild        # Clean dist directory and rebuild
+npm run clean          # Remove dist directory
+npm start              # Run the compiled application
 ```
 
 ## Usage
+
+```bash
+npm start -- \
+  --src ./src \
+  --tests ./tests \
+  --demo ./demo \
+  --tsconfig ./tsconfig.json \
+  --format json \
+  --output report.json \
+  --fail-on-dead-code
+```
+
+Or use the CLI binary directly (after building):
 
 ```bash
 detect-dead-code \
@@ -76,9 +96,10 @@ See [RFC Document](docs/rfc_dead_code_detection.md) for detailed architectural s
 
 ## Tech Stack
 
-- TypeScript 5.5+
-- TypeScript Compiler API / ts-morph for AST parsing
+- TypeScript 6.0+
+- TypeScript Compiler API for AST parsing
+- ES2020 modules (ESM)
 
 ## License
 
-Private
+ISC (Private repository)
