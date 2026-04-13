@@ -10,4 +10,4 @@
 
 ---
 
-_See: [Code Quality Rules](code-quality.md) | [Testing Rules](testing.md) | [Git Workflow Rules](git-workflow.md) | [Back to Rules Index](../AGENTS.md#rules)_
+_See: [Code Quality Rules](code-quality.md) | [Testing Rules](testing.md) | [Git Workflow Rules](git-workflow.md) | [Tooling](../tooling.md) | [Back to Rules Index](../AGENTS.md#rules)_

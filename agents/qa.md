@@ -62,15 +62,24 @@ See [AGENTS.md → Role → Rules Mapping](../AGENTS.md#role--rules-mapping).
 
 ## Checklist
 
-| Area                         | Check                                                      |
-| ---------------------------- | ---------------------------------------------------------- |
-| Acceptance Criteria          | All PM acceptance criteria have corresponding tests        |
-| Edge Cases                   | RFC Section 9 scenarios covered by fixtures                |
-| Behavior over Implementation | Tests assert behavior, not internal implementation details |
-| Determinism                  | Tests are repeatable, no flaky assertions                  |
-| Coverage                     | Coverage meets project thresholds                          |
-| Fixtures                     | Test fixtures are reusable and well-documented             |
-| Isolation                    | Tests don't depend on execution order or shared state      |
+| Area                         | Check                                                                                   |
+| ---------------------------- | --------------------------------------------------------------------------------------- |
+| Acceptance Criteria          | All PM acceptance criteria have corresponding tests                                     |
+| Edge Cases                   | RFC Section 9 scenarios covered by fixtures                                             |
+| Behavior over Implementation | Tests assert behavior, not internal implementation details                              |
+| Determinism                  | Tests are repeatable, no flaky assertions                                               |
+| Coverage                     | ≥ 95% on all thresholds (branches, functions, lines, statements) via `pnpm test:coverage` |
+| Lint (test code)             | `pnpm oxlint` passes on test files — same rules apply                                   |
+| Format (test code)           | `pnpm format:check` passes — consistent with source code                                |
+| Fixtures                     | Test fixtures are reusable and well-documented                                          |
+| Isolation                    | Tests don't depend on execution order or shared state                                   |
+
+## Test Verification
+
+```bash
+pnpm test:coverage  # run tests with coverage report — must meet 95% thresholds
+pnpm lint           # oxlint + format on test files — must pass
+```
 
 ## Best Practices
 
@@ -79,4 +88,4 @@ See [AGENTS.md → Role → Rules Mapping](../AGENTS.md#role--rules-mapping).
 
 ## Key References
 
-- [Rules Index](rules/) | [Reference](reference.md) | [Best Practices](best-practices.md)
+- [Rules Index](rules/) | [Tooling](tooling.md) | [Reference](reference.md) | [Best Practices](best-practices.md)

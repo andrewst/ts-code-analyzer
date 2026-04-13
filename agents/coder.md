@@ -60,15 +60,26 @@ See [AGENTS.md → Role → Rules Mapping](../AGENTS.md#role--rules-mapping).
 
 ## Checklist
 
-| Area        | Check                                                    |
-| ----------- | -------------------------------------------------------- |
-| Correctness | Logic matches user story acceptance criteria             |
-| Type Safety | No `any`, proper TypeScript types, strict mode compliant |
-| Tests       | All tests pass, fixtures cover edge cases                |
-| Performance | No unnecessary allocations, efficient algorithms         |
-| Security    | No path traversal, safe file I/O, no eval/exec           |
-| Style       | Matches existing codebase conventions, JSDoc on exports  |
-| Git         | Conventional commit format, atomic changes               |
+| Area        | Check                                                                                   |
+| ----------- | --------------------------------------------------------------------------------------- |
+| Correctness | Logic matches user story acceptance criteria                                            |
+| Type Safety | No `any`, proper TypeScript types, strict mode compliant                                |
+| Lint        | `pnpm oxlint` passes — no `no-unused-vars`, no `no-console` in core logic              |
+| Format      | `pnpm format:check` passes — semicolons, single quotes, trailing commas, 100 col width  |
+| Tests       | All tests pass (`pnpm test`), fixtures cover edge cases                                 |
+| Coverage    | Meets thresholds: branches/functions/lines/statements ≥ 95%                             |
+| Performance | No unnecessary allocations, efficient algorithms                                        |
+| Security    | No path traversal, safe file I/O, no eval/exec                                          |
+| Style       | Matches existing codebase conventions, JSDoc on exports                                 |
+| Git         | Conventional commit format, atomic changes                                              |
+
+## Pre-Commit Verification
+
+```bash
+pnpm lint       # oxlint + format check (must pass)
+pnpm test       # all tests must pass
+pnpm build      # tsc compiles without errors
+```
 
 ## Best Practices
 
@@ -77,4 +88,4 @@ See [AGENTS.md → Role → Rules Mapping](../AGENTS.md#role--rules-mapping).
 
 ## Key References
 
-- [Rules Index](rules/) | [Reference](reference.md) | [Best Practices](best-practices.md)
+- [Rules Index](rules/) | [Tooling](tooling.md) | [Reference](reference.md) | [Best Practices](best-practices.md)

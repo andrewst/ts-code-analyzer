@@ -12,4 +12,4 @@
 
 ---
 
-_See: [Architecture Rules](architecture.md) | [Testing Rules](testing.md) | [Git Workflow Rules](git-workflow.md) | [Back to Rules Index](../AGENTS.md#rules)_
+_See: [Architecture Rules](architecture.md) | [Testing Rules](testing.md) | [Git Workflow Rules](git-workflow.md) | [Tooling](../tooling.md) | [Back to Rules Index](../AGENTS.md#rules)_
