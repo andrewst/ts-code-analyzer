@@ -59,7 +59,3 @@ pnpm test:coverage   # Run tests with coverage report
 pnpm build         # Compile TypeScript (tsc)
 pnpm dev           # Watch mode (tsc --watch --noEmit)
 ```
-
----
-
-_See: [Back to AGENTS.md](../AGENTS.md#tooling--configuration) | [Rules Index](rules/) | [Reference](reference.md)_

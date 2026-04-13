@@ -16,7 +16,3 @@
 
 Refs: RFC Section X.Y
 ```
-
----
-
-_See: [Code Quality Rules](code-quality.md) | [Architecture Rules](architecture.md) | [Testing Rules](testing.md) | [Tooling](../tooling.md) | [Back to Rules Index](../AGENTS.md#rules)_

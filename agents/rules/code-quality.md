@@ -9,7 +9,3 @@
 | R05 | **File < 300 lines, function < 50 lines**                        | Testability                   |
 | R06 | **No `console.log` in core logic**: use proper error handling    | Clean CLI output              |
 | R07 | **JSDoc on all exported functions/types**                        | Self-documenting              |
-
----
-
-_See: [Architecture Rules](architecture.md) | [Testing Rules](testing.md) | [Git Workflow Rules](git-workflow.md) | [Tooling](../tooling.md) | [Back to Rules Index](../AGENTS.md#rules)_

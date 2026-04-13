@@ -7,7 +7,3 @@
 | A03 | **Pure core logic**: no side effects, no I/O in analysis functions | Deterministic, testable |
 | A04 | **Dependency injection**: constructor/args, no globals             | Mockability             |
 | A05 | **No circular dependencies**: unidirectional data flow             | Clear architecture      |
-
----
-
-_See: [Code Quality Rules](code-quality.md) | [Testing Rules](testing.md) | [Git Workflow Rules](git-workflow.md) | [Tooling](../tooling.md) | [Back to Rules Index](../AGENTS.md#rules)_

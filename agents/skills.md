@@ -15,7 +15,3 @@
 | `build-verify`    | `pnpm run build && node dist/index.js --help` | Before commit        |
 | `test-all`        | (test runner command)                         | After implementation |
 | `check-dead-code` | `pnpm run start -- --src ./src`               | Self-analysis        |
-
----
-
-_See: [Roles Index](../AGENTS.md) | [Best Practices](best-practices.md) | [Rules](rules/)_

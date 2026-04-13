@@ -68,7 +68,3 @@ src/
 | 6       | Implementation strategy                       |
 | 7       | Output format                                 |
 | 9       | Edge cases and limitations                    |
-
----
-
-_See: [Rules](rules/) | [Skills](skills.md) | [Best Practices](best-practices.md)_

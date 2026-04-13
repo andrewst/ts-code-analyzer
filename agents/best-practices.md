@@ -33,7 +33,3 @@
 | Over-engineer           | Start simple, add complexity when proven        |
 | Skip tests              | Every change includes tests                     |
 | Ignore performance      | Consider file count, memory for large codebases |
-
----
-
-_See: [Rules](rules/) | [Skills](skills.md) | [Reference](reference.md)_

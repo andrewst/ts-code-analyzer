@@ -7,7 +7,3 @@
 | T03 | **Fixtures in `test/fixtures/`**: one per scenario from RFC Section 9         | Reproducible edge cases |
 | T04 | **Integration tests**: end-to-end with real TypeScript projects               | Pipeline validation     |
 | T05 | **Naming**: `describe('<ComponentName>')`, `it('should <behavior>')`          | Clarity                 |
-
----
-
-_See: [Code Quality Rules](code-quality.md) | [Architecture Rules](architecture.md) | [Git Workflow Rules](git-workflow.md) | [Tooling](../tooling.md) | [Back to Rules Index](../AGENTS.md#rules)_
