@@ -19,7 +19,7 @@
 - **Approved code changes** from REV (final implementation)
 - **User story** from PM (for feature descriptions)
 - **Architecture design** from ARC (for technical documentation)
-- **RFC documents** that need updating (docs/rfc_dead_code_detection.md)
+- **RFC documents** that need updating (docs/rfc_of_project_rus.md)
 
 ## Output Format
 
@@ -49,8 +49,8 @@
 
 See [AGENTS.md → Role → Rules Mapping](../../AGENTS.md#role--rules-mapping).
 
-| Rule Set                                      | IDs                                 |
-| --------------------------------------------- | ----------------------------------- |
+| Rule Set                                 | IDs                                 |
+| ---------------------------------------- | ----------------------------------- |
 | [Code Quality](../rules/code-quality.md) | R07 (JSDoc, documentation)          |
 | [Git Workflow](../rules/git-workflow.md) | G04 (commit messages, docs updates) |
 

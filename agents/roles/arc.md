@@ -17,7 +17,7 @@
 
 - **User story** from PM (requirements, acceptance criteria)
 - **Existing codebase** structure and patterns
-- **RFC document** (docs/rfc_dead_code_detection.md — relevant sections)
+- **RFC document** (docs/rfc_of_project_rus.md — relevant sections)
 - **Technical constraints** from user or project requirements
 
 ## Applicable Rules

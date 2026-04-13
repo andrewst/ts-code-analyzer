@@ -2,7 +2,7 @@
 
 ## Before Writing Code
 
-1. Read `docs/rfc_dead_code_detection.md`
+1. Read `docs/rfc_of_project_rus.md`
 2. Read sibling files for style/patterns
 3. Ask user on architectural ambiguity
 4. Write tests first (TDD)

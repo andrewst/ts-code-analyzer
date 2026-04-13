@@ -51,12 +51,12 @@ src/
 
 ## Key Files
 
-| File                              | Purpose               |
-| --------------------------------- | --------------------- |
-| `docs/rfc_dead_code_detection.md` | Architecture          |
-| `docs/description_task.md`        | Task description      |
-| `tsconfig.json`                   | TypeScript config     |
-| `package.json`                    | Dependencies, scripts |
+| File                                 | Purpose               |
+| ------------------------------------ | --------------------- |
+| `docs/rfc_of_project_rus.md`         | Architecture          |
+| `docs/description_of_project_rus.md` | Task description      |
+| `tsconfig.json`                      | TypeScript config     |
+| `package.json`                       | Dependencies, scripts |
 
 ## Key RFC Sections
 

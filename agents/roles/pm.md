@@ -28,7 +28,7 @@ _(none — does not write code)_
 ## Input
 
 - **Feature request** from user (description of desired functionality)
-- **Existing RFC** (docs/rfc_dead_code_detection.md — for context)
+- **Existing RFC** (docs/rfc_of_project_rus.md — for context)
 - **Current backlog** (for prioritization)
 
 ## Checklist

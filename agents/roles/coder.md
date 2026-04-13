@@ -51,8 +51,8 @@
 
 See [AGENTS.md → Role → Rules Mapping](../../AGENTS.md#role--rules-mapping).
 
-| Rule Set                                      | IDs     |
-| --------------------------------------------- | ------- |
+| Rule Set                                 | IDs     |
+| ---------------------------------------- | ------- |
 | [Code Quality](../rules/code-quality.md) | R01–R07 |
 | [Architecture](../rules/architecture.md) | A01–A05 |
 | [Testing](../rules/testing.md)           | T01–T05 |
@@ -60,18 +60,18 @@ See [AGENTS.md → Role → Rules Mapping](../../AGENTS.md#role--rules-mapping).
 
 ## Checklist
 
-| Area        | Check                                                                                   |
-| ----------- | --------------------------------------------------------------------------------------- |
-| Correctness | Logic matches user story acceptance criteria                                            |
-| Type Safety | No `any`, proper TypeScript types, strict mode compliant                                |
+| Area        | Check                                                                                  |
+| ----------- | -------------------------------------------------------------------------------------- |
+| Correctness | Logic matches user story acceptance criteria                                           |
+| Type Safety | No `any`, proper TypeScript types, strict mode compliant                               |
 | Lint        | `pnpm oxlint` passes — no `no-unused-vars`, no `no-console` in core logic              |
-| Format      | `pnpm format:check` passes — semicolons, single quotes, trailing commas, 100 col width  |
-| Tests       | All tests pass (`pnpm test`), fixtures cover edge cases                                 |
-| Coverage    | Meets thresholds: branches/functions/lines/statements ≥ 95%                             |
-| Performance | No unnecessary allocations, efficient algorithms                                        |
-| Security    | No path traversal, safe file I/O, no eval/exec                                          |
-| Style       | Matches existing codebase conventions, JSDoc on exports                                 |
-| Git         | Conventional commit format, atomic changes                                              |
+| Format      | `pnpm format:check` passes — semicolons, single quotes, trailing commas, 100 col width |
+| Tests       | All tests pass (`pnpm test`), fixtures cover edge cases                                |
+| Coverage    | Meets thresholds: branches/functions/lines/statements ≥ 95%                            |
+| Performance | No unnecessary allocations, efficient algorithms                                       |
+| Security    | No path traversal, safe file I/O, no eval/exec                                         |
+| Style       | Matches existing codebase conventions, JSDoc on exports                                |
+| Git         | Conventional commit format, atomic changes                                             |
 
 ## Pre-Commit Verification
 

@@ -9,7 +9,7 @@
 
 - **Stack**: TypeScript 6.0+, TypeScript Compiler API, ESM, pnpm
 - **Stage**: Early development (v0.0.1)
-- **Architecture**: RFC-driven — see `docs/rfc_dead_code_detection.md`
+- **Architecture**: RFC-driven — see `docs/rfc_of_project_rus.md`
 
 ## Agent Workflow
 
@@ -17,8 +17,8 @@
 
 ### Agent Roles
 
-| Role  | File             | Purpose                           |
-| ----- | ---------------- | --------------------------------- |
+| Role  | File                    | Purpose                           |
+| ----- | ----------------------- | --------------------------------- |
 | PM    | `agents/roles/pm.md`    | User stories, acceptance criteria |
 | ARC   | `agents/roles/arc.md`   | Design, architecture decisions    |
 | CODER | `agents/roles/coder.md` | Implementation                    |

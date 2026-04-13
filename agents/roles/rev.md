@@ -26,17 +26,17 @@ See [AGENTS.md → Role → Rules Mapping](../../AGENTS.md#role--rules-mapping).
 
 ## Review Checklist
 
-| Area        | Check                                                                                   |
-| ----------- | --------------------------------------------------------------------------------------- |
-| Correctness | Logic matches user story, handles edge cases                                            |
-| Type Safety | No `any`, proper TypeScript types, strict mode compliant                                |
-| Lint        | `pnpm oxlint` passes — no unused vars, no console in core, categories respected         |
-| Format      | `pnpm format:check` passes — Prettier rules (semi, singleQuote, trailingComma, width)  |
-| Tests       | `pnpm test` passes, coverage ≥ 95%, fixtures cover RFC Section 9 scenarios              |
-| Performance | No unnecessary allocations, efficient algorithms for large codebases                    |
-| Security    | No path traversal, safe file I/O, no eval/exec                                          |
-| Style       | Matches existing codebase conventions, JSDoc on exports                                 |
-| Git         | Conventional commit format, atomic commits, docs updated                                |
+| Area        | Check                                                                                 |
+| ----------- | ------------------------------------------------------------------------------------- |
+| Correctness | Logic matches user story, handles edge cases                                          |
+| Type Safety | No `any`, proper TypeScript types, strict mode compliant                              |
+| Lint        | `pnpm oxlint` passes — no unused vars, no console in core, categories respected       |
+| Format      | `pnpm format:check` passes — Prettier rules (semi, singleQuote, trailingComma, width) |
+| Tests       | `pnpm test` passes, coverage ≥ 95%, fixtures cover RFC Section 9 scenarios            |
+| Performance | No unnecessary allocations, efficient algorithms for large codebases                  |
+| Security    | No path traversal, safe file I/O, no eval/exec                                        |
+| Style       | Matches existing codebase conventions, JSDoc on exports                               |
+| Git         | Conventional commit format, atomic commits, docs updated                              |
 
 ## Tooling Verification
 
