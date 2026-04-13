@@ -1,5 +1,5 @@
 {
-  "name": "ts_code_analyzer",
+  "name": "ts-code-analyzer",
   "version": "0.0.1",
   "description": "A static analysis utility for detecting dead code in TypeScript libraries. Identifies exported symbols that are not consumed by the public API, library source code, or are only used in tests/demo code.",
   "main": "dist/index.js",
@@ -22,12 +22,13 @@
     "code-quality",
     "ast-parser"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Andrei Stoetskii <andrew.stoetskiy@gmail.com>",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:andrewst/ts-code-analyzer.git"
   },
+  "homepage": "https://github.com/andrewst/ts-code-analyzer#readme",
   "devDependencies": {
     "@typescript/native-preview": "^7.0.0-dev.20260413.1",
     "typescript": "~6.0.2"
