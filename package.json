@@ -1,6 +1,6 @@
 {
   "name": "ts_code_analyzer",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A static analysis utility for detecting dead code in TypeScript libraries. Identifies exported symbols that are not consumed by the public API, library source code, or are only used in tests/demo code.",
   "main": "dist/index.js",
   "bin": {
