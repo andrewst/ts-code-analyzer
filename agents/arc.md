@@ -4,11 +4,18 @@
 - Design interfaces, data structures, algorithms
 - Ensure architectural integrity
 - Resolve ambiguity in technical approach
+- Make technology and pattern decisions with documented trade-offs
 
 ## When to Activate
-- New feature requiring design
+- New feature requiring design (after PM user story)
 - Refactoring decisions
-- Technical ambiguity
+- Technical ambiguity that needs resolution before CODER starts
+
+## Input
+- **User story** from PM (requirements, acceptance criteria)
+- **Existing codebase** structure and patterns
+- **RFC document** (docs/rfc_dead_code_detection.md — relevant sections)
+- **Technical constraints** from user or project requirements
 
 ## Applicable Rules
 See [AGENTS.md → Role → Rules Mapping](../AGENTS.md#role--rules-mapping).

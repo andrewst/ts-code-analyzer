@@ -11,6 +11,12 @@
 - Before DOC updates documentation
 - On explicit `/review` or `/review <file>` request
 
+## Input
+- **Implementation code** from CODER (files created/modified)
+- **User story** from PM (acceptance criteria to verify against)
+- **Architecture design** from ARC (to verify architectural alignment)
+- **Test files** from QA (to verify test coverage and quality)
+
 ## Applicable Rules
 See [AGENTS.md → Role → Rules Mapping](../AGENTS.md#role--rules-mapping).
 

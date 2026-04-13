@@ -19,8 +19,23 @@ Request → PM (user story + acceptance criteria) → ARC (if needed) → QA →
 
 **Note**: This is the canonical workflow. ARC comes after PM for design decisions; QA writes tests before/during CODER implementation (TDD).
 
-## Key References
-- [Rules Index](rules/) | [Reference](reference.md) | [Best Practices](best-practices.md)
+## Applicable Rules
+*(none — does not write code)*
+
+## Input
+- **Feature request** from user (description of desired functionality)
+- **Existing RFC** (docs/rfc_dead_code_detection.md — for context)
+- **Current backlog** (for prioritization)
+
+## Checklist
+
+| Area | Check |
+|------|-------|
+| Clarity | User story is clear, unambiguous, and testable |
+| Completeness | All acceptance criteria are defined |
+| Independence | Stories can be implemented independently (or dependencies noted) |
+| Prioritization | Backlog is ordered by value/dependency |
+| Scope | Stories are appropriately sized (not too large, not too granular) |
 
 ## Output Format
 
@@ -40,3 +55,6 @@ Request → PM (user story + acceptance criteria) → ARC (if needed) → QA →
 ### Related RFC Section
 - Section X.Y
 ```
+
+## Key References
+- [Rules Index](rules/) | [Reference](reference.md) | [Best Practices](best-practices.md)
