@@ -2,7 +2,6 @@
   "name": "ts-code-analyzer",
   "version": "0.0.1",
   "description": "Static analysis utility for detecting dead code in TypeScript libraries",
-  "homepage": "https://github.com/andrewst/ts-code-analyzer#readme",
   "keywords": [
     "typescript",
     "static-analysis",
@@ -10,20 +9,22 @@
     "ast",
     "code-quality"
   ],
+  "homepage": "https://github.com/andrewst/ts-code-analyzer#readme",
   "license": "MIT",
   "author": "Andrei Stoetskii <andrew.stoetskiy@gmail.com>",
+
   "repository": {
     "type": "git",
     "url": "git@github.com:andrewst/ts-code-analyzer.git"
   },
+
   "type": "module",
+  "packageManager": "pnpm@10.33.0",
 
   "bin": {
     "detect-dead-code": "dist/index.js"
   },
-
   "main": "dist/index.js",
-  "packageManager": "pnpm@10.33.0",
 
   "scripts": {
     "dev": "tsc --watch --noEmit",
