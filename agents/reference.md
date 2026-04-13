@@ -54,7 +54,7 @@ src/
 | File                                 | Purpose               |
 | ------------------------------------ | --------------------- |
 | `docs/rfc_of_project_rus.md`         | Architecture          |
-| `docs/description_of_project_rus.md` | Task description      |
+| `docs/description_of_project.md` | Task description      |
 | `tsconfig.json`                      | TypeScript config     |
 | `package.json`                       | Dependencies, scripts |
 
