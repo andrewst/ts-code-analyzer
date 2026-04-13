@@ -28,6 +28,9 @@
     "build": "tsc",
     "build-go": "tsgo",
     "start": "tsx ./src/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
     "oxlint": "oxlint",
     "oxlint:fix": "oxlint --fix",
     "lint": "concurrently --names 'LINT,FMT' 'pnpm oxlint' 'pnpm format:check'",
@@ -41,10 +44,12 @@
   "devDependencies": {
     "@types/node": "^25.6.0",
     "@typescript/native-preview": "^7.0.0-dev.20260413.1",
+    "@vitest/coverage-v8": "^4.1.4",
     "concurrently": "^9.2.1",
     "oxlint": "^1.60.0",
     "prettier": "^3.8.2",
     "tsx": "^4.21.0",
-    "typescript": "~6.0.2"
+    "typescript": "~6.0.2",
+    "vitest": "^4.1.4"
   }
 }
