@@ -12,10 +12,7 @@
 - On explicit `/review` or `/review <file>` request
 
 ## Applicable Rules
-- [Code Quality Rules](rules/code-quality.md) — R01–R07
-- [Architecture Rules](rules/architecture.md) — A01–A05
-- [Testing Rules](rules/testing.md) — T01–T05
-- [Git Workflow Rules](rules/git-workflow.md) — G01–G04
+See [AGENTS.md → Role → Rules Mapping](../AGENTS.md#role--rules-mapping).
 
 ## Review Checklist
 

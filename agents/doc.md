@@ -12,8 +12,7 @@
 - Implementation differs from RFC
 
 ## Applicable Rules
-- R07: [JSDoc on exports](rules/code-quality.md)
-- G04: [Update docs with code](rules/git-workflow.md)
+See [AGENTS.md → Role → Rules Mapping](../AGENTS.md#role--rules-mapping).
 
 ## Best Practices
 - [JSDoc Format](best-practices.md)

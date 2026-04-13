@@ -10,9 +10,7 @@
 - After implementation (coverage)
 
 ## Applicable Rules
-- [Testing Rules](rules/testing.md) — T01–T05
-- [Code Quality Rules](rules/code-quality.md) — R01–R03, R07
-- [Architecture Rules](rules/architecture.md) — A01–A03
+See [AGENTS.md → Role → Rules Mapping](../AGENTS.md#role--rules-mapping).
 
 ## Best Practices
 - [Test Design](best-practices.md) — behavior over implementation

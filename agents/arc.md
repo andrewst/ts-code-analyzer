@@ -11,8 +11,7 @@
 - Technical ambiguity
 
 ## Applicable Rules
-- [Architecture Rules](rules/architecture.md) — A01–A05
-- [Code Quality Rules](rules/code-quality.md) — R01–R07
+See [AGENTS.md → Role → Rules Mapping](../AGENTS.md#role--rules-mapping).
 
 ## Output Format
 
