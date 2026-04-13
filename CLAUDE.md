@@ -6,6 +6,7 @@
 ## Project Overview
 
 **TypeScript dead-code detection utility** — CLI tool + library
+
 - **Stack**: TypeScript 6.0+, TypeScript Compiler API, ESM, pnpm
 - **Stage**: Early development (v0.0.1)
 - **Architecture**: RFC-driven — see `docs/rfc_dead_code_detection.md`
@@ -16,14 +17,14 @@
 
 ### Agent Roles
 
-| Role | File | Purpose |
-|------|------|---------|
-| PM | `agents/pm.md` | User stories, acceptance criteria |
-| ARC | `agents/arc.md` | Design, architecture decisions |
-| CODER | `agents/coder.md` | Implementation |
-| QA | `agents/qa.md` | Tests, fixtures |
-| REV | `agents/rev.md` | Review |
-| DOC | `agents/doc.md` | Documentation |
+| Role  | File              | Purpose                           |
+| ----- | ----------------- | --------------------------------- |
+| PM    | `agents/pm.md`    | User stories, acceptance criteria |
+| ARC   | `agents/arc.md`   | Design, architecture decisions    |
+| CODER | `agents/coder.md` | Implementation                    |
+| QA    | `agents/qa.md`    | Tests, fixtures                   |
+| REV   | `agents/rev.md`   | Review                            |
+| DOC   | `agents/doc.md`   | Documentation                     |
 
 **Always read the relevant agent file before starting work in that role.**
 
@@ -57,4 +58,4 @@ pnpm test             # Run tests
 5. **Write tests** for all new functionality (per T01–T05)
 6. **Commit messages**: Clear, concise, focused on "why" not just "what"
 
-*Last updated: 2026-04-14*
+_Last updated: 2026-04-14_

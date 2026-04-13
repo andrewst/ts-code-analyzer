@@ -43,31 +43,32 @@ src/
 
 ## Commands
 
-| Command | Purpose |
-|---------|---------|
-| `pnpm run dev` | Type-check watch (no emit) |
-| `pnpm run build` | Compile |
-| `pnpm run start -- <args>` | Run with tsx |
+| Command                    | Purpose                    |
+| -------------------------- | -------------------------- |
+| `pnpm run dev`             | Type-check watch (no emit) |
+| `pnpm run build`           | Compile                    |
+| `pnpm run start -- <args>` | Run with tsx               |
 
 ## Key Files
 
-| File | Purpose |
-|------|---------|
-| `docs/rfc_dead_code_detection.md` | Architecture |
-| `docs/description_task.md` | Task description |
-| `tsconfig.json` | TypeScript config |
-| `package.json` | Dependencies, scripts |
+| File                              | Purpose               |
+| --------------------------------- | --------------------- |
+| `docs/rfc_dead_code_detection.md` | Architecture          |
+| `docs/description_task.md`        | Task description      |
+| `tsconfig.json`                   | TypeScript config     |
+| `package.json`                    | Dependencies, scripts |
 
 ## Key RFC Sections
 
-| Section | Topic |
-|---------|-------|
-| 3 | Dead code definition, public API, valid usage |
-| 4 | Component architecture |
-| 5 | Data flow |
-| 6 | Implementation strategy |
-| 7 | Output format |
-| 9 | Edge cases and limitations |
+| Section | Topic                                         |
+| ------- | --------------------------------------------- |
+| 3       | Dead code definition, public API, valid usage |
+| 4       | Component architecture                        |
+| 5       | Data flow                                     |
+| 6       | Implementation strategy                       |
+| 7       | Output format                                 |
+| 9       | Edge cases and limitations                    |
 
 ---
-*See: [Rules](rules/) | [Skills](skills.md) | [Best Practices](best-practices.md)*
+
+_See: [Rules](rules/) | [Skills](skills.md) | [Best Practices](best-practices.md)_
