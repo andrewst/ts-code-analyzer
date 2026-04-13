@@ -9,7 +9,7 @@
 
 - **Stack**: TypeScript 6.0+, TypeScript Compiler API, ESM, pnpm
 - **Stage**: Early development (v0.0.1)
-- **Architecture**: RFC-driven — see `docs/rfc_of_project_rus.md`
+- **Architecture**: RFC-driven — see `docs/rfc_of_project.md`
 
 ## Agent Workflow
 

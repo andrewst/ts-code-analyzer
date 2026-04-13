@@ -19,7 +19,7 @@
 
 - **User story** from PM (acceptance criteria to translate into test cases)
 - **Architecture design** from ARC (component interfaces, data flow)
-- **RFC document** (docs/rfc_of_project_rus.md — especially Section 9 edge cases)
+- **RFC document** (docs/rfc_of_project.md — especially Section 9 edge cases)
 - **Implementation code** from CODER (when writing tests after implementation)
 
 ## Output Format

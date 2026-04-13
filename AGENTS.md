@@ -7,7 +7,7 @@ TypeScript dead-code detection utility — agent-driven development.
 **Type**: TypeScript dead-code detection utility (CLI tool + library)  
 **Stage**: Early development (v0.0.1)  
 **Stack**: TypeScript 6.0+, TypeScript Compiler API, ESM, pnpm  
-**Architecture**: RFC-driven — `docs/rfc_of_project_rus.md`
+**Architecture**: RFC-driven — `docs/rfc_of_project.md`
 
 ## Roles
 

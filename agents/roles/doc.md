@@ -19,7 +19,7 @@
 - **Approved code changes** from REV (final implementation)
 - **User story** from PM (for feature descriptions)
 - **Architecture design** from ARC (for technical documentation)
-- **RFC documents** that need updating (docs/rfc_of_project_rus.md)
+- **RFC documents** that need updating (docs/rfc_of_project.md)
 
 ## Output Format
 

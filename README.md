@@ -112,7 +112,7 @@ The tool provides both human-readable and machine-readable reports:
 
 ## Architecture
 
-See [RFC Document](docs/rfc_of_project_rus.md) for detailed architectural specifications.
+See [RFC Document](docs/rfc_of_project.md) for detailed architectural specifications.
 
 ## Tech Stack
 
