@@ -19,22 +19,22 @@ A static analysis utility for detecting dead code in TypeScript libraries. This 
 ## Installation
 
 ```bash
-npm install
+pnpm install
 ```
 
 ## Build
 
 ```bash
-npm run build          # Compile TypeScript to JavaScript
-npm run rebuild        # Clean dist directory and rebuild
-npm run clean          # Remove dist directory
-npm start              # Run the compiled application
+pnpm run build         # Compile TypeScript to JavaScript
+pnpm run dev           # Watch mode: type-check without emitting
+pnpm run dev-go        # Watch mode using TypeScript native preview
+pnpm run start         # Run the application with tsx (no build required)
 ```
 
 ## Usage
 
 ```bash
-npm start -- \
+pnpm run start -- \
   --src ./src \
   --tests ./tests \
   --demo ./demo \
@@ -98,8 +98,10 @@ See [RFC Document](docs/rfc_dead_code_detection.md) for detailed architectural s
 
 - TypeScript 6.0+
 - TypeScript Compiler API for AST parsing
-- ES2020 modules (ESM)
+- ES2022 target with NodeNext module resolution
+- ES modules (ESM)
+- pnpm package manager
 
 ## License
 
-ISC (Private repository)
+MIT
