@@ -63,4 +63,4 @@ _(none — does not write code)_
 
 ## Key References
 
-- [Rules Index](rules/) | [Reference](reference.md) | [Best Practices](best-practices.md)
+- [Rules Index](../agents/rules/) | [Reference](../reference.md) | [Best Practices](../best-practices.md)

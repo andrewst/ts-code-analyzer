@@ -52,13 +52,13 @@
 
 ## Applicable Rules
 
-See [AGENTS.md → Role → Rules Mapping](../AGENTS.md#role--rules-mapping).
+See [AGENTS.md → Role → Rules Mapping](../../AGENTS.md#role--rules-mapping).
 
-| Rule Set                              | IDs                                |
-| ------------------------------------- | ---------------------------------- |
-| [Testing](rules/testing.md)           | T01–T05                            |
-| [Code Quality](rules/code-quality.md) | R01–R03 (clean test code)          |
-| [Architecture](rules/architecture.md) | A01–A03 (test structure alignment) |
+| Rule Set                                      | IDs                                |
+| --------------------------------------------- | ---------------------------------- |
+| [Testing](../rules/testing.md)           | T01–T05                            |
+| [Code Quality](../rules/code-quality.md) | R01–R03 (clean test code)          |
+| [Architecture](../rules/architecture.md) | A01–A03 (test structure alignment) |
 
 ## Checklist
 
@@ -83,9 +83,9 @@ pnpm lint           # oxlint + format on test files — must pass
 
 ## Best Practices
 
-- [Test Design](best-practices.md#test-design) — behavior over implementation
-- [Common Pitfalls](best-practices.md#common-pitfalls) — edge cases from RFC Section 9
+- [Test Design](../best-practices.md#test-design) — behavior over implementation
+- [Common Pitfalls](../best-practices.md#common-pitfalls) — edge cases from RFC Section 9
 
 ## Key References
 
-- [Rules Index](rules/) | [Tooling](tooling.md) | [Reference](reference.md) | [Best Practices](best-practices.md)
+- [Rules Index](../agents/rules/) | [Tooling](../tooling.md) | [Reference](../reference.md) | [Best Practices](../best-practices.md)

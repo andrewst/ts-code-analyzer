@@ -47,12 +47,12 @@
 
 ## Applicable Rules
 
-See [AGENTS.md → Role → Rules Mapping](../AGENTS.md#role--rules-mapping).
+See [AGENTS.md → Role → Rules Mapping](../../AGENTS.md#role--rules-mapping).
 
-| Rule Set                              | IDs                                 |
-| ------------------------------------- | ----------------------------------- |
-| [Code Quality](rules/code-quality.md) | R07 (JSDoc, documentation)          |
-| [Git Workflow](rules/git-workflow.md) | G04 (commit messages, docs updates) |
+| Rule Set                                      | IDs                                 |
+| --------------------------------------------- | ----------------------------------- |
+| [Code Quality](../rules/code-quality.md) | R07 (JSDoc, documentation)          |
+| [Git Workflow](../rules/git-workflow.md) | G04 (commit messages, docs updates) |
 
 ## Checklist
 
@@ -67,9 +67,9 @@ See [AGENTS.md → Role → Rules Mapping](../AGENTS.md#role--rules-mapping).
 
 ## Best Practices
 
-- [JSDoc Format](best-practices.md#jsdoc-format)
-- [When Implementation Differs from RFC](best-practices.md#when-implementation-differs-from-rfc)
+- [JSDoc Format](../best-practices.md#jsdoc-format)
+- [When Implementation Differs from RFC](../best-practices.md#when-implementation-differs-from-rfc)
 
 ## Key References
 
-- [Rules Index](rules/) | [Reference](reference.md) | [Best Practices](best-practices.md)
+- [Rules Index](../agents/rules/) | [Reference](../reference.md) | [Best Practices](../best-practices.md)

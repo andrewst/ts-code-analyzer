@@ -17,14 +17,14 @@
 
 ### Agent Roles
 
-| Role  | File              | Purpose                           |
-| ----- | ----------------- | --------------------------------- |
-| PM    | `agents/pm.md`    | User stories, acceptance criteria |
-| ARC   | `agents/arc.md`   | Design, architecture decisions    |
-| CODER | `agents/coder.md` | Implementation                    |
-| QA    | `agents/qa.md`    | Tests, fixtures                   |
-| REV   | `agents/rev.md`   | Review                            |
-| DOC   | `agents/doc.md`   | Documentation                     |
+| Role  | File             | Purpose                           |
+| ----- | ---------------- | --------------------------------- |
+| PM    | `agents/roles/pm.md`    | User stories, acceptance criteria |
+| ARC   | `agents/roles/arc.md`   | Design, architecture decisions    |
+| CODER | `agents/roles/coder.md` | Implementation                    |
+| QA    | `agents/roles/qa.md`    | Tests, fixtures                   |
+| REV   | `agents/roles/rev.md`   | Review                            |
+| DOC   | `agents/roles/doc.md`   | Documentation                     |
 
 **Always read the relevant agent file before starting work in that role.**
 

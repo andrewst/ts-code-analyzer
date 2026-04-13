@@ -49,14 +49,14 @@
 
 ## Applicable Rules
 
-See [AGENTS.md → Role → Rules Mapping](../AGENTS.md#role--rules-mapping).
+See [AGENTS.md → Role → Rules Mapping](../../AGENTS.md#role--rules-mapping).
 
-| Rule Set                              | IDs     |
-| ------------------------------------- | ------- |
-| [Code Quality](rules/code-quality.md) | R01–R07 |
-| [Architecture](rules/architecture.md) | A01–A05 |
-| [Testing](rules/testing.md)           | T01–T05 |
-| [Git Workflow](rules/git-workflow.md) | G01–G04 |
+| Rule Set                                      | IDs     |
+| --------------------------------------------- | ------- |
+| [Code Quality](../rules/code-quality.md) | R01–R07 |
+| [Architecture](../rules/architecture.md) | A01–A05 |
+| [Testing](../rules/testing.md)           | T01–T05 |
+| [Git Workflow](../rules/git-workflow.md) | G01–G04 |
 
 ## Checklist
 
@@ -83,9 +83,9 @@ pnpm build      # tsc compiles without errors
 
 ## Best Practices
 
-- [Before/While/After coding](best-practices.md)
-- [Common Pitfalls](best-practices.md#common-pitfalls)
+- [Before/While/After coding](../best-practices.md)
+- [Common Pitfalls](../best-practices.md#common-pitfalls)
 
 ## Key References
 
-- [Rules Index](rules/) | [Tooling](tooling.md) | [Reference](reference.md) | [Best Practices](best-practices.md)
+- [Rules Index](../agents/rules/) | [Tooling](../tooling.md) | [Reference](../reference.md) | [Best Practices](../best-practices.md)

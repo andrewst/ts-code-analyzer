@@ -22,7 +22,7 @@
 
 ## Applicable Rules
 
-See [AGENTS.md → Role → Rules Mapping](../AGENTS.md#role--rules-mapping).
+See [AGENTS.md → Role → Rules Mapping](../../AGENTS.md#role--rules-mapping).
 
 ## Output Format
 
@@ -61,5 +61,5 @@ See [AGENTS.md → Role → Rules Mapping](../AGENTS.md#role--rules-mapping).
 ```
 
 ## Key References
-- [Rules Index](rules/) | [Reference](reference.md)
+- [Rules Index](../agents/rules/) | [Reference](../agents/reference.md)
 ```

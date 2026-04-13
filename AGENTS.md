@@ -11,21 +11,21 @@ TypeScript dead-code detection utility — agent-driven development.
 
 ## Roles
 
-| Role  | File                               | When                              |
-| ----- | ---------------------------------- | --------------------------------- |
-| PM    | [agents/pm.md](agents/pm.md)       | User stories, acceptance criteria |
-| ARC   | [agents/arc.md](agents/arc.md)     | Design, architecture decisions    |
-| CODER | [agents/coder.md](agents/coder.md) | Implementation                    |
-| QA    | [agents/qa.md](agents/qa.md)       | Tests, fixtures                   |
-| REV   | [agents/rev.md](agents/rev.md)     | Review                            |
-| DOC   | [agents/doc.md](agents/doc.md)     | Documentation                     |
+| Role  | File                                                | When                              |
+| ----- |-----------------------------------------------------| --------------------------------- |
+| PM    | [agents/roles/pm.md](agents/agents/roles/pm.md)     | User stories, acceptance criteria |
+| ARC   | [agents/roles/arc.md](agents/agents/roles/arc.md)   | Design, architecture decisions    |
+| CODER | [agents/roles/coder.md](agents/agents/roles/coder.md) | Implementation                    |
+| QA    | [agents/roles/qa.md](agents/agents/roles/qa.md)     | Tests, fixtures                   |
+| REV   | [agents/roles/rev.md](agents/agents/roles/rev.md)   | Review                            |
+| DOC   | [agents/roles/doc.md](agents/agents/roles/doc.md)   | Documentation                     |
 
 **Workflow**: `Request → PM → ARC → QA → CODER → REV → DOC → Commit`
 
 ## Rules
 
-| File                                         | IDs     |
-| -------------------------------------------- | ------- |
+| File                                        | IDs     |
+| ------------------------------------------- | ------- |
 | [Code Quality](agents/rules/code-quality.md) | R01–R07 |
 | [Architecture](agents/rules/architecture.md) | A01–A05 |
 | [Testing](agents/rules/testing.md)           | T01–T05 |

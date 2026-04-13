@@ -22,7 +22,7 @@
 
 ## Applicable Rules
 
-See [AGENTS.md → Role → Rules Mapping](../AGENTS.md#role--rules-mapping).
+See [AGENTS.md → Role → Rules Mapping](../../AGENTS.md#role--rules-mapping).
 
 ## Review Checklist
 
@@ -73,4 +73,4 @@ pnpm build      # tsc compiles without errors
 
 ## Key References
 
-- [Rules Index](rules/) | [Tooling](tooling.md) | [Reference](reference.md) | [Best Practices](best-practices.md)
+- [Rules Index](../agents/rules/) | [Tooling](../tooling.md) | [Reference](../reference.md) | [Best Practices](../best-practices.md)
