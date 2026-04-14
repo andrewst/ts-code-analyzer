@@ -1,69 +1,121 @@
 # Architecture
 
-**Project**: ts_code_analyzer  
-**Date**: 2026-04-14  
-**Status**: ready  
-**Source**: [stories.md](docs/03_Stories/stories.md)
+**Project**: TypeScript Code Analyzer
+**Date**: 2026-04-14
+**Status**: ready
+**Source**: `docs/03_Stories/stories.md`
 
 ## Architecture Overview
 
-The tool should use a small analysis pipeline: resolve the target repository, build a TypeScript program, extract the public surface, compute size metrics, and render a concise CLI summary. Core analysis must remain pure and operate on structured inputs so that repository access, TypeScript compiler access, and CLI output stay isolated.
-Public API size is defined as the count of exported declarations, re-exports, and barrel-file exports. Codebase size is defined as the count of TypeScript declarations or AST nodes used by the analysis model, so the maintenance-risk ratio stays derived from the same compiler-backed representation.
+The v0.0.1 architecture should be a layered CLI analysis pipeline built around one primary workflow: public API inspection, with structural, change-impact, and hotspot signals produced from the same shared project model. The core analysis logic should remain pure and independent from CLI parsing, filesystem access, and TypeScript program construction so QA and CODER can test deterministic behavior without I/O coupling. To preserve observational output, analysis modules should emit normalized facts and scored signals, while a dedicated presentation layer is solely responsible for concise CLI phrasing.
 
 ## Proposed Module Boundaries
 
-- `src/cli/` - argument parsing, orchestration, and terminal output
-- `src/io/` - filesystem access, path resolution, and repository discovery
-- `src/analysis/public-surface/` - exported symbol and re-export extraction
-- `src/analysis/metrics/` - public API size and codebase size measurement
-- `src/analysis/risk/` - maintenance-risk ratio calculation and ranking logic
-- `src/model/` - shared data contracts for analysis results and summary output
+- `src/cli/` - parse command-line arguments, validate user intent, and invoke application workflows without embedding analysis logic
+- `src/application/` - orchestrate end-to-end analysis use cases and compose dependencies for the selected workflow
+- `src/project-loading/` - resolve the target repository, tsconfig entry, include/exclude scope, and optional change input into a stable analysis request
+- `src/compiler/` - create and expose TypeScript Compiler API adapters that produce source file, symbol, and export metadata for downstream analysis
+- `src/contracts/` - define shared domain types for project snapshots, dependency edges, exports, change sets, observations, and report sections
+- `src/analysis/structure/` - derive high-level structural summaries from the loaded project snapshot
+- `src/analysis/public-api/` - identify externally exposed entry points, exported declarations, and export chains using repository-visible signals
+- `src/analysis/change-impact/` - connect an explicit change set to potentially affected files, exports, and dependency neighbors
+- `src/analysis/hotspots/` - compute maintenance-relevant centrality and risk signals from structure, exports, and dependency concentration
+- `src/presentation/` - convert report sections into concise observational CLI output without changing analytical meaning
 
 ## Technical Flow
 
-1. Resolve the repository root and validate that the target fits the supported v1 scope.
-2. Build a TypeScript program for the repository and collect source files that belong to the analysis set.
-3. Extract exported symbols, re-exports, and ambiguous public-facing items into a normalized public-surface model.
-4. Measure public API size and total codebase size, derive the maintenance-risk ratio, and render a compact CLI summary.
+1. The CLI accepts a target path and workflow options, then passes a normalized request to the application layer.
+2. The project-loading layer resolves repository context, tsconfig-driven file scope, and optional changed-file input into a stable project request.
+3. The compiler layer builds a TypeScript-backed project snapshot containing source files, module relationships, symbol/export metadata, and diagnostics needed for analysis.
+4. The structure analyzer produces a concise codebase overview that becomes the baseline context for all later report sections.
+5. The public API analyzer derives exposed surface observations from explicit repository signals such as package exports, top-level entry modules, and re-export chains.
+6. When change input is present, the change-impact analyzer maps changed nodes to import/export and dependency neighbors to surface likely follow-up inspection areas.
+7. The hotspot analyzer scores central or risky areas using observable signals such as fan-in, fan-out, public exposure, and dependency concentration.
+8. The presentation layer renders the final report as concise observations, clearly separating observed facts from inferred impact signals.
 
 ## Data Flow and Contracts
 
-- Input: repository path, CLI options, and TypeScript project metadata
-- Intermediate result: `AnalysisContext`, `PublicSurfaceModel`, `CodebaseSizeModel`, `MaintenanceRiskModel`
-- Output: `AnalysisReport` containing public-surface details, risk ratio, and a human-readable summary
+- Input: `AnalysisRequest`
+  - target repository path
+  - selected workflow mode
+  - optional explicit changed-file list or change manifest
+  - output verbosity constraints for concise CLI rendering
+- Intermediate result: `ProjectSnapshot`
+  - normalized file inventory
+  - module dependency graph
+  - export graph
+  - compiler diagnostics relevant to analysis completeness
+- Intermediate result: `ObservationSet`
+  - `StructureObservation[]`
+  - `PublicApiObservation[]`
+  - `ChangeImpactObservation[]`
+  - `HotspotObservation[]`
+- Output: `AnalysisReport`
+  - ordered report sections
+  - per-section observations
+  - bounded metadata for caveats and incomplete analysis
 
-The analysis layer should only consume structured models and return structured results. Presentation logic should read from the final report only and must not recompute metrics.
+The key contract boundary is between project extraction and analysis. `src/compiler/` may use the TypeScript Compiler API and filesystem-backed program creation, but all analyzers must consume a pure `ProjectSnapshot` shape rather than compiler objects directly. This keeps analysis deterministic, prevents TypeScript internals from leaking into presentation, and allows each analyzer to be tested against fixtures or synthetic snapshots.
+
+Public API identification should follow an explicit precedence order to avoid over-interpretation:
+
+1. package-level `exports` or equivalent package entry signals when available
+2. well-known repository entry modules such as `src/index.ts`
+3. transitive re-exports reachable from those entry modules
+
+Change-impact analysis should consume explicit change input instead of directly depending on git commands in core logic. This keeps the architecture CLI-friendly and testable while still satisfying the user story about connecting observed changes to potentially affected areas.
 
 ## Key Design Decisions
 
-- Keep TypeScript compiler interaction behind a repository/analysis adapter so core logic remains testable without I/O.
-- Treat ambiguous exports as part of the public surface, but mark them explicitly in the model so the CLI can surface uncertainty.
-- Compute the maintenance signal from a single ratio model using the defined public-surface count and codebase-size count rather than multiple overlapping scores.
-- Keep the CLI summary decision-oriented: the report should identify what deserves manual inspection first, not dump raw compiler output.
+- Use a layered pipeline with pure analyzers and impure adapters. This satisfies A03 and A04 by isolating filesystem and compiler concerns from the analytical core.
+- Build one shared `ProjectSnapshot` for all feature groups. Structural, public API, change-impact, and hotspot analyses all depend on the same repository facts, so duplicate parsing would add cost and inconsistency.
+- Keep public API as a distinct analyzer rather than treating every export as public. This aligns with the approved v0.0.1 priority and avoids conflating internal module structure with consumer-facing surface.
+- Represent change impact as observed adjacency and exposure signals, not certainty claims. This preserves the product requirement to use observational language instead of prescriptive conclusions.
+- Keep report rendering in a dedicated presentation layer. Analyzer output should stay semantic and machine-usable, while CLI formatting enforces concise human-readable summaries.
+- Maintain unidirectional dependencies: `cli -> application -> project-loading/compiler -> contracts -> analysis -> presentation` at composition time, with analyzers depending only on `contracts`. This prevents circular dependencies and keeps ownership boundaries clear.
 
 ## Error Handling and Scope Boundaries
 
-- Reject unsupported v1 cases early, including mixed JS/TS projects, monorepos, and generated-code-heavy repositories.
-- Report missing or unreadable project metadata as a user-facing analysis failure rather than a partial success.
-- Preserve ambiguous public API items instead of hiding them, because the product scope prefers inclusion by default.
-- Keep analysis deterministic for a given repository snapshot; do not mix in network access or non-local inputs.
+- Missing or invalid repository path, tsconfig resolution failures, and unsupported project loading conditions must terminate early in the CLI/application layer with user-facing error messages; analyzers should not handle path-level I/O failures.
+- Compiler diagnostics may reduce confidence in results but should not automatically abort analysis unless the project snapshot cannot be built. Partial analysis is acceptable if the report states that completeness is reduced.
+- Repositories without clear package exports or top-level entry modules are in scope, but the public API analyzer must degrade gracefully by reporting that exposed surface signals are limited rather than inventing visibility.
+- Large repositories are in scope only when output remains concise. Presentation must cap section size and prioritize highest-signal observations instead of dumping exhaustive raw lists.
+- Automated code modification, refactoring advice, and ranked implementation prescriptions remain out of scope. The architecture supports observations and signals only.
+- Direct VCS integration is not required in core modules for v0.0.1. If a future CLI adapter reads git state, it should convert that input into the same explicit change-set contract used by `src/analysis/change-impact/`.
 
 ## Open Technical Questions
 
-See [open-questions-from-arc.md](docs/02_Discovery/open-questions-from-arc.md) for unresolved architecture decisions.
+See `docs/02_Discovery/open-questions-from-arc.md` for unresolved architecture decisions.
+
+## Blocking Conditions
+
+None.
+
+## Done Criteria
+
+ARC's work is complete when ALL of the following are satisfied:
+
+- [x] Architecture file exists and follows this template structure
+- [x] Module boundaries are explicitly defined with ownership
+- [x] Data flow and control flow are described for all user stories
+- [x] Dependencies between modules are directional and acyclic
+- [x] Key design decisions are documented with rationale
+- [x] Error handling and scope boundaries are defined
+- [x] All blocking open questions are answered (no questions with `Status: blocking` remain unanswered)
+- [x] Open questions file is created or synchronized with correct statuses
 
 ## Handoff Readiness
 
-| Checklist Item                                                 | Status |
-| -------------------------------------------------------------- | ------ |
-| Coherence - architecture has one clear approach                | [x]    |
-| Boundaries - modules have single responsibilities              | [x]    |
-| Testability - core logic can be tested without I/O             | [x]    |
-| Maintainability - dependency flow is directional               | [x]    |
-| Handoff quality - QA and CODER can proceed with implementation | [x]    |
+| Checklist Item | Status |
+| -------------- | ------ |
+| Coherence - architecture has one clear approach | [x] |
+| Boundaries - modules have single responsibilities | [x] |
+| Testability - core logic can be tested without I/O | [x] |
+| Maintainability - dependency flow is directional | [x] |
+| Handoff quality - QA and CODER can proceed with implementation | [x] |
 
 **Verdict**: ready
 
 ## Technical Summary
 
-The design is straightforward: isolate I/O, keep analysis pure, and build one report that feeds the CLI. The ratio is now defined well enough for implementation, with the remaining work focused on coding the adapters and report model.
+The recommended architecture is a CLI-orchestrated, shared-snapshot analysis pipeline that keeps extraction, analysis, and presentation separate. Its main tradeoff is a slightly larger initial contract surface in exchange for cleaner module isolation, deterministic analysis logic, and a stable foundation for adding future workflows without entangling TypeScript compiler access with user-facing reporting.
