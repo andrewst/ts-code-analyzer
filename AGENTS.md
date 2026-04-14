@@ -28,7 +28,7 @@ TypeScript static code analysis utility — agent-driven development.
 | [Testing](agents/rules/testing.md)           | T01–T05 |
 
 - **All repository documents must be written in English**: this includes vision, discovery, questions, and other documentation files in `docs/` and related repository documentation.
-- **Internal document links must be relative**: any link from one repository document to another repository document must use a path relative to the current file. Do not use absolute filesystem paths or repo-root-style paths for internal documentation links.
+- **Internal document links must be relative to the repository root**: any link from one repository document to another repository document must use a path relative to the repository root, which is the current project directory. Do not use absolute filesystem paths or current-file-relative paths for internal documentation links.
 
 ### Role → Rules Mapping
 

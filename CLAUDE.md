@@ -34,7 +34,7 @@
 - **Architecture**: `agents/rules/architecture.md` (A01–A05)
 - **Testing**: `agents/rules/testing.md` (T01–T05)
 - **Git Workflow**: `agents/rules/git-workflow.md` (G01–G04)
-- **Internal document links**: whenever one repository document links to another repository document, the link must be relative to the current file. Do not use absolute filesystem paths or repo-root-style paths for internal documentation links.
+- **Internal document links**: whenever one repository document links to another repository document, the link must be relative to the repository root, which is the current project directory. Do not use absolute filesystem paths or current-file-relative paths for internal documentation links.
 
 ## Essential Commands
 
