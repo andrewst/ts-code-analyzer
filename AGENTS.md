@@ -13,6 +13,7 @@ TypeScript static code analysis utility — agent-driven development.
 | Role  | File                                                  | When                              |
 | ----- | ----------------------------------------------------- | --------------------------------- |
 | PDA   | [agents/roles/pda.md](agents/roles/pda.md)            | Idea structuring, discovery       |
+| PM    | [agents/roles/pm.md](agents/roles/pm.md)              | User stories, backlog creation    |
 | Workflow | [agents/roles/workflow.md](agents/roles/workflow.md) | Full development sequence       |
 
 

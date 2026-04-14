@@ -1,78 +1,56 @@
 # Open Questions from PDA
 
-> Session: 2026-04-14 — Initial Discovery
+**Date**: 2026-04-14
+**Status**: ✅ All answered — ready for PM handoff
 
 ---
 
 ## Active Questions
 
-### Q1: Scope boundary vs. existing linters
-
-**Context:** Tools like ESLint, oxlint, and Biome already detect dead code, complexity, and unused imports. We need to clarify what makes this tool *distinct* so it doesn't become a linter competitor.
-
-**Suggested answers:**
-- **A.** Focus on *public API surface analysis* — what exports exist, how they relate, what consumers see. Linters don't do this holistically.
-- **B.** Focus on *cross-module dependency analysis* — import graphs, coupling metrics, cycle detection across the entire library.
-- **C.** Focus on *reporting & visibility* — produce human-readable summaries of codebase state, not prescriptive "fix this" suggestions.
-- **D.** Complement linters — run after linting, focus on architectural-level insights rather than line-level issues.
-
----
-
-### Q2: Dead code detection scope
-
-**Context:** If we detect "unused exports," we can only know about *internal* usage. An export might be consumed by external packages we can't see. Flagging it as "dead" could be misleading.
-
-**Suggested answers:**
-- **A.** Only flag exports with zero internal references — mark them as "no internal usage, may be used externally" rather than "dead."
-- **B.** Allow users to annotate exports with `@public` or `@internal` JSDoc — only flag internal exports that are unused.
-- **C.** Skip dead code detection entirely in v1 — focus on API extraction and reporting first.
-
----
-
-### Q3: Output formats
-
-**Context:** Different users need different outputs. Maintainers may want CLI output for quick checks; CI pipelines may want JSON/structured data.
-
-**Suggested answers:**
-- **A.** Start with CLI table output + JSON — add Markdown/HTML reports later.
-- **B.** Start with JSON only — build CLI visualization on top of it.
-- **C.** Support CLI + Markdown from the start — JSON is secondary.
-
----
-
-### Q4: Monorepo support
-
-**Context:** Many large TS libraries live in monorepos (pnpm workspaces, Nx, Turborepo). Ignoring this limits the tool's audience; supporting it adds complexity.
-
-**Suggested answers:**
-- **A.** Support monorepos from v1 — accept a `--workspace` flag that analyzes each package.
-- **B.** Single-package only for v1 — document monorepo support as a roadmap item.
-- **C.** Support monorepos by accepting a root `tsconfig.json` that references all packages.
-
----
-
-### Q5: Primary activation mode
-
-**Context:** How will users primarily run this tool?
-
-**Suggested answers:**
-- **A.** CLI-first — developer runs it manually when needed.
-- **B.** CI-first — tool is integrated into CI pipelines; results are reviewed passively.
-- **C.** Both equally — design CLI and CI output formats in parallel.
-
----
-
-### Q6: Programmatic API
-
-**Context:** Should the tool expose a Node.js API so other tools/scripts can use it as a library?
-
-**Suggested answers:**
-- **A.** No — CLI only for v1. Programmatic API adds surface area.
-- **B.** Yes — expose a minimal API (`analyze(config)`) alongside CLI from the start.
-- **C.** Yes, but later — plan for it architecturally but don't implement in v1.
+_(none)_
 
 ---
 
 ## Answered Questions
 
-_(none yet)_
+### Q1: What specific "problems in code" should the tool detect?
+
+**Answer**: **A)** Start with a focused set: unused exports, circular dependencies, high cyclomatic complexity, dead code, undocumented public exports. Expand later.
+
+**Implication**: Detection engine ships with a small, high-value rule set. Each rule is designed to fill gaps that ESLint/oxlint don't address — focusing on architectural and API-level problems rather than style or basic correctness.
+
+---
+
+### Q2: Should the tool focus only on public API analysis, or also internal code health?
+
+**Answer**: **A)** Public API is the primary feature; internal code health is secondary but supported (API-first, metrics-second).
+
+**Implication**: The tool's identity is a "public API analyzer with code health awareness." Internal metrics support the primary goal — e.g., knowing that a complex internal module backs a simple public export helps prioritize refactoring.
+
+---
+
+### Q3: What does "получать больше информации о состоянии кода" mean concretely?
+
+**Answer**: **B)** API-centric: list of all public types/functions with signatures, breaking change detection between versions, deprecation tracking.
+
+**Implication**: Reporting is API-first. The core output is a structured catalog of everything the library exposes, enriched with version-comparison intelligence (breaking changes, deprecations). Structural metrics (file counts, complexity) are secondary context, not the main product.
+
+---
+
+### Q4: Should the tool support monorepos out of the box?
+
+**Answer**: **B)** No — single-package only for v1; monorepo support is future work.
+
+**Implication**: v1 assumes a single `tsconfig.json` and a single package root. Users in monorepos can run the tool per-package manually. This keeps initial file resolution and config handling simple.
+
+---
+
+### Q5: What is the minimum viable output format?
+
+**Answer**: **B)** Console + JSON output (for CI/CD and programmatic consumption).
+
+**Implication**: Two output targets from day one:
+- **Console**: human-readable, terminal-friendly formatting
+- **JSON**: machine-readable, suitable for CI/CD pipelines, programmatic consumption, and future tooling (dashboards, diffs)
+
+Markdown report is deferred (can be generated from JSON by consumers if needed).

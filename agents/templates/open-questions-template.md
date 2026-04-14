@@ -4,31 +4,38 @@
 **Last Updated**: [YYYY-MM-DD]
 **Vision File**: [link to vision.md]
 
----
-
-## Answered Questions
-
-- ~~Q1: [question text]~~ — **Answer**: [user's response]
-- ~~Q2: [question text]~~ — **Answer**: [user's response]
-
----
-
-## Active Questions
-
-### Q[N]: [Question title]
+### Q[1]: [Question title]
 **Context**: [Why this question matters for product discovery]
 **Impact**: [What decisions depend on this answer]
-**Suggested Answers**:
-  - A1: [first suggested option]
-  - A2: [second suggested option]
-  - A3: [third suggested option]
-**Answer**: _[Awaiting user input or select from suggestions]_
 
-### Q[N+1]: [Question title]
+**Answer:**:
+- **A3**: [third suggested option]
+
+**Suggested Answers**:
+- **A1**: [first suggested option]
+- **A2**: [second suggested option]
+- **A3**: [third suggested option]
+
+---
+
+### Q[2]: [Question title]
 **Context**: [Why this question matters for product discovery]
 **Impact**: [What decisions depend on this answer]
+
+**Answer:**:
+- **Custom**: [write your own answer here]
+
 **Suggested Answers**:
-  - A1: [first suggested option]
-  - A2: [second suggested option]
-  - A3: [third suggested option]
-**Answer**: _[Awaiting user input or select from suggestions]_
+- **A1**: [first suggested option]
+- **A2**: [second suggested option]
+- **A3**: [third suggested option]
+
+---
+
+## Quick Reference
+
+| Symbol | Meaning |
+|--------|---------|
+| `[ ]` | Not selected |
+| `[x]` | Selected answer |
+| ~~text~~ | Question answered (moved to Answered section) |

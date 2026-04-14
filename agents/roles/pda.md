@@ -103,6 +103,8 @@ _(none — does not write code or make technical decisions)_
 - File naming: `discovery.md`
 - The output file MUST be created in `./docs/03_Discovery/` directory
 - Each discovery session creates a new file with timestamp or unique identifier if needed
+- **DO NOT** duplicate the output in the console/chat — write only to the file
+- Provide only a brief confirmation message in the console after writing the file
 
 ## Open Questions Management
 
@@ -110,6 +112,7 @@ _(none — does not write code or make technical decisions)_
 
 1. Save all open questions to: `./docs/01_Vision/open-questions-from-pda.md`
 2. The file MUST be created in the `./docs/01_Vision/` directory (same directory as `vision.md`)
+3. In the discovery output file (`./docs/03_Discovery/discovery.md`), include ONLY a **link** to the open questions file — NEVER duplicate the questions themselves
 
 ### File Workflow
 
