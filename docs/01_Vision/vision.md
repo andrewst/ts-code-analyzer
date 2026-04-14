@@ -1,4 +1,14 @@
-# Problem
+# Product Vision
+
+## Source
+
+Derived from: [Idea](docs/00_Idea/idea.md)
+
+## Product Summary
+
+A CLI-based static analysis tool for maintainers of large TypeScript npm libraries who need to understand the current state of the codebase, especially the public API surface, code health, and changes that may affect stability or maintenance.
+
+## Problem
 
 ## Short Description
 
