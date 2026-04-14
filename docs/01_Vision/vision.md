@@ -19,7 +19,6 @@ Helps maintainers understand and control large TypeScript libraries faster, with
 
 ## Primary Questions
 - What is exposed by the public API?
-- What changed recently?
 - How large is the public API relative to the total codebase?
 - Where is the codebase becoming harder to maintain?
 - What parts of the library deserve attention first?
