@@ -1,8 +1,8 @@
 # Discovery
 
-**Project**: [project name]  
-**Date**: [YYYY-MM-DD]  
-**Status**: [status of document]  
+**Project**: [project name]
+**Date**: [YYYY-MM-DD]
+**Status**: [status of document]
 **Source**: `docs/01_Vision/vision.md`
 
 ---
@@ -53,15 +53,38 @@
 
 See `docs/01_Vision/open-questions-from-pda.md` if questions need to be tracked separately.
 
+## Blocking Conditions
+
+List any conditions that block handoff to PM:
+
+| Condition | Status | Resolution |
+| --------- | ------ | ---------- |
+| [Condition 1] | [resolved / open] | [how resolved or escalation plan] |
+| [Condition 2] | [resolved / open] | [how resolved or escalation plan] |
+
+If there are no blocking conditions, write `None`.
+
+## Done Criteria
+
+PDA's work is complete when ALL of the following are satisfied:
+
+- [ ] Discovery file exists and follows this template structure
+- [ ] Product idea is structured with problem statement, target users, and value proposition
+- [ ] User journeys cover primary flows and at least one edge-case flow
+- [ ] Feature breakdown is high-level but unambiguous (no implementation details)
+- [ ] Assumptions and risks are explicitly listed
+- [ ] All blocking open questions are answered (no questions with `Status: blocking` remain unanswered)
+- [ ] Open questions file is created or synchronized with correct statuses
+
 ## PM Handoff Readiness
 
-| Checklist Item                                               | Status |
-| ------------------------------------------------------------ | ------ |
-| Coherence - idea is structured and logical                   | [ ]    |
-| User focus - journeys cover primary flows                    | [ ]    |
-| Completeness - use cases cover the main needs                | [ ]    |
-| Scope clarity - feature breakdown is unambiguous             | [ ]    |
-| Handoff quality - PM can derive user stories from this input | [ ]    |
+| Checklist Item | Status |
+| -------------- | ------ |
+| Coherence - idea is structured and logical | [ ] |
+| User focus - journeys cover primary flows | [ ] |
+| Completeness - use cases cover the main needs | [ ] |
+| Scope clarity - feature breakdown is unambiguous | [ ] |
+| Handoff quality - PM can derive user stories from this input | [ ] |
 
 **Verdict**: [ready / needs follow-up / blocked]
 

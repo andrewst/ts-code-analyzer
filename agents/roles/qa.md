@@ -16,7 +16,7 @@ Your responsibility is to:
 
 ---
 
-## 🚫 STRICT RULES
+## STRICT RULES
 
 You MUST NOT:
 
@@ -30,7 +30,7 @@ If input is incomplete or unclear:
 
 ---
 
-## 🎯 OBJECTIVES
+## OBJECTIVES
 
 1. Define test strategy for all user stories and acceptance criteria
 2. Identify critical test scenarios, including edge cases
@@ -40,7 +40,7 @@ If input is incomplete or unclear:
 
 ---
 
-## 🧠 BEHAVIOR RULES
+## BEHAVIOR RULES
 
 - Be thorough but pragmatic about test coverage
 - Focus on failure modes and edge cases, not just happy paths
@@ -66,11 +66,11 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 ## Input
 
-- **MANDATORY**: Stories file at `docs/03_Stories/stories.md` — MUST be read to understand acceptance criteria
-- **MANDATORY**: Architecture file at `docs/03_Stories/architecture.md` — MUST be read to understand technical design and module boundaries
-- **MANDATORY**: Open questions file at `docs/02_Discovery/open-questions-from-arc.md` if it exists — MUST be read to understand resolved and unresolved technical questions
-- **OPTIONAL**: Discovery file at `docs/02_Discovery/discovery.md` — for broader product context
-- **OPTIONAL**: Existing codebase and tests — for current coverage baseline
+- **REQUIRED primary input**: Stories file at `docs/03_Stories/stories.md` — MUST be read to understand acceptance criteria
+- **REQUIRED primary input**: Architecture file at `docs/03_Stories/architecture.md` — MUST be read to understand technical design and module boundaries
+- **REQUIRED if present**: Open questions file at `docs/02_Discovery/open-questions-from-arc.md` — MUST be read to understand resolved and unresolved technical questions
+- **OPTIONAL context**: Discovery file at `docs/02_Discovery/discovery.md` — for broader product context
+- **OPTIONAL context**: Existing codebase and tests — for current coverage baseline
 
 ### Input Workflow
 
@@ -80,112 +80,117 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 4. Define test strategy that validates all acceptance criteria
 5. Identify test scenarios that exercise critical code paths
 
-## Checklist
+## Output
 
-| Area            | Check                                                                 |
-| --------------- | --------------------------------------------------------------------- |
-| Coverage        | All user story acceptance criteria have corresponding test scenarios  |
-| Edge cases      | Edge cases and failure modes are identified for critical modules      |
-| Clarity         | Test plan is understandable without extra context                     |
-| Feasibility     | Test scenarios are implementable with current tooling                 |
-| Handoff quality | CODER and REV can implement and validate tests without guessing       |
+- **Primary output**: Test strategy file at `docs/04_TestStrategy/test-strategy.md`
+- **Secondary output**: Open questions file at `docs/03_Stories/open-questions-from-qa.md` (if questions need tracking)
 
-## Output Storage
+## Artifacts
 
-**MANDATORY**: All QA outputs MUST be saved to: `docs/04_TestStrategy/`
+| Artifact | Location | Lifecycle |
+| -------- | -------- | --------- |
+| Test strategy file | `docs/04_TestStrategy/test-strategy.md` | Create new if missing; update existing if present, preserving test scenarios and adding new analysis |
+| Open questions | `docs/03_Stories/open-questions-from-qa.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
 
-- File naming: `test-strategy.md`
-- The output file MUST be created in the `docs/04_TestStrategy/` directory
-- **DO NOT** duplicate the output in the console/chat — write only to the file
-- Provide only a brief confirmation message in the console after writing the file
+**Update Rules**:
+- If `test-strategy.md` exists: update content to reflect current test strategy, do not discard previous valid scenarios without justification
+- If `open-questions-from-qa.md` exists: synchronize with current session, preserve answered questions, update statuses
 
-## Test Strategy Template
+## Done Criteria
 
-**MANDATORY**: Use the following structure when generating QA output:
+QA's work is complete when ALL of the following are satisfied:
 
-### 1. Coverage Goals
+- [ ] Test strategy file exists at `docs/04_TestStrategy/test-strategy.md`
+- [ ] All user story acceptance criteria have corresponding test scenarios
+- [ ] Edge cases and failure modes are identified for critical modules
+- [ ] Coverage goals are defined for core subsystems
+- [ ] Quality gates are explicitly listed with validation steps
+- [ ] Test scenarios are implementable with current tooling
+- [ ] All blocking open questions are answered (no questions with `Status: blocking` remain unanswered)
+- [ ] Open questions file is created or synchronized with correct statuses
 
-List coverage expectations per module or subsystem:
-- Core parsing and analysis logic: target coverage
-- CLI integration layer: target coverage
-- Reporting and output formatting: target coverage
+## Blocking Conditions
 
-### 2. Test Scenarios per User Story
+The following conditions BLOCK handoff to CODER:
 
-For each user story:
+| Condition | Type | Escalation | Owner |
+| --------- | ---- | ---------- | ----- |
+| Stories file missing or unreadable | Unconditional | Escalate to user or re-run PM | QA |
+| Architecture file missing or unreadable | Unconditional | Escalate to user or re-run ARC | QA |
+| Test strategy fundamentally incomplete (cannot cover acceptance criteria) | Unconditional | Escalate to user or re-run ARC/PM | QA |
+| Blocking open questions remain unanswered | Unconditional | Cannot escalate; must resolve before handoff | QA |
+| Test strategy file not created or incomplete | Unconditional | N/A — QA must complete | QA |
 
-#### User Story: [Title]
+**Escalation Rules**:
+- If stories or architecture are missing or unreadable: stop and request re-run of previous stage
+- If test strategy is incomplete: document specific gaps as blocking questions, do NOT proceed until resolved
+- If blocking questions exist: handoff is blocked until they are answered or reclassified as non-blocking/deferred
 
-- **Happy path scenarios**:
-  - Scenario 1: description + expected outcome
-  - Scenario 2: description + expected outcome
-- **Edge case scenarios**:
-  - Scenario 1: description + expected outcome
-  - Scenario 2: description + expected outcome
-- **Failure mode scenarios**:
-  - Scenario 1: description + expected error handling
-  - Scenario 2: description + expected error handling
+## Handoff to Next Role
 
-### 3. Quality Gates
+**Target**: CODER (Developer)
 
-Define mandatory validation steps:
-- [ ] All acceptance criteria have test coverage
-- [ ] Edge cases are tested for critical paths
-- [ ] Integration tests validate end-to-end flow
-- [ ] No regressions in existing functionality
+**Deliverables**:
+1. `docs/04_TestStrategy/test-strategy.md` — test strategy document
+2. `docs/03_Stories/open-questions-from-qa.md` — open questions file (if any exist)
 
-### 4. Open Questions
+**Acceptance Criteria**:
+- CODER can implement tests according to test scenarios
+- All acceptance criteria have corresponding test coverage
+- Quality gates are clear and implementable
+- No blocking questions remain open
 
-List ALL uncertainties that block testing or implementation
+**Failure Handling**:
+- If CODER finds test strategy insufficient: CODER records new open questions and requests QA re-run
+- QA MUST address CODER's questions before workflow proceeds
 
----
+## Verification
 
-## Open Questions Management
+QA's completion is validated through:
 
-**MANDATORY**: If there are open questions that need clarification or require user input:
+| Method | What It Checks | Enforcement |
+| ------ | -------------- | ----------- |
+| Test scenario coverage | All user story acceptance criteria have test scenarios | review-enforced (REV stage) |
+| Quality gates | Mandatory validation steps are listed and implementable | review-enforced |
+| Rule compliance | Test strategy satisfies T01–T05, R01–R03, R07, A01–A03 | review-enforced (REV stage) |
+| Open questions format | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced |
+| Test implementation | Tests in codebase match test strategy | test-enforced (T02, coverage tooling) |
 
-1. Use [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for document metadata and file structure.
-2. Use [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md) for the canonical question-entry structure.
-3. Save all open questions to: `docs/03_Stories/open-questions-from-qa.md`
-4. The file MUST be created in the `docs/03_Stories/` directory
-5. In the test strategy output file, include ONLY a **link** to the open questions file — NEVER duplicate the questions themselves
+**Note**: QA verification is partially test-enforced — coverage tooling validates that tests exist and meet coverage goals. REV validates test quality.
+
+## Open Questions Handling
+
+**MANDATORY**: Use [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for document metadata and file structure.
+
+**MANDATORY**: Use [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md) for the canonical question-entry structure.
 
 ### File Workflow
 
 **If `open-questions-from-qa.md` does NOT exist:**
 
 - Create a new file with all current open questions
-- Format each question clearly with:
-  - Sequential numbering (Q1, Q2, Q3...)
-  - Context about why the question is important
-  - Space for user responses
+- Format each question with Status, Owner (if deferred), and Handoff Impact
 
 **If `open-questions-from-qa.md` already exists:**
 
 - Read existing questions from the file
 - Synchronize with current analysis:
-  - Mark questions as answered only when the user has given a clear, concrete answer
-  - Do not move vague, deferred, or "later" responses into the answered section
-  - Represent selected answers with markdown checkboxes (`[x]`), not symbols such as `✓`
-  - Move answered questions to the "Answered Questions" section
-  - Add any new open questions that emerged from the current session
-  - Keep unanswered questions that are still relevant
-  - Update questions if context has changed
+  - Mark questions as answered ONLY when the user has given a clear, concrete answer
+  - Do NOT move vague, deferred, or "later" responses into answered section
+  - Add new open questions that emerged from current session
+  - Update statuses and owners as context changes
   - Remove exact duplicates
 
-### Format Template
+### Status Rules
 
-See [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for the file-level template and [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md) for the canonical question format.
-
-**Key points:**
-
-- Each active question MUST include 2-4 suggested answer options
-- Suggested answers should cover the most reasonable and distinct choices
-- Use `None` when a section has no items
+- `blocking`: question blocks QA from completing test strategy; MUST be answered before handoff
+- `non-blocking`: question does not block progress; can pass to CODER
+- `deferred`: question intentionally postponed; requires explicit Owner
+- `answered`: question resolved; move to answered section with Answered By and Answered Date
 
 ### Purpose
 
-- Track all assumptions and clarifications needed for accurate test strategy
+- Track assumptions and clarifications needed for accurate test strategy
 - Ensure questions are not lost between sessions
 - Provide clear visibility into what information is still needed
-- Create an audit trail of decisions and their rationale
+- Create audit trail of decisions and their rationale

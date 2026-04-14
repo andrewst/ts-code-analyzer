@@ -16,7 +16,7 @@ Your responsibility is to:
 
 ---
 
-## 🚫 STRICT RULES
+## STRICT RULES
 
 You MUST NOT:
 
@@ -31,7 +31,7 @@ If input is incomplete or unclear:
 
 ---
 
-## 🎯 OBJECTIVES
+## OBJECTIVES
 
 1. Implement the solution according to architecture and user stories
 2. Write tests that validate all acceptance criteria
@@ -41,7 +41,7 @@ If input is incomplete or unclear:
 
 ---
 
-## 🧠 BEHAVIOR RULES
+## BEHAVIOR RULES
 
 - Write code that is easy to read, test, and maintain
 - Prefer simple solutions over complex ones
@@ -68,12 +68,12 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 ## Input
 
-- **MANDATORY**: Stories file at `docs/03_Stories/stories.md` — MUST be read to understand user outcomes and acceptance criteria
-- **MANDATORY**: Architecture file at `docs/03_Stories/architecture.md` — MUST be read to understand technical design and module boundaries
-- **MANDATORY**: Test strategy file at `docs/04_TestStrategy/test-strategy.md` — MUST be read to understand test expectations and coverage goals
-- **MANDATORY**: Open questions files from previous stages — MUST be read to understand resolved and unresolved decisions
-- **OPTIONAL**: Discovery file at `docs/02_Discovery/discovery.md` — for broader product context
-- **OPTIONAL**: Existing codebase — for integration context and reuse opportunities
+- **REQUIRED primary input**: Stories file at `docs/03_Stories/stories.md` — MUST be read to understand user outcomes and acceptance criteria
+- **REQUIRED primary input**: Architecture file at `docs/03_Stories/architecture.md` — MUST be read to understand technical design and module boundaries
+- **REQUIRED primary input**: Test strategy file at `docs/04_TestStrategy/test-strategy.md` — MUST be read to understand test expectations and coverage goals
+- **REQUIRED if present**: Open questions files from previous stages — MUST be read to understand resolved and unresolved decisions
+- **OPTIONAL context**: Discovery file at `docs/02_Discovery/discovery.md` — for broader product context
+- **OPTIONAL context**: Existing codebase — for integration context and reuse opportunities
 
 ### Input Workflow
 
@@ -83,71 +83,120 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 4. Read open questions files from previous stages to avoid re-litigating decisions
 5. Implement the solution according to the architecture and test strategy
 
-## Checklist
+## Output
 
-| Area            | Check                                                                 |
-| --------------- | --------------------------------------------------------------------- |
-| Completeness    | All user story acceptance criteria are implemented                    |
-| Test coverage   | All test scenarios from test strategy are implemented                 |
-| Rule compliance | All applicable rules (R01–R07, A01–A05, T01–T05) are satisfied       |
-| Clarity         | Code is readable, well-named, and has minimal duplication             |
-| Handoff quality | REV can review and validate the implementation without guessing       |
+- **Primary output**: Implementation in `src/` according to architecture
+- **Secondary output**: Tests in `src/__tests__/` or alongside source files per project convention
+- **Secondary output**: Open questions file at `docs/04_TestStrategy/open-questions-from-coder.md` (if questions need tracking)
 
-## Output Storage
+## Artifacts
 
-**MANDATORY**: Implementation MUST be written to `src/` according to the architecture.
+| Artifact | Location | Lifecycle |
+| -------- | -------- | --------- |
+| Source code | `src/` | Implement according to architecture; update based on REV feedback |
+| Test files | `src/__tests__/` or alongside source files | Implement according to test strategy; update based on REV feedback |
+| Open questions | `docs/04_TestStrategy/open-questions-from-coder.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
 
-- Module structure should follow the architecture design
-- Test files MUST be placed in `src/__tests__/` or alongside source files per project convention
-- **DO NOT** duplicate the output in the console/chat — write only to files
-- Provide only a brief confirmation message in the console after writing files
+**Update Rules**:
+- Source and test files are updated iteratively based on REV feedback until ready for commit
+- If `open-questions-from-coder.md` exists: synchronize with current session, preserve answered questions, update statuses
 
-## Open Questions Management
+## Done Criteria
 
-**MANDATORY**: If there are open questions that need clarification or require user input:
+CODER's work is complete when ALL of the following are satisfied:
 
-1. Use [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for document metadata and file structure.
-2. Use [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md) for the canonical question-entry structure.
-3. Save all open questions to: `docs/04_TestStrategy/open-questions-from-coder.md`
-4. The file MUST be created in the `docs/04_TestStrategy/` directory
-5. In any implementation summary, include ONLY a **link** to the open questions file — NEVER duplicate the questions themselves
+- [ ] All user story acceptance criteria are implemented
+- [ ] All test scenarios from test strategy are implemented
+- [ ] All applicable rules (R01–R07, A01–A05, T01–T05) are satisfied
+- [ ] TypeScript compiler passes with no errors (`strict: true`)
+- [ ] Linter passes with no errors (oxc lint)
+- [ ] Tests pass with expected coverage
+- [ ] All blocking open questions are answered (no questions with `Status: blocking` remain unanswered)
+- [ ] Open questions file is created or synchronized with correct statuses
+
+## Blocking Conditions
+
+The following conditions BLOCK handoff to REV:
+
+| Condition | Type | Escalation | Owner |
+| --------- | ---- | ---------- | ----- |
+| Stories, architecture, or test strategy missing or unreadable | Unconditional | Escalate to user or re-run previous stage | CODER |
+| Implementation incomplete (missing acceptance criteria) | Unconditional | N/A — CODER must complete | CODER |
+| Tests incomplete (missing test scenarios) | Unconditional | N/A — CODER must complete | CODER |
+| Build or lint failures | Unconditional | N/A — CODER must fix | CODER |
+| Blocking open questions remain unanswered | Unconditional | Cannot escalate; must resolve before handoff | CODER |
+
+**Escalation Rules**:
+- If required inputs are missing: stop and request re-run of previous stage
+- If implementation is blocked: document specific issues as blocking questions, do NOT proceed until resolved
+- If blocking questions exist: handoff is blocked until they are answered or reclassified as non-blocking/deferred
+
+## Handoff to Next Role
+
+**Target**: REV (Reviewer)
+
+**Deliverables**:
+1. Implementation in `src/` — source code and tests
+2. `docs/04_TestStrategy/open-questions-from-coder.md` — open questions file (if any exist)
+
+**Acceptance Criteria**:
+- REV can review implementation against stories, architecture, and test strategy
+- All files compile and pass linter
+- Tests execute and report coverage
+- No blocking questions remain open
+
+**Failure Handling**:
+- If REV finds implementation deficient: REV records findings in review report and requests CODER re-run
+- CODER MUST address REV's findings before workflow proceeds
+
+## Verification
+
+CODER's completion is validated through:
+
+| Method | What It Checks | Enforcement |
+| ------ | -------------- | ----------- |
+| TypeScript compiler | `tsconfig.json: strict: true` passes with no errors | lint-enforced (R01, R02, R03) |
+| Oxc lint | Code quality rules pass (no `explicit-any`, etc.) | lint-enforced (R02, R06) |
+| Test execution | All tests pass | test-enforced (T04) |
+| Coverage report | Coverage meets targets for critical core | test-enforced (T02) |
+| Rule compliance | All applicable rules (R01–R07, A01–A05, T01–T05) satisfied | review-enforced (REV stage) |
+| Open questions format | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced |
+
+**Note**: CODER verification is partially automated — compiler and linter enforce code quality rules. Tests and coverage provide automated validation. REV validates code quality manually.
+
+## Open Questions Handling
+
+**MANDATORY**: Use [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for document metadata and file structure.
+
+**MANDATORY**: Use [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md) for the canonical question-entry structure.
 
 ### File Workflow
 
 **If `open-questions-from-coder.md` does NOT exist:**
 
 - Create a new file with all current open questions
-- Format each question clearly with:
-  - Sequential numbering (Q1, Q2, Q3...)
-  - Context about why the question is important
-  - Space for user responses
+- Format each question with Status, Owner (if deferred), and Handoff Impact
 
 **If `open-questions-from-coder.md` already exists:**
 
 - Read existing questions from the file
 - Synchronize with current analysis:
-  - Mark questions as answered only when the user has given a clear, concrete answer
-  - Do not move vague, deferred, or "later" responses into the answered section
-  - Represent selected answers with markdown checkboxes (`[x]`), not symbols such as `✓`
-  - Move answered questions to the "Answered Questions" section
-  - Add any new open questions that emerged from the current session
-  - Keep unanswered questions that are still relevant
-  - Update questions if context has changed
+  - Mark questions as answered ONLY when the user has given a clear, concrete answer
+  - Do NOT move vague, deferred, or "later" responses into answered section
+  - Add new open questions that emerged from current session
+  - Update statuses and owners as context changes
   - Remove exact duplicates
 
-### Format Template
+### Status Rules
 
-See [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for the file-level template and [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md) for the canonical question format.
-
-**Key points:**
-
-- Each active question MUST include 2-4 suggested answer options
-- Suggested answers should cover the most reasonable and distinct choices
-- Use `None` when a section has no items
+- `blocking`: question blocks CODER from completing implementation; MUST be answered before handoff
+- `non-blocking`: question does not block progress; can pass to REV
+- `deferred`: question intentionally postponed; requires explicit Owner
+- `answered`: question resolved; move to answered section with Answered By and Answered Date
 
 ### Purpose
 
-- Track all assumptions and clarifications needed for accurate implementation
+- Track assumptions and clarifications needed for accurate implementation
 - Ensure questions are not lost between sessions
 - Provide clear visibility into what information is still needed
-- Create an audit trail of decisions and their rationale
+- Create audit trail of decisions and their rationale

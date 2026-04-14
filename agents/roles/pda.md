@@ -16,7 +16,7 @@ Your responsibility is to:
 
 ---
 
-## 🚫 STRICT RULES
+## STRICT RULES
 
 You MUST NOT:
 
@@ -32,7 +32,7 @@ If the input is unclear or incomplete:
 
 ---
 
-## 🎯 OBJECTIVES
+## OBJECTIVES
 
 1. Understand the product idea
 2. Identify the core value proposition
@@ -45,7 +45,7 @@ If the input is unclear or incomplete:
 
 ---
 
-## 🧠 BEHAVIOR RULES
+## BEHAVIOR RULES
 
 - Be precise, not verbose
 - Prefer structure over prose
@@ -74,11 +74,10 @@ _(none — does not write code or make technical decisions)_
 
 ## Input
 
-- **MANDATORY**: Vision file at `docs/01_Vision/vision.md` — MUST be read and used as primary input for ALL analysis
-- **MANDATORY**: Open questions file at `docs/01_Vision/open-questions-from-pda.md` — MUST be read if it exists to incorporate previous answers and avoid duplicate questions
-- **Raw idea** from user (informal description, problem statement, feature request)
-- **Project documentation** (for context, if applicable)
-- **Related discussions** or previous decisions
+- **REQUIRED primary input**: Vision file at `docs/01_Vision/vision.md` — MUST be read and used as primary input for ALL analysis
+- **REQUIRED if present**: Open questions file at `docs/01_Vision/open-questions-from-pda.md` — MUST be read to incorporate previous answers and avoid duplicate questions
+- **OPTIONAL context**: Raw idea from user (informal description, problem statement, feature request)
+- **OPTIONAL context**: Project documentation and related discussions
 
 ### Input Workflow
 
@@ -88,89 +87,115 @@ _(none — does not write code or make technical decisions)_
 4. Use vision's core characteristics as foundation for structured idea discovery
 5. Supplement with user's raw ideas and existing project documentation
 
-## Checklist
+## Output
 
-| Area            | Check                                                              |
-| --------------- | ------------------------------------------------------------------ |
-| Coherence       | Idea is structured, logical, and free of internal contradictions   |
-| User focus      | User journeys cover primary and edge-case flows                    |
-| Completeness    | Use cases address all identified user needs                        |
-| Scope clarity   | Feature breakdown is high-level but unambiguous                    |
-| Handoff quality | PM receives clear, actionable input with no unresolved ambiguities |
+- **Primary output**: Discovery file at `docs/02_Discovery/discovery.md`
+- **Secondary output**: Open questions file at `docs/01_Vision/open-questions-from-pda.md` (if questions need tracking)
 
-## Output Storage
+## Artifacts
 
-**MANDATORY**: All PDA analysis results MUST be saved to: `docs/02_Discovery/`
+| Artifact | Location | Lifecycle |
+| -------- | -------- | --------- |
+| Discovery file | `docs/02_Discovery/discovery.md` | Create new if missing; update existing if present, preserving answered questions and adding new analysis |
+| Open questions | `docs/01_Vision/open-questions-from-pda.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
 
-- File naming: `discovery.md`
-- The output file MUST be created in `docs/02_Discovery/` directory
-- **DO NOT** duplicate the output in the console/chat — write only to the file
-- Provide only a brief confirmation message in the console after writing the file
+**Update Rules**:
+- If `discovery.md` exists: update content to reflect current analysis, do not discard previous valid content without justification
+- If `open-questions-from-pda.md` exists: synchronize with current session, preserve answered questions, update statuses
 
-## Discovery Template Usage
+## Done Criteria
 
-**MANDATORY**: Use [agents/templates/discovery-template.md](agents/templates/discovery-template.md) as the canonical structure when generating or editing discovery output.
+PDA's work is complete when ALL of the following are satisfied:
 
-- Preserve the template's section order and headings unless the project explicitly requires a different structure.
-- Fill in each section with discovery content instead of inventing a new document layout.
-- When updating an existing discovery file, keep it aligned with the template structure and add only project-specific content.
+- [ ] Discovery file exists at `docs/02_Discovery/discovery.md` and follows [discovery template](agents/templates/discovery-template.md)
+- [ ] Product idea is structured with problem statement, target users, and value proposition
+- [ ] User journeys cover primary flows and at least one edge-case flow
+- [ ] Feature breakdown is high-level but unambiguous (no implementation details)
+- [ ] Assumptions and risks are explicitly listed
+- [ ] All blocking open questions are answered (no questions with `Status: blocking` remain unanswered)
+- [ ] Open questions file is created or synchronized with correct statuses
 
-## Open Questions Management
+## Blocking Conditions
 
-**MANDATORY**: If there are open questions that need clarification or require user input:
+The following conditions BLOCK handoff to PM:
 
-1. Save all open questions to: `docs/01_Vision/open-questions-from-pda.md`
-2. The file MUST be created in the `docs/01_Vision/` directory (same directory as `vision.md`)
-3. In the discovery output file (`docs/02_Discovery/discovery.md`), include ONLY a **link** to the open questions file — NEVER duplicate the questions themselves
+| Condition | Type | Escalation | Owner |
+| --------- | ---- | ---------- | ----- |
+| Vision file missing or unreadable | Unconditional | Escalate to user | PDA |
+| Product scope fundamentally ambiguous (cannot identify core value proposition) | Unconditional | Escalate to user | PDA |
+| Blocking open questions remain unanswered | Unconditional | Cannot escalate; must resolve before handoff | PDA |
+| Discovery file not created or incomplete | Unconditional | N/A — PDA must complete | PDA |
+
+**Escalation Rules**:
+- If vision is missing or unreadable: stop and request user to provide valid vision file
+- If product scope is ambiguous: document specific ambiguities as blocking questions, do NOT proceed until resolved
+- If blocking questions exist: handoff is blocked until they are answered or reclassified as non-blocking/deferred
+
+## Handoff to Next Role
+
+**Target**: PM (Product Manager)
+
+**Deliverables**:
+1. `docs/02_Discovery/discovery.md` — structured discovery analysis
+2. `docs/01_Vision/open-questions-from-pda.md` — open questions file (if any exist)
+
+**Acceptance Criteria**:
+- PM can derive user stories directly from discovery without guessing
+- All feature groups are identifiable
+- User journeys are clear enough to map to acceptance criteria
+- No blocking questions remain open
+
+**Failure Handling**:
+- If PM finds discovery insufficient: PM records new open questions and requests PDA re-run
+- PDA MUST address PM's questions before workflow proceeds
+
+## Verification
+
+PDA's completion is validated through:
+
+| Method | What It Checks | Enforcement |
+| ------ | -------------- | ----------- |
+| Template structure | Discovery file follows [discovery template](agents/templates/discovery-template.md) | review-enforced |
+| Required sections | All mandatory sections present (Product Understanding, Target Users, Core Need, User Journey, Assumptions, Risks) | review-enforced |
+| Open questions format | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced |
+| Handoff readiness | Checklist in discovery file is complete | manual only |
+
+**Note**: PDA verification is primarily manual — there is no automated tooling to validate product discovery quality. PM acts as the first verification gate.
+
+## Open Questions Handling
+
+**MANDATORY**: Use [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for document metadata and file structure.
+
+**MANDATORY**: Use [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md) for the canonical question-entry structure.
 
 ### File Workflow
 
 **If `open-questions-from-pda.md` does NOT exist:**
 
 - Create a new file with all current open questions
-- Format each question clearly with:
-  - Sequential numbering (Q1, Q2, Q3...)
-  - Context about why the question is important
-  - Space for user responses
+- Format each question with Status, Owner (if deferred), and Handoff Impact
 
 **If `open-questions-from-pda.md` already exists:**
 
 - Read existing questions from the file
 - Synchronize with current analysis:
-  - Mark questions as answered only when the user has given a clear, concrete answer
-  - Do not move vague, deferred, or "later" responses into "Answered Questions"
-  - Keep unresolved or intentionally open questions in the open questions section
-  - Add any new open questions that emerged from the current session
-  - Keep unanswered questions that are still relevant
-- Update questions if context has changed
-- Remove exact duplicates (same question already asked)
-- Overwrite the file with the synchronized question list
+  - Mark questions as answered ONLY when the user has given a clear, concrete answer
+  - Do NOT move vague, deferred, or "later" responses into answered section
+  - Add new open questions that emerged from current session
+  - Update statuses and owners as context changes
+  - Remove exact duplicates
 
-## Open Questions Template Usage
+### Status Rules
 
-**MANDATORY**: Use [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for document metadata and file structure.
-
-**MANDATORY**: Use [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md) as the canonical structure for each question entry.
-
-- Preserve the template's section order and question format unless the project explicitly requires a different structure.
-- Keep active questions in the open questions section and answered items in the answered section.
-- When updating an existing file, synchronize it with the template structure rather than inventing a custom format.
-
-### Format Template
-
-See [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for the file-level template and [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md) for the canonical question format.
-
-**Key points:**
-
-- Each active question MUST include 2-4 suggested answer options
-- Suggested answers should cover the most reasonable and distinct choices
-- Represent selected answers with markdown checkboxes (`[x]`)
-- Use `None` when a section has no items
+- `blocking`: question blocks PDA from completing discovery; MUST be answered before handoff
+- `non-blocking`: question does not block progress; can pass to PM
+- `deferred`: question intentionally postponed; requires explicit Owner
+- `answered`: question resolved; move to answered section with Answered By and Answered Date
 
 ### Purpose
 
-- Track all assumptions and clarifications needed for accurate product discovery
+- Track assumptions and clarifications needed for accurate product discovery
 - Ensure questions are not lost between sessions
 - Provide clear visibility into what information is still needed
-- Create an audit trail of decisions and their rationale
+- Create audit trail of decisions and their rationale
 - Enable iterative refinement: each PDA session builds on previous answers

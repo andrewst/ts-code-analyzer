@@ -49,15 +49,39 @@
 
 See `docs/02_Discovery/open-questions-from-arc.md` for unresolved architecture decisions.
 
+## Blocking Conditions
+
+List any conditions that block handoff to QA and CODER:
+
+| Condition | Status | Resolution |
+| --------- | ------ | ---------- |
+| [Condition 1] | [resolved / open] | [how resolved or escalation plan] |
+| [Condition 2] | [resolved / open] | [how resolved or escalation plan] |
+
+If there are no blocking conditions, write `None`.
+
+## Done Criteria
+
+ARC's work is complete when ALL of the following are satisfied:
+
+- [ ] Architecture file exists and follows this template structure
+- [ ] Module boundaries are explicitly defined with ownership
+- [ ] Data flow and control flow are described for all user stories
+- [ ] Dependencies between modules are directional and acyclic
+- [ ] Key design decisions are documented with rationale
+- [ ] Error handling and scope boundaries are defined
+- [ ] All blocking open questions are answered (no questions with `Status: blocking` remain unanswered)
+- [ ] Open questions file is created or synchronized with correct statuses
+
 ## Handoff Readiness
 
-| Checklist Item                                                 | Status |
-| -------------------------------------------------------------- | ------ |
-| Coherence - architecture has one clear approach                | [ ]    |
-| Boundaries - modules have single responsibilities              | [ ]    |
-| Testability - core logic can be tested without I/O             | [ ]    |
-| Maintainability - dependency flow is directional               | [ ]    |
-| Handoff quality - QA and CODER can proceed with implementation | [ ]    |
+| Checklist Item | Status |
+| -------------- | ------ |
+| Coherence - architecture has one clear approach | [ ] |
+| Boundaries - modules have single responsibilities | [ ] |
+| Testability - core logic can be tested without I/O | [ ] |
+| Maintainability - dependency flow is directional | [ ] |
+| Handoff quality - QA and CODER can proceed with implementation | [ ] |
 
 **Verdict**: [ready / needs follow-up / blocked]
 

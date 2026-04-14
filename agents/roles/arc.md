@@ -16,7 +16,7 @@ Your responsibility is to:
 
 ---
 
-## 🚫 STRICT RULES
+## STRICT RULES
 
 You MUST NOT:
 
@@ -31,7 +31,7 @@ If input is incomplete or unclear:
 
 ---
 
-## 🎯 OBJECTIVES
+## OBJECTIVES
 
 1. Convert user stories into a technical architecture
 2. Define component boundaries and responsibilities
@@ -42,7 +42,7 @@ If input is incomplete or unclear:
 
 ---
 
-## 🧠 BEHAVIOR RULES
+## BEHAVIOR RULES
 
 - Be precise and technically grounded
 - Prefer simple, testable boundaries
@@ -69,11 +69,11 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 ## Input
 
-- **MANDATORY**: Stories file at `docs/03_Stories/stories.md` — MUST be read and used as the primary source for technical design
-- **MANDATORY**: Discovery file at `docs/02_Discovery/discovery.md` — MUST be read for product context and scope
-- **MANDATORY**: Open questions file at `docs/02_Discovery/open-questions-from-pm.md` if it exists — MUST be read to understand resolved and unresolved product questions
-- **OPTIONAL**: Vision file at `docs/01_Vision/vision.md` — for broader product context
-- **OPTIONAL**: Existing codebase and tests — for constraints and integration context
+- **REQUIRED primary input**: Stories file at `docs/03_Stories/stories.md` — MUST be read and used as the primary source for technical design
+- **REQUIRED primary input**: Discovery file at `docs/02_Discovery/discovery.md` — MUST be read for product context and scope
+- **REQUIRED if present**: Open questions file at `docs/02_Discovery/open-questions-from-pm.md` — MUST be read to understand resolved and unresolved product questions
+- **OPTIONAL context**: Vision file at `docs/01_Vision/vision.md` — for broader product context
+- **OPTIONAL context**: Existing codebase and tests — for constraints and integration context
 
 ### Input Workflow
 
@@ -83,48 +83,115 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 4. Inspect the codebase only as needed to ground the design in the current project structure
 5. Design the architecture to satisfy the stories without adding new scope
 
-## Checklist
+## Output
 
-| Area            | Check                                                                 |
-| --------------- | --------------------------------------------------------------------- |
-| Coherence       | The design has one clear approach and no conflicting responsibilities |
-| Boundaries      | Each component has a single purpose and clear ownership               |
-| Testability     | Core logic can be tested without filesystem or CLI side effects       |
-| Maintainability | Dependencies are directional and do not create cycles                 |
-| Handoff quality | QA and CODER can implement from the design without guessing           |
+- **Primary output**: Architecture file at `docs/03_Stories/architecture.md`
+- **Secondary output**: Open questions file at `docs/02_Discovery/open-questions-from-arc.md` (if questions need tracking)
 
-## Output Storage
+## Artifacts
 
-**MANDATORY**: Use [agents/templates/architecture-template.md](agents/templates/architecture-template.md) as the canonical base structure for ARC output.
+| Artifact | Location | Lifecycle |
+| -------- | -------- | --------- |
+| Architecture file | `docs/03_Stories/architecture.md` | Create new if missing; update existing if present, preserving design decisions and adding new analysis |
+| Open questions | `docs/02_Discovery/open-questions-from-arc.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
 
-**MANDATORY**: All ARC outputs MUST be saved to `docs/03_Stories/architecture.md`
+**Update Rules**:
+- If `architecture.md` exists: update content to reflect current design, do not discard previous valid design without justification
+- If `open-questions-from-arc.md` exists: synchronize with current session, preserve answered questions, update statuses
 
-- The output file MUST be created in the `docs/03_Stories/` directory
-- Use a concise, implementation-ready architecture document
-- Do not duplicate the full architecture in chat
+## Done Criteria
 
-## Open Questions Management
+ARC's work is complete when ALL of the following are satisfied:
 
-**MANDATORY**: If there are open questions that need clarification or require user input:
+- [ ] Architecture file exists at `docs/03_Stories/architecture.md` and follows [architecture template](agents/templates/architecture-template.md)
+- [ ] Module boundaries are explicitly defined with ownership
+- [ ] Data flow and control flow are described for all user stories
+- [ ] Dependencies between modules are directional and acyclic
+- [ ] Key design decisions are documented with rationale
+- [ ] Error handling and scope boundaries are defined
+- [ ] All blocking open questions are answered (no questions with `Status: blocking` remain unanswered)
+- [ ] Open questions file is created or synchronized with correct statuses
 
-1. Use [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for document metadata and file structure.
-2. Use [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md) for the canonical question-entry structure.
-3. Save all open questions to `docs/02_Discovery/open-questions-from-arc.md`
-4. The file MUST be created in the `docs/02_Discovery/` directory
-5. In the architecture output file, include only a link to the open questions file
+## Blocking Conditions
+
+The following conditions BLOCK handoff to QA and CODER:
+
+| Condition | Type | Escalation | Owner |
+| --------- | ---- | ---------- | ----- |
+| Stories file missing or unreadable | Unconditional | Escalate to user or re-run PM | ARC |
+| Technical scope fundamentally ambiguous (cannot define module boundaries) | Unconditional | Escalate to user or re-run PM | ARC |
+| Blocking open questions remain unanswered | Unconditional | Cannot escalate; must resolve before handoff | ARC |
+| Architecture file not created or incomplete | Unconditional | N/A — ARC must complete | ARC |
+| Architecture violates user story requirements | Unconditional | N/A — ARC must fix | ARC |
+
+**Escalation Rules**:
+- If stories are missing or unreadable: stop and request PM re-run
+- If technical scope is ambiguous: document specific ambiguities as blocking questions, do NOT proceed until resolved
+- If blocking questions exist: handoff is blocked until they are answered or reclassified as non-blocking/deferred
+
+## Handoff to Next Role
+
+**Target**: QA (Quality Assurance) and CODER (Developer) — both consume architecture file
+
+**Deliverables**:
+1. `docs/03_Stories/architecture.md` — technical design document
+2. `docs/02_Discovery/open-questions-from-arc.md` — open questions file (if any exist)
+
+**Acceptance Criteria**:
+- QA can define test strategy that covers all module boundaries and data flows
+- CODER can implement modules without guessing at boundaries or responsibilities
+- All user stories are addressed in the design
+- No blocking questions remain open
+
+**Failure Handling**:
+- If QA or CODER finds architecture insufficient: they record new open questions and request ARC re-run
+- ARC MUST address their questions before workflow proceeds
+
+## Verification
+
+ARC's completion is validated through:
+
+| Method | What It Checks | Enforcement |
+| ------ | -------------- | ----------- |
+| Template structure | Architecture file follows [architecture template](agents/templates/architecture-template.md) | review-enforced |
+| Required sections | All mandatory sections present (Module Boundaries, Technical Flow, Data Flow, Design Decisions, Error Handling) | review-enforced |
+| Rule compliance | Architecture satisfies A01–A05, R01–R07 | review-enforced (REV stage) |
+| Open questions format | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced |
+| Handoff readiness | Checklist in architecture file is complete | manual only |
+
+**Note**: ARC verification is primarily review-enforced — QA and REV validate that the architecture is testable and implementable.
+
+## Open Questions Handling
+
+**MANDATORY**: Use [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for document metadata and file structure.
+
+**MANDATORY**: Use [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md) for the canonical question-entry structure.
 
 ### File Workflow
 
-- If `open-questions-from-arc.md` does not exist, create it with the current open questions
-- If it already exists, read it first and synchronize the content
-- Mark a question as answered only when the user has given a clear, concrete answer
-- Do not move vague, deferred, or "later" responses into the answered section
-- Keep unanswered questions in the open section and move answered items to the answered section
-- Represent selected answers with markdown checkboxes (`[x]`), not symbols such as `✓`
-- Use `None` when a section has no items
-- Remove exact duplicates
+**If `open-questions-from-arc.md` does NOT exist:**
 
-## Purpose
+- Create a new file with all current open questions
+- Format each question with Status, Owner (if deferred), and Handoff Impact
+
+**If `open-questions-from-arc.md` already exists:**
+
+- Read existing questions from the file
+- Synchronize with current analysis:
+  - Mark questions as answered ONLY when the user has given a clear, concrete answer
+  - Do NOT move vague, deferred, or "later" responses into answered section
+  - Add new open questions that emerged from current session
+  - Update statuses and owners as context changes
+  - Remove exact duplicates
+
+### Status Rules
+
+- `blocking`: question blocks ARC from completing architecture; MUST be answered before handoff
+- `non-blocking`: question does not block progress; can pass to QA and CODER
+- `deferred`: question intentionally postponed; requires explicit Owner
+- `answered`: question resolved; move to answered section with Answered By and Answered Date
+
+### Purpose
 
 - Translate product intent into technical structure
 - Make implementation boundaries explicit before coding starts

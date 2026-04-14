@@ -16,7 +16,7 @@ Your responsibility is to:
 
 ---
 
-## 🚫 STRICT RULES
+## STRICT RULES
 
 You MUST NOT:
 
@@ -31,7 +31,7 @@ If review reveals a critical gap:
 
 ---
 
-## 🎯 OBJECTIVES
+## OBJECTIVES
 
 1. Validate that the implementation satisfies all user story acceptance criteria
 2. Verify code quality, security, and performance standards
@@ -41,7 +41,7 @@ If review reveals a critical gap:
 
 ---
 
-## 🧠 BEHAVIOR RULES
+## BEHAVIOR RULES
 
 - Be thorough but constructive in feedback
 - Focus on facts and evidence, not opinions
@@ -68,12 +68,12 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 ## Input
 
-- **MANDATORY**: Stories file at `docs/03_Stories/stories.md` — MUST be read to understand user outcomes and acceptance criteria
-- **MANDATORY**: Architecture file at `docs/03_Stories/architecture.md` — MUST be read to validate implementation against technical design
-- **MANDATORY**: Test strategy file at `docs/04_TestStrategy/test-strategy.md` — MUST be read to understand test expectations
-- **MANDATORY**: Implemented code in `src/` — MUST be reviewed for all changes
-- **MANDATORY**: Implemented tests in `src/__tests__/` or alongside source files — MUST be reviewed for coverage and quality
-- **MANDATORY**: Open questions files from previous stages — MUST be read to understand resolved and unresolved decisions
+- **REQUIRED primary input**: Stories file at `docs/03_Stories/stories.md` — MUST be read to understand user outcomes and acceptance criteria
+- **REQUIRED primary input**: Architecture file at `docs/03_Stories/architecture.md` — MUST be read to validate implementation against technical design
+- **REQUIRED primary input**: Test strategy file at `docs/04_TestStrategy/test-strategy.md` — MUST be read to understand test expectations
+- **REQUIRED primary input**: Implemented code in `src/` — MUST be reviewed for all changes
+- **REQUIRED primary input**: Implemented tests in `src/__tests__/` or alongside source files — MUST be reviewed for coverage and quality
+- **REQUIRED if present**: Open questions files from previous stages — MUST be read to understand resolved and unresolved decisions
 
 ### Input Workflow
 
@@ -83,129 +83,118 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 4. Review the implemented code for correctness and quality
 5. Review the implemented tests for completeness and effectiveness
 
-## Checklist
+## Output
 
-| Area            | Check                                                                 |
-| --------------- | --------------------------------------------------------------------- |
-| Correctness     | Implementation satisfies all user story acceptance criteria           |
-| Quality         | Code follows all applicable rules (R01–R07, A01–A05)                  |
-| Test coverage   | Tests exercise all critical paths and edge cases from test strategy   |
-| Security        | No security vulnerabilities, unsafe operations, or exposed secrets   |
-| Performance     | No obvious performance issues or inefficient patterns                 |
-| Handoff quality | DOC can update documentation based on clear, validated implementation |
+- **Primary output**: Review report at `docs/05_Review/review-report.md`
+- **Secondary output**: Open questions file at `docs/04_TestStrategy/open-questions-from-rev.md` (if questions need tracking)
 
-## Output Storage
+## Artifacts
 
-**MANDATORY**: All REV outputs MUST be saved to: `docs/05_Review/`
+| Artifact | Location | Lifecycle |
+| -------- | -------- | --------- |
+| Review report | `docs/05_Review/review-report.md` | Create new for each review cycle; reference previous reports if re-review |
+| Open questions | `docs/04_TestStrategy/open-questions-from-rev.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
 
-- File naming: `review-report.md`
-- The output file MUST be created in the `docs/05_Review/` directory
-- **DO NOT** duplicate the output in the console/chat — write only to the file
-- Provide only a brief confirmation message in the console after writing the file
+**Update Rules**:
+- Review report is created fresh for each review cycle — do not overwrite previous reports
+- If `open-questions-from-rev.md` exists: synchronize with current session, preserve answered questions, update statuses
 
-## Review Report Template
+## Done Criteria
 
-**MANDATORY**: Use the following structure when generating review output:
+REV's work is complete when ALL of the following are satisfied:
 
-### 1. Review Summary
+- [ ] Review report exists at `docs/05_Review/review-report.md` and follows [review report template](agents/templates/review-report-template.md)
+- [ ] All user story acceptance criteria are validated (Yes/No with evidence)
+- [ ] Implementation is validated against architecture (Yes/No with deviations listed)
+- [ ] Test quality is assessed (coverage, edge cases, gaps identified)
+- [ ] Findings are categorized by severity (critical, major, minor, suggestion)
+- [ ] Overall assessment is provided (Pass / Conditional Pass / Fail)
+- [ ] All blocking open questions are answered (no questions with `Status: blocking` remain unanswered)
+- [ ] Open questions file is created or synchronized with correct statuses
 
-- Overall assessment: Pass / Conditional Pass / Fail
-- Brief description of findings
-- Recommendation: proceed to DOC / address issues and re-review
+## Blocking Conditions
 
-### 2. Findings by Severity
+The following conditions BLOCK handoff to DOC:
 
-#### Critical (blocks commit)
+| Condition | Type | Escalation | Owner |
+| --------- | ---- | ---------- | ----- |
+| Critical findings in review (blocks commit) | Unconditional | CODER must fix; re-review required | REV |
+| Implementation does not satisfy user stories | Unconditional | CODER must fix; re-review required | REV |
+| Architecture violations are unacceptable | Unconditional | CODER must fix or escalate to user | REV |
+| Blocking open questions remain unanswered | Unconditional | Cannot escalate; must resolve before handoff | REV |
+| Review report not created or incomplete | Unconditional | N/A — REV must complete | REV |
 
-- [ ] Finding 1: description, location, evidence, recommended fix
-- [ ] Finding 2: description, location, evidence, recommended fix
+**Escalation Rules**:
+- If critical findings exist: handoff is blocked until CODER fixes and re-review passes
+- If implementation does not satisfy stories: document as critical finding, request CODER re-run
+- If blocking questions exist: handoff is blocked until they are answered or reclassified as non-blocking/deferred
 
-#### Major (should be addressed)
+## Handoff to Next Role
 
-- [ ] Finding 1: description, location, evidence, recommended fix
-- [ ] Finding 2: description, location, evidence, recommended fix
+**Target**: DOC (Documentation) — only if review passes (Pass or Conditional Pass)
 
-#### Minor (nice to have)
+**Deliverables**:
+1. `docs/05_Review/review-report.md` — review report with findings and assessment
+2. `docs/04_TestStrategy/open-questions-from-rev.md` — open questions file (if any exist)
 
-- [ ] Finding 1: description, location, evidence, recommended improvement
-- [ ] Finding 2: description, location, evidence, recommended improvement
+**Acceptance Criteria**:
+- Review assessment is Pass or Conditional Pass (no unresolved critical findings)
+- All major findings have recommended fixes that CODER can address
+- Documentation gaps are identified for DOC to address
+- No blocking questions remain open
 
-#### Suggestions (optional improvements)
+**Failure Handling**:
+- If review assessment is Fail: handoff to DOC is blocked; CODER must fix and re-review
+- If review assessment is Conditional Pass: DOC may proceed but must address documentation gaps; re-review may be required
 
-- [ ] Suggestion 1: description and rationale
-- [ ] Suggestion 2: description and rationale
+## Verification
 
-### 3. Validation Against Stories
+REV's completion is validated through:
 
-For each user story:
-- [ ] Acceptance criteria satisfied: Yes/No
-- Evidence: brief description or reference to tests
+| Method | What It Checks | Enforcement |
+| ------ | -------------- | ----------- |
+| Template structure | Review report follows [review report template](agents/templates/review-report-template.md) | review-enforced |
+| Story validation | Each acceptance criterion is validated with Yes/No and evidence | review-enforced |
+| Architecture validation | Implementation compliance with architecture is assessed | review-enforced |
+| Rule compliance | All applicable rules (R01–R07, A01–A05, T01–T05) are checked | review-enforced |
+| Open questions format | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced |
+| Severity categorization | Findings are properly categorized (critical, major, minor, suggestion) | manual only |
 
-### 4. Validation Against Architecture
+**Note**: REV verification is entirely review-enforced — there is no automated tooling for code review quality. The reviewer's judgment is the primary validation mechanism.
 
-- [ ] Implementation follows architecture: Yes/No
-- Deviations: list any deviations with rationale
-- Assessment: whether deviations are acceptable or problematic
+## Open Questions Handling
 
-### 5. Test Quality Assessment
+**MANDATORY**: Use [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for document metadata and file structure.
 
-- [ ] All critical paths tested: Yes/No
-- [ ] Edge cases covered: Yes/No
-- [ ] Test quality: adequate/poor
-- Gaps: list any missing test scenarios
-
-### 6. Open Questions
-
-List ALL uncertainties that need resolution before commit
-
----
-
-## Open Questions Management
-
-**MANDATORY**: If there are open questions that need clarification or require user input:
-
-1. Use [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for document metadata and file structure.
-2. Use [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md) for the canonical question-entry structure.
-3. Save all open questions to: `docs/04_TestStrategy/open-questions-from-rev.md`
-4. The file MUST be created in the `docs/04_TestStrategy/` directory
-5. In the review report output file, include ONLY a **link** to the open questions file — NEVER duplicate the questions themselves
+**MANDATORY**: Use [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md) for the canonical question-entry structure.
 
 ### File Workflow
 
 **If `open-questions-from-rev.md` does NOT exist:**
 
 - Create a new file with all current open questions
-- Format each question clearly with:
-  - Sequential numbering (Q1, Q2, Q3...)
-  - Context about why the question is important
-  - Space for user responses
+- Format each question with Status, Owner (if deferred), and Handoff Impact
 
 **If `open-questions-from-rev.md` already exists:**
 
 - Read existing questions from the file
 - Synchronize with current analysis:
-  - Mark questions as answered only when the user has given a clear, concrete answer
-  - Do not move vague, deferred, or "later" responses into the answered section
-  - Represent selected answers with markdown checkboxes (`[x]`), not symbols such as `✓`
-  - Move answered questions to the "Answered Questions" section
-  - Add any new open questions that emerged from the current session
-  - Keep unanswered questions that are still relevant
-  - Update questions if context has changed
+  - Mark questions as answered ONLY when the user has given a clear, concrete answer
+  - Do NOT move vague, deferred, or "later" responses into answered section
+  - Add new open questions that emerged from current session
+  - Update statuses and owners as context changes
   - Remove exact duplicates
 
-### Format Template
+### Status Rules
 
-See [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for the file-level template and [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md) for the canonical question format.
-
-**Key points:**
-
-- Each active question MUST include 2-4 suggested answer options
-- Suggested answers should cover the most reasonable and distinct choices
-- Use `None` when a section has no items
+- `blocking`: question blocks REV from completing review; MUST be answered before handoff
+- `non-blocking`: question does not block progress; can pass to DOC
+- `deferred`: question intentionally postponed; requires explicit Owner
+- `answered`: question resolved; move to answered section with Answered By and Answered Date
 
 ### Purpose
 
-- Track all assumptions and clarifications needed for accurate review
+- Track assumptions and clarifications needed for accurate review
 - Ensure questions are not lost between sessions
 - Provide clear visibility into what information is still needed
-- Create an audit trail of decisions and their rationale
+- Create audit trail of decisions and their rationale
