@@ -2,6 +2,7 @@
 
 **Project**: [project name]  
 **Date**: [YYYY-MM-DD]  
+**Status**: [status of document]  
 **Source**: [relative link to `vision.md`]
 
 ---

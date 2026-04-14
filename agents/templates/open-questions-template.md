@@ -2,7 +2,10 @@
 
 **Project**: [project name]
 **Last Updated**: [YYYY-MM-DD]
+**Status**: [status of document]  
 **Vision File**: [link to vision.md]
+
+## Unanswered Questions
 
 ### Q[1]: [Question title]
 **Context**: [Why this question matters for product discovery]

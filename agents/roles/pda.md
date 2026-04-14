@@ -134,7 +134,9 @@ _(none — does not write code or make technical decisions)_
 **If `open-questions-from-pda.md` already exists:**
 - Read existing questions from the file
 - Synchronize with current analysis:
-  - Mark answered questions with ✓ and move them to "Answered Questions" section
+  - Mark questions as answered only when the user has given a clear, concrete answer
+  - Do not move vague, deferred, or "later" responses into "Answered Questions"
+  - Keep unresolved or intentionally open questions in the open questions section
   - Add any new open questions that emerged from the current session
   - Keep unanswered questions that are still relevant
 - Update questions if context has changed

@@ -1,56 +1,67 @@
 # Open Questions from PDA
 
-**Date**: 2026-04-14
-**Status**: ✅ All answered — ready for PM handoff
+**Project**: ts_code_analyzer  
+**Last Updated**: 2026-04-14  
+**Vision File**: [vision.md](./vision.md)
 
----
+## Unanswered Questions
 
-## Active Questions
-
-_(none)_
+None
 
 ---
 
 ## Answered Questions
 
-### Q1: What specific "problems in code" should the tool detect?
+### Q1: What is the intended input scope?
+**Context**: The vision says the tool analyzes large TypeScript npm libraries, but it does not yet state whether the main input is a local repository, a published package, or both.
+**Impact**: This affects how the product is framed for users and which workflows PM should prioritize.
 
-**Answer**: **A)** Start with a focused set: unused exports, circular dependencies, high cyclomatic complexity, dead code, undocumented public exports. Expand later.
-
-**Implication**: Detection engine ships with a small, high-value rule set. Each rule is designed to fill gaps that ESLint/oxlint don't address — focusing on architectural and API-level problems rather than style or basic correctness.
-
----
-
-### Q2: Should the tool focus only on public API analysis, or also internal code health?
-
-**Answer**: **A)** Public API is the primary feature; internal code health is secondary but supported (API-first, metrics-second).
-
-**Implication**: The tool's identity is a "public API analyzer with code health awareness." Internal metrics support the primary goal — e.g., knowing that a complex internal module backs a simple public export helps prioritize refactoring.
+**Suggested Answers**:
+- [x] **A1**: Local repository analysis only
+- [ ] **A2**: Local repository first, with package metadata support later
+- [ ] **A3**: Local repositories and published npm packages equally
+- [ ] **Custom**: Define a different input scope
 
 ---
 
-### Q3: What does "получать больше информации о состоянии кода" mean concretely?
+### Q2: What should v1 treat as the public API boundary?
+**Context**: "Public API" can mean exported symbols, package.json `exports`, generated type declarations, or documentation-facing entry points.
+**Impact**: This determines what the tool must recognize as public-facing and what counts as an API change.
 
-**Answer**: **B)** API-centric: list of all public types/functions with signatures, breaking change detection between versions, deprecation tracking.
-
-**Implication**: Reporting is API-first. The core output is a structured catalog of everything the library exposes, enriched with version-comparison intelligence (breaking changes, deprecations). Structural metrics (file counts, complexity) are secondary context, not the main product.
-
----
-
-### Q4: Should the tool support monorepos out of the box?
-
-**Answer**: **B)** No — single-package only for v1; monorepo support is future work.
-
-**Implication**: v1 assumes a single `tsconfig.json` and a single package root. Users in monorepos can run the tool per-package manually. This keeps initial file resolution and config handling simple.
+**Suggested Answers**:
+- [ ] **A1**: `package.json` exports and entry points
+- [x] **A2**: Exported TypeScript symbols and re-exports
+- [ ] **A3**: A combined boundary including package metadata and exports
+- [ ] **Custom**: Define a project-specific API boundary model
 
 ---
 
-### Q5: What is the minimum viable output format?
+### Q3: What is the primary output format for the user?
+**Context**: The vision emphasizes quick understanding, but not whether the user should receive terminal output, JSON, markdown, or another format.
+**Impact**: This changes how users consume the tool and how PM should describe the core experience.
 
-**Answer**: **B)** Console + JSON output (for CI/CD and programmatic consumption).
+**Suggested Answers**:
+- [x] **A1**: Human-readable CLI summary
+- [ ] **A2**: Machine-readable JSON output
+- [ ] **A3**: Both human-readable and machine-readable output
+- [ ] **Custom**: Another primary format
 
-**Implication**: Two output targets from day one:
-- **Console**: human-readable, terminal-friendly formatting
-- **JSON**: machine-readable, suitable for CI/CD pipelines, programmatic consumption, and future tooling (dashboards, diffs)
+---
 
-Markdown report is deferred (can be generated from JSON by consumers if needed).
+### Q4: How should the tool define "maintenance risk" at the product level?
+**Context**: The vision now defines maintenance risk as the relationship between the size of the public API and the total size of the codebase.
+**Impact**: This determines what the tool should calculate and which signals the PM should treat as the core risk metric.
+
+**Suggested Answers**:
+- [x] **A1**: Public API size relative to total codebase size
+- [ ] **A2**: Structural complexity and coupling signals
+- [ ] **A3**: Change volatility and churn signals
+- [ ] **Custom**: Define another risk model
+
+## Quick Reference
+
+| Symbol | Meaning |
+|--------|---------|
+| `[ ]` | Not selected |
+| `[x]` | Selected answer |
+| ~~text~~ | Question answered (moved to Answered section) |

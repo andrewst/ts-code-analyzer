@@ -12,13 +12,15 @@ Helps maintainers understand and control large TypeScript libraries faster, with
 ## Key Characteristics
 - Surface accurate information about the library's public API
 - Highlight meaningful changes in the codebase
-- Help identify maintenance risks early
+- Define maintenance risk as the relationship between the size of the public API and the total size of the library's codebase
+- Help identify maintenance risks early using that ratio as a signal
 - Support quick codebase review for large libraries
 - Focus on practical, maintainable insights rather than raw low-level data
 
 ## Primary Questions
 - What is exposed by the public API?
 - What changed recently?
+- How large is the public API relative to the total codebase?
 - Where is the codebase becoming harder to maintain?
 - What parts of the library deserve attention first?
 
