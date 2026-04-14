@@ -131,10 +131,10 @@ _(none — does not write code or make technical decisions)_
 
 ## Output Storage
 
-**MANDATORY**: All PM outputs MUST be saved to: `./docs/04_Stories/`
+**MANDATORY**: All PM outputs MUST be saved to: `./docs/03_Stories/`
 
 - File naming: `stories.md`
-- The output file MUST be created in the `./docs/04_Stories/` directory
+- The output file MUST be created in the `./docs/03_Stories/` directory
 - **DO NOT** duplicate the output in the console/chat — write only to the file
 - Provide only a brief confirmation message in the console after writing the file
 
@@ -166,7 +166,7 @@ _(none — does not write code or make technical decisions)_
 
 ### Format Template
 
-See [`../templates/open-questions-template.md`](../templates/open-questions-template.md) for the complete template format.
+See [`./agents/templates/open-questions-template.md`](./agents/templates/open-questions-template.md) for the complete template format.
 
 **Key points:**
 - Each active question MUST include 2-4 suggested answer options
