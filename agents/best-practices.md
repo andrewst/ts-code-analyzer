@@ -28,7 +28,7 @@
 | ----------------------- | ----------------------------------------------- |
 | `any` for AST nodes     | Use TypeScript AST types from chosen library    |
 | Mix I/o with core logic | Separate pure functions from I/O                |
-| Skip edge cases         | Reference edge case documentation             |
+| Skip edge cases         | Reference edge case documentation               |
 | Over-engineer           | Start simple, add complexity when proven        |
 | Skip tests              | Every change includes tests                     |
 | Ignore performance      | Consider file count, memory for large codebases |

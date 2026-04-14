@@ -8,10 +8,12 @@
 ## Unanswered Questions
 
 ### Q[1]: [Question title]
+
 **Context**: [Why this question matters for product discovery]
 **Impact**: [What decisions depend on this answer]
 
 **Suggested Answers**:
+
 - [ ] **A1**: [first suggested option]
 - [ ] **A2**: [second suggested option]
 - [ ] **A3**: [third suggested option]
@@ -20,10 +22,12 @@
 ---
 
 ### Q[2]: [Question title]
+
 **Context**: [Why this question matters for product discovery]
 **Impact**: [What decisions depend on this answer]
 
 **Suggested Answers**:
+
 - [ ] **A1**: [first suggested option]
 - [ ] **A2**: [second suggested option]
 - [ ] **A3**: [third suggested option]
@@ -34,10 +38,12 @@
 ## Answered Questions
 
 ### Q[1]: [Question title]
+
 **Context**: [Why this question matters for product discovery]
 **Impact**: [What decisions depend on this answer]
 
 **Suggested Answers**:
+
 - [ ] **A1**: [first suggested option]
 - [x] **A2**: [second suggested option]
 - [ ] **A3**: [third suggested option]
@@ -47,8 +53,8 @@
 
 ## Quick Reference
 
-| Symbol | Meaning |
-|--------|---------|
-| `[ ]` | Not selected |
-| `[x]` | Selected answer |
+| Symbol   | Meaning                                       |
+| -------- | --------------------------------------------- |
+| `[ ]`    | Not selected                                  |
+| `[x]`    | Selected answer                               |
 | ~~text~~ | Question answered (moved to Answered section) |

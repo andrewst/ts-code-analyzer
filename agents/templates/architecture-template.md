@@ -51,13 +51,13 @@ See [relative link to the open questions file] for unresolved architecture decis
 
 ## Handoff Readiness
 
-| Checklist Item | Status |
-| --- | --- |
-| Coherence - architecture has one clear approach | [ ] |
-| Boundaries - modules have single responsibilities | [ ] |
-| Testability - core logic can be tested without I/O | [ ] |
-| Maintainability - dependency flow is directional | [ ] |
-| Handoff quality - QA and CODER can proceed with implementation | [ ] |
+| Checklist Item                                                 | Status |
+| -------------------------------------------------------------- | ------ |
+| Coherence - architecture has one clear approach                | [ ]    |
+| Boundaries - modules have single responsibilities              | [ ]    |
+| Testability - core logic can be tested without I/O             | [ ]    |
+| Maintainability - dependency flow is directional               | [ ]    |
+| Handoff quality - QA and CODER can proceed with implementation | [ ]    |
 
 **Verdict**: [ready / needs follow-up / blocked]
 

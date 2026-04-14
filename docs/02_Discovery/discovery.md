@@ -56,13 +56,13 @@ None at the moment. See [open-questions-from-pda.md](./docs/01_Vision/open-quest
 
 ## PM Handoff Readiness
 
-| Checklist Item | Status |
-| --- | --- |
-| Coherence - idea is structured and logical | [x] |
-| User focus - journeys cover primary flows | [x] |
-| Completeness - use cases cover the main needs | [x] |
-| Scope clarity - feature breakdown is unambiguous | [x] |
-| Handoff quality - PM can derive user stories from this input | [x] |
+| Checklist Item                                               | Status |
+| ------------------------------------------------------------ | ------ |
+| Coherence - idea is structured and logical                   | [x]    |
+| User focus - journeys cover primary flows                    | [x]    |
+| Completeness - use cases cover the main needs                | [x]    |
+| Scope clarity - feature breakdown is unambiguous             | [x]    |
+| Handoff quality - PM can derive user stories from this input | [x]    |
 
 **Verdict**: ready
 

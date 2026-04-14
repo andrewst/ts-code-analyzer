@@ -55,13 +55,13 @@ See [relative link to the open questions file] if questions need to be tracked s
 
 ## PM Handoff Readiness
 
-| Checklist Item | Status |
-| --- | --- |
-| Coherence - idea is structured and logical | [ ] |
-| User focus - journeys cover primary flows | [ ] |
-| Completeness - use cases cover the main needs | [ ] |
-| Scope clarity - feature breakdown is unambiguous | [ ] |
-| Handoff quality - PM can derive user stories from this input | [ ] |
+| Checklist Item                                               | Status |
+| ------------------------------------------------------------ | ------ |
+| Coherence - idea is structured and logical                   | [ ]    |
+| User focus - journeys cover primary flows                    | [ ]    |
+| Completeness - use cases cover the main needs                | [ ]    |
+| Scope clarity - feature breakdown is unambiguous             | [ ]    |
+| Handoff quality - PM can derive user stories from this input | [ ]    |
 
 **Verdict**: [ready / needs follow-up / blocked]
 

@@ -16,6 +16,7 @@
 ### Feature Group: Public API understanding
 
 #### User Story: Summarize the public surface
+
 - Description: As a library maintainer, I want to see which TypeScript symbols and re-exports are publicly exposed, so that I can understand the library's public surface quickly.
 
 - Acceptance Criteria:
@@ -29,6 +30,7 @@
 ### Feature Group: Maintenance risk detection
 
 #### User Story: Assess maintenance risk from surface size
+
 - Description: As a tech lead or maintainer, I want a maintenance-risk signal based on the relationship between public API size and total codebase size, so that I can spot when the surface area may be harder to maintain.
 
 - Acceptance Criteria:
@@ -42,6 +44,7 @@
 ### Feature Group: Concise CLI summary
 
 #### User Story: Review a decision-ready overview
+
 - Description: As a maintainer, I want a concise human-readable CLI summary that combines public API and maintenance-risk signals, so that I can decide what to inspect next.
 
 - Acceptance Criteria:

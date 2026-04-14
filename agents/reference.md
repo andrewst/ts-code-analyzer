@@ -1,6 +1,5 @@
 # Reference
 
-
 ## Commands
 
 | Command                    | Purpose                    |
@@ -11,5 +10,5 @@
 
 ## Key Files
 
-| File                                 | Purpose               |
-| ------------------------------------ | --------------------- |
+| File | Purpose |
+| ---- | ------- |

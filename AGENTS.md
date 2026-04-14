@@ -6,17 +6,16 @@ TypeScript static code analysis utility — agent-driven development.
 
 **Type**: TypeScript static code analysis utility (CLI tool)  
 **Stage**: Early development (v0.0.1)  
-**Stack**: TypeScript 6.0+, TypeScript Compiler API, ESM, pnpm  
+**Stack**: TypeScript 6.0+, TypeScript Compiler API, ESM, pnpm
 
 ## Roles
 
-| Role  | File                                                  | When                              |
-| ----- | ----------------------------------------------------- | --------------------------------- |
-| PDA   | [agents/roles/pda.md](agents/roles/pda.md)            | Idea structuring, discovery       |
-| PM    | [agents/roles/pm.md](agents/roles/pm.md)              | User stories, backlog creation    |
-| ARC   | [agents/roles/arc.md](agents/roles/arc.md)            | Architecture and technical design |
-| Workflow | [agents/roles/workflow.md](agents/roles/workflow.md) | Full development sequence       |
-
+| Role     | File                                                 | When                              |
+| -------- | ---------------------------------------------------- | --------------------------------- |
+| PDA      | [agents/roles/pda.md](agents/roles/pda.md)           | Idea structuring, discovery       |
+| PM       | [agents/roles/pm.md](agents/roles/pm.md)             | User stories, backlog creation    |
+| ARC      | [agents/roles/arc.md](agents/roles/arc.md)           | Architecture and technical design |
+| Workflow | [agents/roles/workflow.md](agents/roles/workflow.md) | Full development sequence         |
 
 **Workflow**: See [agents/roles/workflow.md](agents/roles/workflow.md)
 

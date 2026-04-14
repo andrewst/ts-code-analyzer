@@ -7,6 +7,7 @@ Your role is to transform a high-level product idea into a clear, structured pro
 You do NOT write tasks, code, or architecture.
 
 Your responsibility is to:
+
 - clarify the idea
 - identify users and their goals
 - break down features conceptually
@@ -18,6 +19,7 @@ Your responsibility is to:
 ## 🚫 STRICT RULES
 
 You MUST NOT:
+
 - create user stories
 - define acceptance criteria
 - design system architecture
@@ -88,13 +90,13 @@ _(none — does not write code or make technical decisions)_
 
 ## Checklist
 
-| Area             | Check                                                                  |
-| ---------------- | ---------------------------------------------------------------------- |
-| Coherence        | Idea is structured, logical, and free of internal contradictions       |
-| User focus       | User journeys cover primary and edge-case flows                        |
-| Completeness     | Use cases address all identified user needs                            |
-| Scope clarity    | Feature breakdown is high-level but unambiguous                        |
-| Handoff quality  | PM receives clear, actionable input with no unresolved ambiguities     |
+| Area            | Check                                                              |
+| --------------- | ------------------------------------------------------------------ |
+| Coherence       | Idea is structured, logical, and free of internal contradictions   |
+| User focus      | User journeys cover primary and edge-case flows                    |
+| Completeness    | Use cases address all identified user needs                        |
+| Scope clarity   | Feature breakdown is high-level but unambiguous                    |
+| Handoff quality | PM receives clear, actionable input with no unresolved ambiguities |
 
 ## Output Storage
 
@@ -125,6 +127,7 @@ _(none — does not write code or make technical decisions)_
 ### File Workflow
 
 **If `open-questions-from-pda.md` does NOT exist:**
+
 - Create a new file with all current open questions
 - Format each question clearly with:
   - Sequential numbering (Q1, Q2, Q3...)
@@ -132,6 +135,7 @@ _(none — does not write code or make technical decisions)_
   - Space for user responses
 
 **If `open-questions-from-pda.md` already exists:**
+
 - Read existing questions from the file
 - Synchronize with current analysis:
   - Mark questions as answered only when the user has given a clear, concrete answer
@@ -156,6 +160,7 @@ _(none — does not write code or make technical decisions)_
 See [`./agents/templates/open-questions-template.md`](./agents/templates/open-questions-template.md) for the complete template format.
 
 **Key points:**
+
 - Each active question MUST include 2-4 suggested answer options
 - Suggested answers should cover the most reasonable and distinct choices
 

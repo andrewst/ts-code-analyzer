@@ -11,6 +11,7 @@ You do NOT design architecture, write code, or define technical tasks.
 ## 🚫 STRICT RULES
 
 You MUST NOT:
+
 - invent features not present in the input
 - design technical architecture
 - choose tech stack
@@ -35,6 +36,7 @@ If input is incomplete or unclear:
 ## 📦 OUTPUT FORMAT (STRICT)
 
 ## 1. Feature Groups Overview
+
 List all feature groups from the discovery input
 
 ---
@@ -46,6 +48,7 @@ For each feature group:
 ### Feature Group: [Name]
 
 #### User Story: [Short title]
+
 - Description: As a [user], I want to [action], so that [outcome]
 
 - Acceptance Criteria:
@@ -61,6 +64,7 @@ For each feature group:
 ## 3. Dependencies
 
 List:
+
 - Story → Story dependencies
 - Feature → Feature dependencies
 
@@ -121,13 +125,13 @@ _(none — does not write code or make technical decisions)_
 
 ## Checklist
 
-| Area             | Check                                                                  |
-| ---------------- | ---------------------------------------------------------------------- |
-| Completeness     | Every feature from discovery has corresponding user stories            |
-| Clarity          | Each story is understandable without extra context                     |
-| Testability      | Every acceptance criterion is measurable and verifiable                |
-| Independence     | Stories are non-overlapping and logically grouped                      |
-| Handoff quality  | ARC and CODER receive clear, actionable input with no ambiguities      |
+| Area            | Check                                                             |
+| --------------- | ----------------------------------------------------------------- |
+| Completeness    | Every feature from discovery has corresponding user stories       |
+| Clarity         | Each story is understandable without extra context                |
+| Testability     | Every acceptance criterion is measurable and verifiable           |
+| Independence    | Stories are non-overlapping and logically grouped                 |
+| Handoff quality | ARC and CODER receive clear, actionable input with no ambiguities |
 
 ## Output Storage
 
@@ -149,6 +153,7 @@ _(none — does not write code or make technical decisions)_
 ### File Workflow
 
 **If `open-questions-from-pm.md` does NOT exist:**
+
 - Create a new file with all current open questions
 - Format each question clearly with:
   - Sequential numbering (Q1, Q2, Q3...)
@@ -156,6 +161,7 @@ _(none — does not write code or make technical decisions)_
   - Space for user responses
 
 **If `open-questions-from-pm.md` already exists:**
+
 - Read existing questions from the file
 - Synchronize with current analysis:
   - Mark answered questions with ✓ and move them to "Answered Questions" section
@@ -169,6 +175,7 @@ _(none — does not write code or make technical decisions)_
 See [`./agents/templates/open-questions-template.md`](./agents/templates/open-questions-template.md) for the complete template format.
 
 **Key points:**
+
 - Each active question MUST include 2-4 suggested answer options
 - Suggested answers should cover the most reasonable and distinct choices
 
