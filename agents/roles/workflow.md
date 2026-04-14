@@ -70,7 +70,7 @@ When a role completes their work and hands off to the next stage:
 ### Role-Specific Rules
 
 - **PD and PM**: blocking questions about product scope or user needs MUST be resolved before handoff to ARC
-- **ARC**: blocking technical decisions MUST be resolved before handoff to QA
+- **ARC**: blocking technical decisions MUST be resolved before handoff to PLAN
 - **QA**: blocking test strategy gaps MUST be resolved before handoff to CODER
 - **CODER**: blocking implementation questions MUST be resolved; if blocked by external dependency, record and escalate
 - **REV**: blocking findings in review MUST be addressed before handoff to DOC
@@ -94,7 +94,7 @@ Each stage produces specific artifacts. The lifecycle rules are:
 | PD    | `docs/02_Discovery/discovery.md`        | Create new if missing; update existing, preserving valid content            |
 | PM    | `docs/03_Stories/stories.md`            | Create new if missing; update existing, preserving valid stories            |
 | ARC   | `docs/03_Stories/architecture.md`       | Create new if missing; update existing, preserving design decisions         |
-| PLAN  | `docs/04_Tasks/tasks.md`                 | Create new if missing; update existing, preserving dependencies             |
+| PLAN  | `docs/04_Tasks/tasks.md`                | Create new if missing; update existing, preserving dependencies             |
 | QA    | `docs/05_TestStrategy/test-strategy.md` | Create new if missing; update existing, preserving test scenarios           |
 | CODER | `src/` files                            | Implement according to architecture; update based on REV feedback           |
 | REV   | `docs/05_Review/review-report.md`       | Create fresh for each review cycle; reference previous reports              |

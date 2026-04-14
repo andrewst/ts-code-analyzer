@@ -25,3 +25,4 @@
 | `docs/02_Discovery/discovery.md`  | PD output                                            |
 | `docs/03_Stories/stories.md`      | PM output                                            |
 | `docs/03_Stories/architecture.md` | ARC output                                           |
+| `docs/04_Tasks/tasks.md`          | PLAN output                                          |
