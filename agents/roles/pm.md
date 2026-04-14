@@ -92,7 +92,7 @@ If NOT → refine
 
 ## When to Activate
 
-- PDA has produced a structured discovery output at `./docs/03_Discovery/discovery.md`
+- PDA has produced a structured discovery output at `./docs/02_Discovery/discovery.md`
 - Feature scope is clear but needs user story breakdown
 - User stories and acceptance criteria are needed for ARC and CODER
 
@@ -108,14 +108,14 @@ _(none — does not write code or make technical decisions)_
 
 ## Input
 
-- **MANDATORY**: Discovery file at `./docs/03_Discovery/discovery.md` — MUST be read and used as the **primary and only** source for ALL user story creation
+- **MANDATORY**: Discovery file at `./docs/02_Discovery/discovery.md` — MUST be read and used as the **primary and only** source for ALL user story creation
 - **OPTIONAL**: Vision file at `./docs/01_Vision/vision.md` — for additional context if needed
-- **OPTIONAL**: Open questions file at `./docs/03_Discovery/open-questions-from-pda.md` — MUST be read if exists to incorporate answered questions
+- **OPTIONAL**: Open questions file at `./docs/02_Discovery/open-questions-from-pda.md` — MUST be read if exists to incorporate answered questions
 
 ### Input Workflow
 
-1. **ALWAYS** read `./docs/03_Discovery/discovery.md` — this is the single source of truth
-2. **ALWAYS** read `./docs/03_Discovery/open-questions-from-pda.md` if it exists — incorporate answered questions
+1. **ALWAYS** read `./docs/02_Discovery/discovery.md` — this is the single source of truth
+2. **ALWAYS** read `./docs/02_Discovery/open-questions-from-pda.md` if it exists — incorporate answered questions
 3. Use PDA's feature groups, user journeys, and use cases as the foundation for user stories
 4. Do NOT invent features beyond what exists in the discovery file
 
@@ -142,8 +142,8 @@ _(none — does not write code or make technical decisions)_
 
 **MANDATORY**: If there are open questions that need clarification or require user input:
 
-1. Save all open questions to: `./docs/03_Discovery/open-questions-from-pm.md`
-2. The file MUST be created in the `./docs/03_Discovery/` directory
+1. Save all open questions to: `./docs/02_Discovery/open-questions-from-pm.md`
+2. The file MUST be created in the `./docs/02_Discovery/` directory
 3. In the stories output file, include ONLY a **link** to the open questions file — NEVER duplicate the questions themselves
 
 ### File Workflow

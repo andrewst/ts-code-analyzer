@@ -98,13 +98,21 @@ _(none — does not write code or make technical decisions)_
 
 ## Output Storage
 
-**MANDATORY**: All PDA analysis results MUST be saved to: `./docs/03_Discovery/`
+**MANDATORY**: All PDA analysis results MUST be saved to: `./docs/02_Discovery/`
 
 - File naming: `discovery.md`
-- The output file MUST be created in `./docs/03_Discovery/` directory
+- The output file MUST be created in `./docs/02_Discovery/` directory
 - Each discovery session creates a new file with timestamp or unique identifier if needed
 - **DO NOT** duplicate the output in the console/chat — write only to the file
 - Provide only a brief confirmation message in the console after writing the file
+
+## Discovery Template Usage
+
+**MANDATORY**: Use [`../templates/discovery-template.md`](../templates/discovery-template.md) as the canonical structure when generating or editing discovery output.
+
+- Preserve the template's section order and headings unless the project explicitly requires a different structure.
+- Fill in each section with discovery content instead of inventing a new document layout.
+- When updating an existing discovery file, keep it aligned with the template structure and add only project-specific content.
 
 ## Open Questions Management
 
@@ -112,7 +120,7 @@ _(none — does not write code or make technical decisions)_
 
 1. Save all open questions to: `./docs/01_Vision/open-questions-from-pda.md`
 2. The file MUST be created in the `./docs/01_Vision/` directory (same directory as `vision.md`)
-3. In the discovery output file (`./docs/03_Discovery/discovery.md`), include ONLY a **link** to the open questions file — NEVER duplicate the questions themselves
+3. In the discovery output file (`./docs/02_Discovery/discovery.md`), include ONLY a **link** to the open questions file — NEVER duplicate the questions themselves
 
 ### File Workflow
 
@@ -129,9 +137,17 @@ _(none — does not write code or make technical decisions)_
   - Mark answered questions with ✓ and move them to "Answered Questions" section
   - Add any new open questions that emerged from the current session
   - Keep unanswered questions that are still relevant
-  - Update questions if context has changed
-  - Remove exact duplicates (same question already asked)
+- Update questions if context has changed
+- Remove exact duplicates (same question already asked)
 - Overwrite the file with the synchronized question list
+
+## Open Questions Template Usage
+
+**MANDATORY**: Use [`../templates/open-questions-template.md`](../templates/open-questions-template.md) as the canonical structure when generating or editing the open questions file.
+
+- Preserve the template's section order and question format unless the project explicitly requires a different structure.
+- Keep active questions in the open questions section and answered items in the answered section.
+- When updating an existing file, synchronize it with the template structure rather than inventing a custom format.
 
 ### Format Template
 
@@ -148,4 +164,3 @@ See [`../templates/open-questions-template.md`](../templates/open-questions-temp
 - Provide clear visibility into what information is still needed
 - Create an audit trail of decisions and their rationale
 - Enable iterative refinement: each PDA session builds on previous answers
-

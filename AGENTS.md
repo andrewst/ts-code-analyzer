@@ -27,6 +27,9 @@ TypeScript static code analysis utility — agent-driven development.
 | [Architecture](agents/rules/architecture.md) | A01–A05 |
 | [Testing](agents/rules/testing.md)           | T01–T05 |
 
+- **All repository documents must be written in English**: this includes vision, discovery, questions, and other documentation files in `docs/` and related repository documentation.
+- **Internal document links must be relative**: any link from one repository document to another repository document must use a path relative to the current file. Do not use absolute filesystem paths or repo-root-style paths for internal documentation links.
+
 ### Role → Rules Mapping
 
 Each role applies a specific subset of rules. This is the single source of truth — role files do not duplicate rule links.

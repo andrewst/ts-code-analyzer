@@ -8,13 +8,11 @@
 **Context**: [Why this question matters for product discovery]
 **Impact**: [What decisions depend on this answer]
 
-**Answer:**:
-- **A3**: [third suggested option]
-
 **Suggested Answers**:
-- **A1**: [first suggested option]
-- **A2**: [second suggested option]
-- **A3**: [third suggested option]
+- [ ] **A1**: [first suggested option]
+- [ ] **A2**: [second suggested option]
+- [ ] **A3**: [third suggested option]
+- [ ] **Custom**: [write your own answer here]
 
 ---
 
@@ -22,13 +20,25 @@
 **Context**: [Why this question matters for product discovery]
 **Impact**: [What decisions depend on this answer]
 
-**Answer:**:
-- **Custom**: [write your own answer here]
+**Suggested Answers**:
+- [ ] **A1**: [first suggested option]
+- [ ] **A2**: [second suggested option]
+- [ ] **A3**: [third suggested option]
+- [ ] **Custom**: [write your own answer here]
+
+---
+
+## Answered Questions
+
+### Q[1]: [Question title]
+**Context**: [Why this question matters for product discovery]
+**Impact**: [What decisions depend on this answer]
 
 **Suggested Answers**:
-- **A1**: [first suggested option]
-- **A2**: [second suggested option]
-- **A3**: [third suggested option]
+- [ ] **A1**: [first suggested option]
+- [x] **A2**: [second suggested option]
+- [ ] **A3**: [third suggested option]
+- [ ] **Custom**: [write your own answer here]
 
 ---
 

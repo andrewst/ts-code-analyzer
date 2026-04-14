@@ -24,9 +24,9 @@ Request → PDA → PM → ARC → QA → CODER → REV → DOC → Commit
 ## Workflow Notes
 
 - **PDA comes before PM**: PDA prepares structured input so PM can write precise user stories
-- Each role applies a specific subset of rules — see [Role → Rules Mapping](../AGENTS.md#role--rules-mapping)
+- Each role applies a specific subset of rules — see [Role → Rules Mapping](../../AGENTS.md#role--rules-mapping)
 - Roles that do not write code (PDA, PM) do not have applicable rules
 
 ## Key References
 
-- [AGENTS.md](../AGENTS.md) | [Rules Index](../rules/) | [Reference](../reference.md) | [Best Practices](../best-practices.md)
+- [AGENTS.md](../../AGENTS.md) | [Rules Index](../rules/) | [Reference](../reference.md) | [Best Practices](../best-practices.md)
