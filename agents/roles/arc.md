@@ -85,7 +85,7 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 ## Output
 
-- **Primary output**: Architecture file at `docs/03_Stories/architecture.md`
+- **Primary output**: Architecture file at `docs/03_Stories/architecture.md` — **MANDATORY**: Use [architecture template](agents/templates/architecture-template.md) for output structure.
 - **Secondary output**: Open questions file at `docs/02_Discovery/open-questions-from-arc.md` (if questions need tracking)
 
 ## Artifacts

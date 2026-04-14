@@ -82,14 +82,14 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 ## Output
 
-- **Primary output**: `docs/04_Tasks/tasks.md` — structured task list containing title, description, inputs, outputs, acceptance_criteria, and dependencies
+- **Primary output**: `docs/04_Task/tasks.md` — structured task list. **MANDATORY**: Use [tasks template](agents/templates/tasks-template.md) for output structure.
 - **Secondary output**: `docs/03_Stories/open-questions-from-plan.md` — updated with any blocking ambiguities found during planning
 
 ## Artifacts
 
 | Artifact       | Location                                      | Lifecycle                                                         |
 | -------------- | --------------------------------------------- | ----------------------------------------------------------------- |
-| Task List      | `docs/04_Tasks/tasks.md`                       | Create new if missing; update existing if present, with new tasks |
+| Task List      | `docs/04_Task/tasks.md`                       | Create new if missing; update existing if present, with new tasks |
 | Open Questions | `docs/03_Stories/open-questions-from-plan.md` | Create new if missing; synchronize existing                       |
 
 **Update Rules**:
@@ -106,7 +106,7 @@ PLAN's work is complete when ALL of the following are satisfied:
 - [ ] Tasks are atomic, developer-ready, and executable without further clarification.
 - [ ] Every task includes title, description, inputs, outputs, acceptance_criteria, and dependencies.
 - [ ] Task dependencies are clearly mapped and logically sequenced without cyclical dependencies.
-- [ ] `docs/04_Tasks/tasks.md` is generated and formatted as a structured task list.
+- [ ] `docs/04_Task/tasks.md` is generated and follows [tasks template](agents/templates/tasks-template.md).
 - [ ] No blocking, unclarified questions remain about requirements or architecture.
 
 ## Blocking Conditions
@@ -131,7 +131,7 @@ The following conditions BLOCK handoff to QA:
 
 **Deliverables**:
 
-1. `docs/04_Tasks/tasks.md` — The structured, sequenced, and atomic list of development tasks.
+1. `docs/04_Task/tasks.md` — The structured, sequenced, and atomic list of development tasks.
 2. `docs/03_Stories/open-questions-from-plan.md` — Updated with any non-blocking or deferred questions, if any.
 
 **Acceptance Criteria**:
@@ -152,7 +152,7 @@ PLAN's completion is validated through:
 
 | Method                | What It Checks                                                                                                                       | Enforcement     |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| Template structure    | `docs/04_Tasks/tasks.md` contains title, description, inputs, outputs, acceptance_criteria, dependencies                              | review-enforced |
+| Template structure    | `docs/04_Task/tasks.md` follows [tasks template](agents/templates/tasks-template.md)                                                 | review-enforced |
 | Atomicity check       | Tasks are small, implementable, and unambiguous                                                                                      | review-enforced |
 | Coverage check        | Tasks comprehensively cover `docs/03_Stories/stories.md` and `docs/03_Stories/architecture.md`                                       | manual only     |
 | Open questions format | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced |
@@ -184,7 +184,7 @@ PLAN's completion is validated through:
 
 ### Status Rules
 
-- `blocking`: question blocks PLAN from completing `docs/04_Tasks/tasks.md`; MUST be answered before handoff
+- `blocking`: question blocks PLAN from completing `docs/04_Task/tasks.md`; MUST be answered before handoff
 - `non-blocking`: question does not block progress; can pass to QA
 - `deferred`: question intentionally postponed; requires explicit Owner
 - `answered`: question resolved; move to answered section with Answered By and Answered Date
