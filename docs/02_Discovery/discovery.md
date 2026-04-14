@@ -52,7 +52,7 @@ Users need a fast, reliable way to answer a small set of maintenance-critical qu
 
 ## Open Questions
 
-See `docs/01_Vision/open-questions-from-pda.md` for the recorded answers that further constrain PM story-writing.
+See `docs/01_Vision/open-questions-from-pd.md` for the recorded answers that further constrain PM story-writing.
 
 ## Blocking Conditions
 
@@ -60,7 +60,7 @@ None.
 
 ## Done Criteria
 
-PDA's work is complete when ALL of the following are satisfied:
+PD's work is complete when ALL of the following are satisfied:
 
 - [x] Discovery file exists and follows this template structure
 - [x] Product idea is structured with problem statement, target users, and value proposition

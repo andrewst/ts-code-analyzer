@@ -8,7 +8,7 @@
 **Related Source Files**:
 
 - `docs/02_Discovery/discovery.md`
-- `docs/01_Vision/open-questions-from-pda.md`
+- `docs/01_Vision/open-questions-from-pd.md`
 
 ## Document Status Notes
 

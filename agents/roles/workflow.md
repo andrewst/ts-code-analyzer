@@ -5,14 +5,14 @@ The AI-driven software development workflow defines the sequence of roles from i
 ## Workflow Sequence
 
 ```
-Request → PDA → PM → ARC → QA → CODER → REV → DOC → Commit
+Request → PD → PM → ARC → QA → CODER → REV → DOC → Commit
 ```
 
 ## Role Stages Summary
 
 | Stage | Role | Input | Output | Done Criteria | Blockers | Handoff Target |
 | ----- | ---- | ----- | ------ | ------------- | -------- | -------------- |
-| 1 | **PDA** (Product Discovery) | Vision file, raw idea | Discovery file, open questions | Discovery follows template; user journeys defined; feature breakdown complete; no blocking questions | Vision missing; scope ambiguous; blocking questions open | PM |
+| 1 | **PD** (Product Discovery) | Vision file, raw idea | Discovery file, open questions | Discovery follows template; user journeys defined; feature breakdown complete; no blocking questions | Vision missing; scope ambiguous; blocking questions open | PM |
 | 2 | **PM** (Product Manager) | Discovery file, open questions | Stories file, open questions | All features have stories; acceptance criteria measurable; dependencies listed; no blocking questions | Discovery missing; scope ambiguous; blocking questions open; criteria not measurable | ARC, QA |
 | 3 | **ARC** (Architect) | Stories, discovery, open questions | Architecture file, open questions | Module boundaries defined; data flow described; design decisions documented; no blocking questions | Stories missing; scope ambiguous; blocking questions open; architecture incomplete | QA, CODER |
 | 4 | **QA** (Quality Assurance) | Stories, architecture, open questions | Test strategy, open questions | All acceptance criteria have tests; edge cases identified; coverage goals set; no blocking questions | Stories/architecture missing; strategy incomplete; blocking questions open | CODER |
@@ -25,7 +25,7 @@ Request → PDA → PM → ARC → QA → CODER → REV → DOC → Commit
 
 For detailed role behavior, see individual role files:
 
-- [PDA](agents/roles/pda.md) — Product Discovery
+- [PD](agents/roles/pd.md) — Product Discovery
 - [PM](agents/roles/pm.md) — Product Manager
 - [ARC](agents/roles/arc.md) — Architect
 - [QA](agents/roles/qa.md) — Quality Assurance
@@ -39,7 +39,7 @@ For detailed role behavior, see individual role files:
 - **Handoff is formal**: a role cannot handoff if blocking conditions exist
 - **Open questions use status system**: `blocking`, `non-blocking`, `deferred`, `answered` — see [Open Question Management](#open-question-management)
 - Each role applies a specific subset of rules — see [Role → Rules Mapping](AGENTS.md#role--rules-mapping)
-- Roles that do not write code (PDA, PM) do not have applicable rules
+- Roles that do not write code (PD, PM) do not have applicable rules
 
 ## Open Question Management
 
@@ -67,7 +67,7 @@ When a role completes their work and hands off to the next stage:
 
 ### Role-Specific Rules
 
-- **PDA and PM**: blocking questions about product scope or user needs MUST be resolved before handoff to ARC
+- **PD and PM**: blocking questions about product scope or user needs MUST be resolved before handoff to ARC
 - **ARC**: blocking technical decisions MUST be resolved before handoff to QA
 - **QA**: blocking test strategy gaps MUST be resolved before handoff to CODER
 - **CODER**: blocking implementation questions MUST be resolved; if blocked by external dependency, record and escalate
@@ -89,7 +89,7 @@ Each stage produces specific artifacts. The lifecycle rules are:
 
 | Stage | Primary Artifact | Update Rule |
 | ----- | ---------------- | ----------- |
-| PDA | `docs/02_Discovery/discovery.md` | Create new if missing; update existing, preserving valid content |
+| PD | `docs/02_Discovery/discovery.md` | Create new if missing; update existing, preserving valid content |
 | PM | `docs/03_Stories/stories.md` | Create new if missing; update existing, preserving valid stories |
 | ARC | `docs/03_Stories/architecture.md` | Create new if missing; update existing, preserving design decisions |
 | QA | `docs/04_TestStrategy/test-strategy.md` | Create new if missing; update existing, preserving test scenarios |

@@ -1,9 +1,9 @@
-# Open Questions from PDA
+# Open Questions from PD
 
 **Project**: TypeScript Code Analyzer
 **Last Updated**: 2026-04-14
 **Status**: answered
-**Source Role**: PDA
+**Source Role**: PD
 **Primary Source File**: `docs/02_Discovery/discovery.md`
 **Related Source Files**:
 
