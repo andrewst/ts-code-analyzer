@@ -1,7 +1,7 @@
 {
   "name": "ts-code-analyzer",
   "version": "0.0.1",
-  "description": "Static analysis utility in TypeScript libraries",
+  "description": "CLI project for analyzing TypeScript codebases and surfacing maintenance insights",
   "keywords": [
     "typescript",
     "static-analysis",
