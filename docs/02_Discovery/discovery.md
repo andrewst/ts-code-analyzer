@@ -3,7 +3,7 @@
 **Project**: ts_code_analyzer  
 **Date**: 2026-04-14  
 **Status**: ready  
-**Source**: [vision.md](./docs/01_Vision/vision.md)
+**Source**: [vision.md](docs/01_Vision/vision.md)
 
 ---
 
@@ -52,7 +52,7 @@ Help maintainers answer three recurring questions quickly: what is publicly expo
 
 ## Open Questions
 
-None at the moment. See [open-questions-from-pda.md](./docs/01_Vision/open-questions-from-pda.md) for the current clarification record.
+None at the moment. See [open-questions-from-pda.md](docs/01_Vision/open-questions-from-pda.md) for the current clarification record.
 
 ## PM Handoff Readiness
 

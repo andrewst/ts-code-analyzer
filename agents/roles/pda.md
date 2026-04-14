@@ -64,7 +64,7 @@ If the input is unclear or incomplete:
 
 ## Workflow Position
 
-PDA is the first stage in the development workflow. See [Workflow](./workflow.md) for full sequence.
+PDA is the first stage in the development workflow. See [Workflow](agents/roles/workflow.md) for full sequence.
 
 **Note**: PDA comes **before** PM — it prepares structured input so PM can write precise user stories.
 
@@ -74,16 +74,16 @@ _(none — does not write code or make technical decisions)_
 
 ## Input
 
-- **MANDATORY**: Vision file at `./docs/01_Vision/vision.md` — MUST be read and used as primary input for ALL analysis
-- **MANDATORY**: Open questions file at `./docs/01_Vision/open-questions-from-pda.md` — MUST be read if exists to incorporate previous answers and avoid duplicate questions
+- **MANDATORY**: Vision file at `docs/01_Vision/vision.md` — MUST be read and used as primary input for ALL analysis
+- **MANDATORY**: Open questions file at `docs/01_Vision/open-questions-from-pda.md` — MUST be read if it exists to incorporate previous answers and avoid duplicate questions
 - **Raw idea** from user (informal description, problem statement, feature request)
 - **Project documentation** (for context, if applicable)
 - **Related discussions** or previous decisions
 
 ### Input Workflow
 
-1. **ALWAYS** read `./docs/01_Vision/vision.md` first to understand the project vision
-2. **ALWAYS** read `./docs/01_Vision/open-questions-from-pda.md` if it exists — incorporate answered questions into analysis and avoid asking duplicates
+1. **ALWAYS** read `docs/01_Vision/vision.md` first to understand the project vision
+2. **ALWAYS** read `docs/01_Vision/open-questions-from-pda.md` if it exists — incorporate answered questions into analysis and avoid asking duplicates
 3. Align discovery analysis with the problem statement, target audience, and value proposition from vision
 4. Use vision's core characteristics as foundation for structured idea discovery
 5. Supplement with user's raw ideas and existing project documentation
@@ -100,17 +100,16 @@ _(none — does not write code or make technical decisions)_
 
 ## Output Storage
 
-**MANDATORY**: All PDA analysis results MUST be saved to: `./docs/02_Discovery/`
+**MANDATORY**: All PDA analysis results MUST be saved to: `docs/02_Discovery/`
 
 - File naming: `discovery.md`
-- The output file MUST be created in `./docs/02_Discovery/` directory
-- Each discovery session creates a new file with timestamp or unique identifier if needed
+- The output file MUST be created in `docs/02_Discovery/` directory
 - **DO NOT** duplicate the output in the console/chat — write only to the file
 - Provide only a brief confirmation message in the console after writing the file
 
 ## Discovery Template Usage
 
-**MANDATORY**: Use [`./agents/templates/discovery-template.md`](./agents/templates/discovery-template.md) as the canonical structure when generating or editing discovery output.
+**MANDATORY**: Use [agents/templates/discovery-template.md](agents/templates/discovery-template.md) as the canonical structure when generating or editing discovery output.
 
 - Preserve the template's section order and headings unless the project explicitly requires a different structure.
 - Fill in each section with discovery content instead of inventing a new document layout.
@@ -120,9 +119,9 @@ _(none — does not write code or make technical decisions)_
 
 **MANDATORY**: If there are open questions that need clarification or require user input:
 
-1. Save all open questions to: `./docs/01_Vision/open-questions-from-pda.md`
-2. The file MUST be created in the `./docs/01_Vision/` directory (same directory as `vision.md`)
-3. In the discovery output file (`./docs/02_Discovery/discovery.md`), include ONLY a **link** to the open questions file — NEVER duplicate the questions themselves
+1. Save all open questions to: `docs/01_Vision/open-questions-from-pda.md`
+2. The file MUST be created in the `docs/01_Vision/` directory (same directory as `vision.md`)
+3. In the discovery output file (`docs/02_Discovery/discovery.md`), include ONLY a **link** to the open questions file — NEVER duplicate the questions themselves
 
 ### File Workflow
 
@@ -149,7 +148,7 @@ _(none — does not write code or make technical decisions)_
 
 ## Open Questions Template Usage
 
-**MANDATORY**: Use [`./agents/templates/open-questions-template.md`](./agents/templates/open-questions-template.md) as the canonical structure when generating or editing the open questions file.
+**MANDATORY**: Use [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) as the canonical structure when generating or editing the open questions file.
 
 - Preserve the template's section order and question format unless the project explicitly requires a different structure.
 - Keep active questions in the open questions section and answered items in the answered section.
@@ -157,7 +156,7 @@ _(none — does not write code or make technical decisions)_
 
 ### Format Template
 
-See [`./agents/templates/open-questions-template.md`](./agents/templates/open-questions-template.md) for the complete template format.
+See [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for the complete template format.
 
 **Key points:**
 

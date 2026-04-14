@@ -95,7 +95,7 @@ A01–A05, R01–R07
 
 ## Output Storage
 
-**MANDATORY**: Use [`agents/templates/architecture-template.md`](agents/templates/architecture-template.md) as the canonical base structure for ARC output.
+**MANDATORY**: Use [agents/templates/architecture-template.md](agents/templates/architecture-template.md) as the canonical base structure for ARC output.
 
 **MANDATORY**: All ARC outputs MUST be saved to `docs/03_Stories/architecture.md`
 
@@ -107,7 +107,7 @@ A01–A05, R01–R07
 
 **MANDATORY**: If there are open questions that need clarification or require user input:
 
-1. Use [`agents/templates/open-questions-template.md`](agents/templates/open-questions-template.md) as the canonical base structure for the open questions file.
+1. Use [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) as the canonical base structure for the open questions file.
 1. Save all open questions to `docs/02_Discovery/open-questions-from-arc.md`
 1. The file MUST be created in the `docs/02_Discovery/` directory
 1. In the architecture output file, include only a link to the open questions file

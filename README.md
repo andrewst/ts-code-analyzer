@@ -2,7 +2,7 @@
 
 > ⚠️ **Early Development**: This project is in its initial stages of development. Features, APIs, and documentation are subject to change.
 
-> 📖 **Documentation & Roadmap**: Detailed design documents, ideas, and development plans are available in the [`./docs`](./docs) directory.
+> 📖 **Documentation & Roadmap**: Detailed design documents, ideas, and development plans are available in the [`docs`](docs) directory.
 
 A static analysis utility in TypeScript libraries.
 

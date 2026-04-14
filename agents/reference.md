@@ -10,5 +10,16 @@
 
 ## Key Files
 
-| File | Purpose |
-| ---- | ------- |
+| File                              | Purpose                                              |
+| --------------------------------- | ---------------------------------------------------- |
+| `AGENTS.md`                       | Central agent configuration, roles, and rule mapping |
+| `CLAUDE.md`                       | Claude-specific project entry point                  |
+| `package.json`                    | Package metadata and scripts                         |
+| `tsconfig.json`                   | TypeScript compiler configuration                    |
+| `vitest.config.ts`                | Vitest test configuration                            |
+| `src/index.ts`                    | CLI entry point                                      |
+| `test/*.test.ts`                  | Test coverage for project behavior                   |
+| `docs/01_Vision/vision.md`        | Product vision source                                |
+| `docs/02_Discovery/discovery.md`  | PDA output                                           |
+| `docs/03_Stories/stories.md`      | PM output                                            |
+| `docs/03_Stories/architecture.md` | ARC output                                           |

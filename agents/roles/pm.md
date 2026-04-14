@@ -96,13 +96,13 @@ If NOT → refine
 
 ## When to Activate
 
-- PDA has produced a structured discovery output at `./docs/02_Discovery/discovery.md`
+- PDA has produced a structured discovery output at `docs/02_Discovery/discovery.md`
 - Feature scope is clear but needs user story breakdown
 - User stories and acceptance criteria are needed for ARC and CODER
 
 ## Workflow Position
 
-PM is the second stage in the development workflow, after PDA. See [Workflow](./workflow.md) for full sequence.
+PM is the second stage in the development workflow, after PDA. See [Workflow](agents/roles/workflow.md) for full sequence.
 
 **Note**: PM comes **after** PDA — it reads the discovery file and converts it into execution-ready user stories for ARC, QA, and CODER.
 
@@ -112,14 +112,14 @@ _(none — does not write code or make technical decisions)_
 
 ## Input
 
-- **MANDATORY**: Discovery file at `./docs/02_Discovery/discovery.md` — MUST be read and used as the **primary and only** source for ALL user story creation
-- **OPTIONAL**: Vision file at `./docs/01_Vision/vision.md` — for additional context if needed
-- **OPTIONAL**: Open questions file at `./docs/02_Discovery/open-questions-from-pda.md` — MUST be read if exists to incorporate answered questions
+- **MANDATORY**: Discovery file at `docs/02_Discovery/discovery.md` — MUST be read and used as the **primary and only** source for ALL user story creation
+- **OPTIONAL**: Vision file at `docs/01_Vision/vision.md` — for additional context if needed
+- **OPTIONAL**: Open questions file at `docs/01_Vision/open-questions-from-pda.md` — MUST be read if it exists to incorporate answered questions
 
 ### Input Workflow
 
-1. **ALWAYS** read `./docs/02_Discovery/discovery.md` — this is the single source of truth
-2. **ALWAYS** read `./docs/02_Discovery/open-questions-from-pda.md` if it exists — incorporate answered questions
+1. **ALWAYS** read `docs/02_Discovery/discovery.md` — this is the single source of truth
+2. **ALWAYS** read `docs/01_Vision/open-questions-from-pda.md` if it exists — incorporate answered questions
 3. Use PDA's feature groups, user journeys, and use cases as the foundation for user stories
 4. Do NOT invent features beyond what exists in the discovery file
 
@@ -135,10 +135,10 @@ _(none — does not write code or make technical decisions)_
 
 ## Output Storage
 
-**MANDATORY**: All PM outputs MUST be saved to: `./docs/03_Stories/`
+**MANDATORY**: All PM outputs MUST be saved to: `docs/03_Stories/`
 
 - File naming: `stories.md`
-- The output file MUST be created in the `./docs/03_Stories/` directory
+- The output file MUST be created in the `docs/03_Stories/` directory
 - **DO NOT** duplicate the output in the console/chat — write only to the file
 - Provide only a brief confirmation message in the console after writing the file
 
@@ -146,8 +146,8 @@ _(none — does not write code or make technical decisions)_
 
 **MANDATORY**: If there are open questions that need clarification or require user input:
 
-1. Save all open questions to: `./docs/02_Discovery/open-questions-from-pm.md`
-2. The file MUST be created in the `./docs/02_Discovery/` directory
+1. Save all open questions to: `docs/02_Discovery/open-questions-from-pm.md`
+2. The file MUST be created in the `docs/02_Discovery/` directory
 3. In the stories output file, include ONLY a **link** to the open questions file — NEVER duplicate the questions themselves
 
 ### File Workflow
@@ -172,7 +172,7 @@ _(none — does not write code or make technical decisions)_
 
 ### Format Template
 
-See [`./agents/templates/open-questions-template.md`](./agents/templates/open-questions-template.md) for the complete template format.
+See [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for the complete template format.
 
 **Key points:**
 

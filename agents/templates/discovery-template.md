@@ -3,7 +3,7 @@
 **Project**: [project name]  
 **Date**: [YYYY-MM-DD]  
 **Status**: [status of document]  
-**Source**: [relative link to `vision.md`]
+**Source**: `docs/01_Vision/vision.md`
 
 ---
 
@@ -51,7 +51,7 @@
 
 ## Open Questions
 
-See [relative link to the open questions file] if questions need to be tracked separately.
+See `docs/01_Vision/open-questions-from-pda.md` if questions need to be tracked separately.
 
 ## PM Handoff Readiness
 

@@ -27,9 +27,9 @@ pnpm format:check  # Check formatting only
 
 ## Testing
 
-| Tool       | Config File                              | Purpose                    |
-| ---------- | ---------------------------------------- | -------------------------- |
-| **Vitest** | [`vitest.config.ts`](./vitest.config.ts) | Unit & integration testing |
+| Tool       | Config File                            | Purpose                    |
+| ---------- | -------------------------------------- | -------------------------- |
+| **Vitest** | [`vitest.config.ts`](vitest.config.ts) | Unit & integration testing |
 
 ### Key Settings
 
@@ -49,9 +49,9 @@ pnpm test:coverage   # Run tests with coverage report
 
 ## TypeScript
 
-| Config File                        | Key Settings                                                                         |
-| ---------------------------------- | ------------------------------------------------------------------------------------ |
-| [`tsconfig.json`](./tsconfig.json) | `target: ES2022`, `module: NodeNext`, `strict: true`, `rootDir: src`, `outDir: dist` |
+| Config File                      | Key Settings                                                                         |
+| -------------------------------- | ------------------------------------------------------------------------------------ |
+| [`tsconfig.json`](tsconfig.json) | `target: ES2022`, `module: NodeNext`, `strict: true`, `rootDir: src`, `outDir: dist` |
 
 ### Commands
 

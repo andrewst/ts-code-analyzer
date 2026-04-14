@@ -34,15 +34,15 @@ TypeScript static code analysis utility — agent-driven development.
 
 Each role applies a specific subset of rules. This is the single source of truth — role files do not duplicate rule links.
 
-| Role      | Applicable Rules                   |
-| --------- | ---------------------------------- |
-| **PDA**   | _(none — does not write code)_     |
-| **PM**    | _(none — does not write code)_     |
-| **ARC**   | A01–A05, R01–R07                   |
-| **QA**    | T01–T05, R01–R03, R07, A01–A03     |
-| **CODER** | R01–R07, A01–A05, T01–T05, G01–G04 |
-| **REV**   | R01–R07, A01–A05, T01–T05, G01–G04 |
-| **DOC**   | R07, G04                           |
+| Role      | Applicable Rules               |
+| --------- | ------------------------------ |
+| **PDA**   | _(none — does not write code)_ |
+| **PM**    | _(none — does not write code)_ |
+| **ARC**   | A01–A05, R01–R07               |
+| **QA**    | T01–T05, R01–R03, R07, A01–A03 |
+| **CODER** | R01–R07, A01–A05, T01–T05      |
+| **REV**   | R01–R07, A01–A05, T01–T05      |
+| **DOC**   | R07                            |
 
 ## Resources
 

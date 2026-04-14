@@ -13,27 +13,15 @@
 
 ## Agent Workflow
 
-**Workflow**: `Request → PM → ARC → QA → CODER → REV → DOC → Commit`
+**Workflow**: `Request → PDA → PM → ARC → QA → CODER → REV → DOC → Commit`
 
-### Agent Roles
-
-| Role  | File                    | Purpose                           |
-| ----- | ----------------------- | --------------------------------- |
-| PM    | `agents/roles/pm.md`    | User stories, acceptance criteria |
-| ARC   | `agents/roles/arc.md`   | Design, architecture decisions    |
-| CODER | `agents/roles/coder.md` | Implementation                    |
-| QA    | `agents/roles/qa.md`    | Tests, fixtures                   |
-| REV   | `agents/roles/rev.md`   | Review                            |
-| DOC   | `agents/roles/doc.md`   | Documentation                     |
-
-**Always read the relevant agent file before starting work in that role.**
+**Always read [AGENTS.md](AGENTS.md) for the authoritative role and rule mapping before starting work.**
 
 ## Key Rules
 
 - **Code Quality**: `agents/rules/code-quality.md` (R01–R07)
 - **Architecture**: `agents/rules/architecture.md` (A01–A05)
 - **Testing**: `agents/rules/testing.md` (T01–T05)
-- **Git Workflow**: `agents/rules/git-workflow.md` (G01–G04)
 - **Internal document links**: whenever one repository document links to another repository document, the link must be relative to the repository root, which is the current project directory. Do not use absolute filesystem paths or current-file-relative paths for internal documentation links.
 
 ## Essential Commands
@@ -52,7 +40,7 @@ pnpm test             # Run tests
 ## Guidelines for Claude Code
 
 1. **Always read AGENTS.md** at the start of a session for complete context
-2. **Follow the workflow**: Request → PM → ARC → QA → CODER → REV → DOC → Commit
+2. **Follow the workflow**: Request → PDA → PM → ARC → QA → CODER → REV → DOC → Commit
 3. **Use role-specific files** when working on tasks in a particular role
 4. **Apply rules** from `agents/rules/` consistently
 5. **Write tests** for all new functionality (per T01–T05)

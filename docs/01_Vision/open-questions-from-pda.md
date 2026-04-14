@@ -3,7 +3,7 @@
 **Project**: ts_code_analyzer  
 **Last Updated**: 2026-04-14  
 **Status**: current  
-**Vision File**: [vision.md](./vision.md)
+**Vision File**: [vision.md](docs/01_Vision/vision.md)
 
 ## Unanswered Questions
 

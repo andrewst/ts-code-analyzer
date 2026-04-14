@@ -3,7 +3,7 @@
 **Project**: [project name]
 **Last Updated**: [YYYY-MM-DD]
 **Status**: [status of document]  
-**Vision File**: [link to vision.md]
+**Vision File**: `docs/01_Vision/vision.md`
 
 ## Unanswered Questions
 

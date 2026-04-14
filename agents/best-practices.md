@@ -11,8 +11,7 @@
 1. Follow R01–R07 ([Code Quality Rules](rules/code-quality.md))
 2. Match existing style: indentation, naming, import order
 3. Add JSDoc on all exports
-4. Throw custom errors from `src/utils/errors.ts`
-5. Keep core logic pure
+4. Keep core logic pure
 
 ## After Writing Code
 

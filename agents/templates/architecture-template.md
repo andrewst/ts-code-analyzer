@@ -3,7 +3,7 @@
 **Project**: [project name]  
 **Date**: [YYYY-MM-DD]  
 **Status**: [status of document]  
-**Source**: [relative link to stories.md]
+**Source**: `docs/03_Stories/stories.md`
 
 ## Architecture Overview
 
@@ -47,7 +47,7 @@
 
 ## Open Technical Questions
 
-See [relative link to the open questions file] for unresolved architecture decisions.
+See `docs/02_Discovery/open-questions-from-arc.md` for unresolved architecture decisions.
 
 ## Handoff Readiness
 
