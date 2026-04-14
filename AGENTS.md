@@ -1,10 +1,10 @@
 # AI Agent Configuration
 
-TypeScript dead-code detection utility — agent-driven development.
+TypeScript static code analysis utility — agent-driven development.
 
 ## Project
 
-**Type**: TypeScript dead-code detection utility (CLI tool + library)  
+**Type**: TypeScript static code analysis utility (CLI tool)  
 **Stage**: Early development (v0.0.1)  
 **Stack**: TypeScript 6.0+, TypeScript Compiler API, ESM, pnpm  
 
@@ -13,14 +13,10 @@ TypeScript dead-code detection utility — agent-driven development.
 | Role  | File                                                  | When                              |
 | ----- | ----------------------------------------------------- | --------------------------------- |
 | PDA   | [agents/roles/pda.md](agents/roles/pda.md)            | Idea structuring, discovery       |
-| PM    | [agents/roles/pm.md](agents/roles/pm.md)              | User stories, acceptance criteria |
-| ARC   | [agents/roles/arc.md](agents/roles/arc.md)            | Design, architecture decisions    |
-| CODER | [agents/roles/coder.md](agents/roles/coder.md)        | Implementation                    |
-| QA    | [agents/roles/qa.md](agents/roles/qa.md)              | Tests, fixtures                   |
-| REV   | [agents/roles/rev.md](agents/roles/rev.md)            | Review                            |
-| DOC   | [agents/roles/doc.md](agents/roles/doc.md)            | Documentation                     |
+| Workflow | [agents/roles/workflow.md](agents/roles/workflow.md) | Full development sequence       |
 
-**Workflow**: `Request → PDA → PM → ARC → QA → CODER → REV → DOC → Commit`
+
+**Workflow**: See [agents/roles/workflow.md](agents/roles/workflow.md)
 
 ## Rules
 
@@ -29,7 +25,6 @@ TypeScript dead-code detection utility — agent-driven development.
 | [Code Quality](agents/rules/code-quality.md) | R01–R07 |
 | [Architecture](agents/rules/architecture.md) | A01–A05 |
 | [Testing](agents/rules/testing.md)           | T01–T05 |
-| [Git Workflow](agents/rules/git-workflow.md) | G01–G04 |
 
 ### Role → Rules Mapping
 
@@ -48,7 +43,7 @@ Each role applies a specific subset of rules. This is the single source of truth
 ## Resources
 
 - [Best Practices](agents/best-practices.md) — before/while/after coding
-- [Reference](agents/reference.md) — commands, files, RFC sections
+- [Reference](agents/reference.md) — commands, files, documentation sections
 - [Tooling](agents/tooling.md) — linting, testing, and build configuration
 
 ## Tooling & Configuration

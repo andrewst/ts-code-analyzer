@@ -4,7 +4,7 @@
 
 > 📖 **Documentation & Roadmap**: Detailed design documents, ideas, and development plans are available in the [`./docs`](./docs) directory.
 
-A static analysis utility for detecting dead code in TypeScript libraries. This tool identifies exported symbols that are not consumed by the public API, library source code, or are only used in tests/demo code.
+A static analysis utility in TypeScript libraries.
 
 ## Installation
 

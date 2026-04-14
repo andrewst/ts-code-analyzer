@@ -13,5 +13,3 @@
 
 | File                                 | Purpose               |
 | ------------------------------------ | --------------------- |
-| `tsconfig.json`                      | TypeScript config     |
-| `package.json`                       | Dependencies, scripts |

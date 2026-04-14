@@ -5,11 +5,11 @@
 
 ## Project Overview
 
-**TypeScript dead-code detection utility** — CLI tool + library
+**TypeScript static code analysis utility** — CLI tool + library
 
 - **Stack**: TypeScript 6.0+, TypeScript Compiler API, ESM, pnpm
 - **Stage**: Early development (v0.0.1)
-- **Architecture**: RFC-driven — see `docs/rfc_of_project.md`
+- **Architecture**: Design-driven — see project documentation
 
 ## Agent Workflow
 
@@ -46,7 +46,7 @@ pnpm test             # Run tests
 ## Resources
 
 - [Best Practices](agents/best-practices.md) — before/while/after coding
-- [Reference](agents/reference.md) — commands, files, RFC sections
+- [Reference](agents/reference.md) — commands, files, documentation sections
 
 ## Guidelines for Claude Code
 

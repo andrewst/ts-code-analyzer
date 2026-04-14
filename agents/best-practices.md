@@ -20,7 +20,7 @@
 2. All tests pass, coverage meets threshold
 3. Linter clean (once configured)
 4. Run tool on itself
-5. Update docs if implementation differs from RFC
+5. Update docs if implementation differs from design
 
 ## Common Pitfalls
 
@@ -28,7 +28,7 @@
 | ----------------------- | ----------------------------------------------- |
 | `any` for AST nodes     | Use TypeScript AST types from chosen library    |
 | Mix I/o with core logic | Separate pure functions from I/O                |
-| Skip edge cases         | Reference RFC Section 9                         |
+| Skip edge cases         | Reference edge case documentation             |
 | Over-engineer           | Start simple, add complexity when proven        |
 | Skip tests              | Every change includes tests                     |
 | Ignore performance      | Consider file count, memory for large codebases |

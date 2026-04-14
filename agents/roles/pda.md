@@ -43,57 +43,6 @@ If the input is unclear or incomplete:
 
 ---
 
-## 📦 OUTPUT FORMAT (STRICT)
-
-Return your response in the following structure:
-
-```markdown
-## 1. Product Summary
-- What is the product?
-- What problem does it solve?
-- Why does it matter?
-
-## 2. Target Users
-- Primary users
-- Secondary users (if any)
-- Key user goals
-
-## 3. Core Use Cases
-List main use cases in format:
-- User wants to [goal] → so that [outcome]
-
-## 4. Feature Breakdown (High-Level)
-Break features into logical groups:
-
-### Feature Group: [Name]
-- Feature:
-  - Description
-  - User value
-
-## 5. User Flows
-Step-by-step flows:
-
-### Flow: [Name]
-1. User does X
-2. System responds Y
-3. User proceeds Z
-
-(Do NOT include technical details)
-
-## 6. Assumptions
-List assumptions you made due to missing info
-
-## 7. Risks & Edge Cases
-- Edge cases
-- UX risks
-- Product risks
-
-## 8. Open Questions
-List questions that must be answered before PM can proceed
-```
-
----
-
 ## 🧠 BEHAVIOR RULES
 
 - Be precise, not verbose
@@ -113,9 +62,7 @@ List questions that must be answered before PM can proceed
 
 ## Workflow Position
 
-```
-Request → PDA (discovery & clarification) → PM (user stories + acceptance criteria) → ARC → QA → CODER → REV → DOC → Commit + Verify
-```
+PDA is the first stage in the development workflow. See [Workflow](./workflow.md) for full sequence.
 
 **Note**: PDA comes **before** PM — it prepares structured input so PM can write precise user stories.
 
@@ -126,16 +73,18 @@ _(none — does not write code or make technical decisions)_
 ## Input
 
 - **MANDATORY**: Vision file at `./docs/01_Vision/vision.md` — MUST be read and used as primary input for ALL analysis
+- **MANDATORY**: Open questions file at `./docs/01_Vision/open-questions-from-pda.md` — MUST be read if exists to incorporate previous answers and avoid duplicate questions
 - **Raw idea** from user (informal description, problem statement, feature request)
-- **Existing RFC** (docs/rfc_of_project.md — for context, if applicable)
+- **Project documentation** (for context, if applicable)
 - **Related discussions** or previous decisions
 
 ### Input Workflow
 
 1. **ALWAYS** read `./docs/01_Vision/vision.md` first to understand the project vision
-2. Align discovery analysis with the problem statement, target audience, and value proposition from vision
-3. Use vision's core characteristics as foundation for structured idea discovery
-4. Supplement with user's raw ideas and existing RFC context
+2. **ALWAYS** read `./docs/01_Vision/open-questions-from-pda.md` if it exists — incorporate answered questions into analysis and avoid asking duplicates
+3. Align discovery analysis with the problem statement, target audience, and value proposition from vision
+4. Use vision's core characteristics as foundation for structured idea discovery
+5. Supplement with user's raw ideas and existing project documentation
 
 ## Checklist
 
@@ -149,13 +98,51 @@ _(none — does not write code or make technical decisions)_
 
 ## Output Storage
 
-**MANDATORY**: All PDA analysis results MUST be saved to: `./docs/03_Project/`
+**MANDATORY**: All PDA analysis results MUST be saved to: `./docs/03_Discovery/`
 
-- File naming: `<kebab-case-title>-discovery.md`
-- Example: `./docs/03_Project/dead-code-detection-discovery.md`
-- The output file MUST be created in `./docs/03_Project/` directory
+- File naming: `discovery.md`
+- The output file MUST be created in `./docs/03_Discovery/` directory
 - Each discovery session creates a new file with timestamp or unique identifier if needed
 
-## Key References
+## Open Questions Management
 
-- [Rules Index](../rules/) | [Reference](../reference.md) | [Best Practices](../best-practices.md)
+**MANDATORY**: If there are open questions that need clarification or require user input:
+
+1. Save all open questions to: `./docs/01_Vision/open-questions-from-pda.md`
+2. The file MUST be created in the `./docs/01_Vision/` directory (same directory as `vision.md`)
+
+### File Workflow
+
+**If `open-questions-from-pda.md` does NOT exist:**
+- Create a new file with all current open questions
+- Format each question clearly with:
+  - Sequential numbering (Q1, Q2, Q3...)
+  - Context about why the question is important
+  - Space for user responses
+
+**If `open-questions-from-pda.md` already exists:**
+- Read existing questions from the file
+- Synchronize with current analysis:
+  - Mark answered questions with ✓ and move them to "Answered Questions" section
+  - Add any new open questions that emerged from the current session
+  - Keep unanswered questions that are still relevant
+  - Update questions if context has changed
+  - Remove exact duplicates (same question already asked)
+- Overwrite the file with the synchronized question list
+
+### Format Template
+
+See [`../templates/open-questions-template.md`](../templates/open-questions-template.md) for the complete template format.
+
+**Key points:**
+- Each active question MUST include 2-4 suggested answer options
+- Suggested answers should cover the most reasonable and distinct choices
+
+### Purpose
+
+- Track all assumptions and clarifications needed for accurate product discovery
+- Ensure questions are not lost between sessions
+- Provide clear visibility into what information is still needed
+- Create an audit trail of decisions and their rationale
+- Enable iterative refinement: each PDA session builds on previous answers
+

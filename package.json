@@ -1,11 +1,10 @@
 {
   "name": "ts-code-analyzer",
   "version": "0.0.1",
-  "description": "Static analysis utility for detecting dead code in TypeScript libraries",
+  "description": "Static analysis utility in TypeScript libraries",
   "keywords": [
     "typescript",
     "static-analysis",
-    "dead-code",
     "ast",
     "code-quality"
   ],
@@ -19,7 +18,7 @@
   "type": "module",
   "packageManager": "pnpm@10.33.0",
   "bin": {
-    "detect-dead-code": "dist/index.js"
+    "ts-code-analyzer": "dist/index.js"
   },
   "main": "dist/index.js",
   "scripts": {
