@@ -215,7 +215,7 @@ The following conditions BLOCK handoff to <next role>:
 | **BEHAVIOR RULES** | How the role should behave | Bullet list, 5-6 guidelines, actionable |
 | **When to Activate** | Conditions that trigger this role | 3-5 bullet points |
 | **Workflow Position** | Where this role sits in pipeline | One sentence referencing workflow.md |
-| **Applicable Rules** | Which rules apply | Defer to AGENTS.md; PDA/PM have "none" |
+| **Applicable Rules** | Which rules apply | Defer to AGENTS.md; PD/PM have "none" |
 | **Input** | What the role consumes | Use REQUIRED/OPTIONAL dictionary; include Input Workflow steps |
 | **Output** | What the role produces | Primary + secondary outputs with paths |
 | **Artifacts** | File lifecycle | Table with Location and Lifecycle; Update Rules below |

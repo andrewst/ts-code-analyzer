@@ -51,7 +51,7 @@
 
 ## Open Questions
 
-See `docs/01_Vision/open-questions-from-pda.md` if questions need to be tracked separately.
+See `docs/01_Vision/open-questions-from-pd.md` if questions need to be tracked separately.
 
 ## Blocking Conditions
 
@@ -66,7 +66,7 @@ If there are no blocking conditions, write `None`.
 
 ## Done Criteria
 
-PDA's work is complete when ALL of the following are satisfied:
+PD's work is complete when ALL of the following are satisfied:
 
 - [ ] Discovery file exists and follows this template structure
 - [ ] Product idea is structured with problem statement, target users, and value proposition

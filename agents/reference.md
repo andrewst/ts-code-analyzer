@@ -22,6 +22,6 @@
 | `src/index.ts`                    | Development CLI entry point                          |
 | `test/*.test.ts`                  | Test coverage for project behavior                   |
 | `docs/01_Vision/vision.md`        | Product vision source                                |
-| `docs/02_Discovery/discovery.md`  | PDA output                                           |
+| `docs/02_Discovery/discovery.md`  | PD output                                           |
 | `docs/03_Stories/stories.md`      | PM output                                            |
 | `docs/03_Stories/architecture.md` | ARC output                                           |
