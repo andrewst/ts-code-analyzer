@@ -1,15 +1,24 @@
 # Open Questions from PDA
 
-**Project**: ts_code_analyzer  
-**Last Updated**: 2026-04-14  
-**Status**: current  
-**Vision File**: [vision.md](docs/01_Vision/vision.md)
+**Project**: ts_code_analyzer
+**Last Updated**: 2026-04-14
+**Status**: answered
+**Source Role**: PDA
+**Primary Source File**: `docs/01_Vision/vision.md`
+**Related Source Files**:
+
+- `docs/02_Discovery/discovery.md`
+
+## Document Status Notes
+
+- This document-level status reflects the overall state, but each individual question has its own `Status` field
+- Document `blocked` means there is at least one question with `Status: blocking` that remains unanswered
+- Document `current` means all blocking questions are answered, but non-blocking or deferred questions may remain
+- Document `answered` means all questions have been resolved
 
 ## Unanswered Questions
 
 None
-
----
 
 ## Answered Questions
 
@@ -17,6 +26,9 @@ None
 
 **Context**: The vision says the tool analyzes large TypeScript npm libraries, but it does not yet state whether the main input is a local repository, a published package, or both.
 **Impact**: This affects how the product is framed for users and which workflows PM should prioritize.
+**Status**: answered
+**Answered By**: User
+**Answered Date**: 2026-04-14
 
 **Suggested Answers**:
 
@@ -31,6 +43,9 @@ None
 
 **Context**: "Public API" can mean exported symbols, package.json `exports`, generated type declarations, or documentation-facing entry points.
 **Impact**: This determines what the tool must recognize as public-facing and what counts as an API change.
+**Status**: answered
+**Answered By**: User
+**Answered Date**: 2026-04-14
 
 **Suggested Answers**:
 
@@ -45,6 +60,9 @@ None
 
 **Context**: The vision emphasizes quick understanding, but not whether the user should receive terminal output, JSON, markdown, or another format.
 **Impact**: This changes how users consume the tool and how PM should describe the core experience.
+**Status**: answered
+**Answered By**: User
+**Answered Date**: 2026-04-14
 
 **Suggested Answers**:
 
@@ -59,6 +77,9 @@ None
 
 **Context**: The vision now defines maintenance risk as the relationship between the size of the public API and the total size of the codebase.
 **Impact**: This determines what the tool should calculate and which signals the PM should treat as the core risk metric.
+**Status**: answered
+**Answered By**: User
+**Answered Date**: 2026-04-14
 
 **Suggested Answers**:
 
@@ -66,11 +87,3 @@ None
 - [ ] **A2**: Structural complexity and coupling signals
 - [ ] **A3**: Change volatility and churn signals
 - [ ] **Custom**: Define another risk model
-
-## Quick Reference
-
-| Symbol   | Meaning                                       |
-| -------- | --------------------------------------------- |
-| `[ ]`    | Not selected                                  |
-| `[x]`    | Selected answer                               |
-| ~~text~~ | Question answered (moved to Answered section) |

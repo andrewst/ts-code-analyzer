@@ -15,6 +15,10 @@ TypeScript static code analysis utility — agent-driven development.
 | PDA      | [agents/roles/pda.md](agents/roles/pda.md)           | Idea structuring, discovery       |
 | PM       | [agents/roles/pm.md](agents/roles/pm.md)             | User stories, backlog creation    |
 | ARC      | [agents/roles/arc.md](agents/roles/arc.md)           | Architecture and technical design |
+| QA       | [agents/roles/qa.md](agents/roles/qa.md)             | Test strategy and quality gates   |
+| CODER    | [agents/roles/coder.md](agents/roles/coder.md)       | Implementation                    |
+| REV      | [agents/roles/rev.md](agents/roles/rev.md)           | Code review and quality validation|
+| DOC      | [agents/roles/doc.md](agents/roles/doc.md)           | Documentation updates             |
 | Workflow | [agents/roles/workflow.md](agents/roles/workflow.md) | Full development sequence         |
 
 **Workflow**: See [agents/roles/workflow.md](agents/roles/workflow.md)
@@ -43,6 +47,69 @@ Each role applies a specific subset of rules. This is the single source of truth
 | **CODER** | R01–R07, A01–A05, T01–T05      |
 | **REV**   | R01–R07, A01–A05, T01–T05      |
 | **DOC**   | R07                            |
+
+## Conflict Resolution
+
+When rules, templates, templates, workflow, and local practices conflict, agents MUST resolve conflicts using this priority order:
+
+1. **User request**: explicit user instructions always take highest priority
+2. **Repository safety and architecture constraints**: rules that protect code quality, architecture, and testability (R01–R07, A01–A05, T01–T05)
+3. **Role boundaries**: role-specific constraints and handoff requirements
+4. **Formatting and templates**: document structure and formatting rules
+5. **Style preferences**: naming conventions, formatting details, and stylistic choices
+
+**Examples**:
+
+- If a rule limit conflicts with local practicality: follow the rule unless user explicitly requests an exception
+- If a template requirement conflicts with actual project state: adapt the template to match reality while preserving structure
+- If document completeness conflicts with prohibition on unnecessary detail: prioritize clarity and conciseness over exhaustive detail
+
+## Document Responsibility
+
+Different layers of documentation serve different purposes. This table clarifies which layer owns what:
+
+| Layer                                        | Responsibility                                      | Examples                              |
+| -------------------------------------------- | --------------------------------------------------- | ------------------------------------- |
+| **AGENTS.md**                                | Roles, rule mapping, global constraints, workflow   | Role table, rule links, process rules |
+| **agents/roles/\*.md**                       | Behavior and responsibilities of a specific role    | QA role, CODER role, review process   |
+| **agents/rules/\*.md**                       | Enforceable quality and architecture standards      | Code quality, testing, architecture   |
+| **agents/templates/\*.md**                   | Output format and structure for role artifacts      | Discovery template, question format   |
+| **docs/**                                    | Project-specific analysis, decisions, and questions | Vision, discovery, stories, open Q    |
+
+**Note**: `AGENTS.md` is the single source of truth for **rule mapping and global process**, but not for role behavior, rule details, or output format. Those are owned by their respective layers.
+
+## Rule Verification Mapping
+
+Each rule is associated with a verification mechanism that enforces or validates compliance:
+
+| Rule | Verification Type  | Tooling / Process                                    |
+| ---- | ------------------ | ---------------------------------------------------- |
+| R01  | lint-enforced      | TypeScript compiler (`tsconfig.json: strict: true`)  |
+| R02  | lint-enforced      | TypeScript compiler, oxc lint (`no-explicit-any`)    |
+| R03  | lint-enforced      | TypeScript compiler (`tsconfig.json: module: ESNext`) |
+| R04  | review-enforced    | Manual review in REV stage                           |
+| R05  | review-enforced    | Manual review in REV stage (with exception policy)   |
+| R06  | lint-enforced      | oxc lint (custom rule or manual check in REV)        |
+| R07  | review-enforced    | Manual review in REV stage, DOC stage validation     |
+| A01  | review-enforced    | Architecture review in REV stage                     |
+| A02  | review-enforced    | Architecture review in REV stage                     |
+| A03  | test-enforced      | Unit tests verify pure functions have no side effects |
+| A04  | test-enforced      | Dependency injection enables testability             |
+| A05  | lint-enforced      | Dependency analysis tooling or REV stage             |
+| T01  | review-enforced    | Test files exist alongside or before source code     |
+| T02  | test-enforced      | Coverage tooling (vitest coverage reports)           |
+| T03  | review-enforced    | Fixture files present in `test/fixtures/`            |
+| T04  | test-enforced      | Integration test suite validates e2e flows           |
+| T05  | review-enforced    | Naming conventions checked in REV stage              |
+
+**Verification types**:
+
+- **lint-enforced**: automatically checked by tooling (compiler, linter, static analysis)
+- **test-enforced**: validated by running tests (coverage, integration, fixtures)
+- **review-enforced**: manually checked during REV stage with human judgment
+- **manual only**: requires conscious attention but has no automated check
+
+See [agents/tooling.md](agents/tooling.md) for specific tool configuration and commands.
 
 ## Resources
 

@@ -1,13 +1,24 @@
 # Open Questions from PM
 
-**Project**: ts_code_analyzer  
-**Last Updated**: 2026-04-14  
-**Status**: answered  
-**Discovery File**: [discovery.md](docs/02_Discovery/discovery.md)
+**Project**: ts_code_analyzer
+**Last Updated**: 2026-04-14
+**Status**: answered
+**Source Role**: PM
+**Primary Source File**: `docs/02_Discovery/discovery.md`
+**Related Source Files**:
+
+- `docs/01_Vision/vision.md`
+
+## Document Status Notes
+
+- This document-level status reflects the overall state, but each individual question has its own `Status` field
+- Document `blocked` means there is at least one question with `Status: blocking` that remains unanswered
+- Document `current` means all blocking questions are answered, but non-blocking or deferred questions may remain
+- Document `answered` means all questions have been resolved
 
 ## Unanswered Questions
 
-None remaining.
+None
 
 ## Answered Questions
 
@@ -15,6 +26,9 @@ None remaining.
 
 **Context**: The discovery defines maintenance risk as the relationship between public API size and total codebase size, but it does not define the user-facing presentation.
 **Impact**: This changes how clearly the summary communicates risk and how easy it is to compare projects.
+**Status**: answered
+**Answered By**: User
+**Answered Date**: 2026-04-14
 
 **Suggested Answers**:
 
@@ -29,6 +43,9 @@ None remaining.
 
 **Context**: Re-exports, barrel files, and unusual export patterns can make the public surface unclear.
 **Impact**: This affects trust in the public API summary and whether the tool should call out uncertainty explicitly.
+**Status**: answered
+**Answered By**: User
+**Answered Date**: 2026-04-14
 
 **Suggested Answers**:
 
@@ -43,6 +60,9 @@ None remaining.
 
 **Context**: The discovery lists these as risks and edge cases, but does not state whether they are in scope for the first version.
 **Impact**: This determines the initial scope and what users should expect the tool to handle reliably.
+**Status**: answered
+**Answered By**: User
+**Answered Date**: 2026-04-14
 
 **Suggested Answers**:
 
@@ -50,11 +70,3 @@ None remaining.
 - [x] **A2**: No, exclude them from v1 scope
 - [ ] **A3**: Detect them and warn, but do not fully support them
 - [ ] **Custom**: Define a different scope rule
-
-## Quick Reference
-
-| Symbol   | Meaning                                       |
-| -------- | --------------------------------------------- |
-| `[ ]`    | Not selected                                  |
-| `[x]`    | Selected answer                               |
-| ~~text~~ | Question answered (moved to Answered section) |
