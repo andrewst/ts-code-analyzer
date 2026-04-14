@@ -1,3 +1,3 @@
-# Идея
+# Idea
 
-Получать больше информации о состоянии кода в библиотеках TypeScript. 
+Get more information about the state of code in TypeScript libraries.

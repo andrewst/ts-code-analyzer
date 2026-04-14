@@ -1,14 +1,13 @@
-# Проблема
-## Краткое описание
-Когда TypeScript (npm) библиотека вырастает до больших размеров, контролировать код становится очень сложно.
-Необходимо быстро и просто получать информаци о текущем состоянии кодовой базы
+# Problem
+## Short Description
+When a TypeScript npm library grows large, it becomes very difficult to keep the code under control.
+There is a need to quickly and easily get information about the current state of the codebase.
 
-## Целевая аудитория
-Программисты, которые поддерживают большие библиотеки TypeScript, хотят быстро понимать, в каком состоянии находится код.
+## Target Audience
+Developers who maintain large TypeScript libraries and want to quickly understand the current state of the code.
 
-## Ценностное предложение
-Упрощает поддержку больших TypeScript (npm) библиотек, позволяя быстро идентифицировать и удалять проблемы в коде и выводить статистику или отчеты.
+## Value Proposition
+Simplifies the maintenance of large TypeScript npm libraries.
 
-## Основные характеристики
-- Получить точную информацию о публичном API библиотеки
-
+## Key Characteristics
+- Get accurate information about the library's public API
