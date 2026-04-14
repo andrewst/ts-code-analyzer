@@ -1,60 +1,32 @@
 # Open Questions from <from-who>
 
-**Project**: [project name]
-**Last Updated**: [YYYY-MM-DD]
-**Status**: [status of document]  
-**Vision File**: `docs/01_Vision/vision.md`
+**Project**: [project name]  
+**Last Updated**: [YYYY-MM-DD]  
+**Status**: [current | answered | blocked]  
+**Source Role**: [PDA | PM | ARC | other]  
+**Primary Source File**: `[path/to/source.md]`  
+**Related Source Files**:
+
+- `[optional/path.md]`
+- `[optional/path.md]`
 
 ## Unanswered Questions
 
-### Q[1]: [Question title]
+Use the canonical question-entry structure from [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md).
 
-**Context**: [Why this question matters for product discovery]
-**Impact**: [What decisions depend on this answer]
-
-**Suggested Answers**:
-
-- [ ] **A1**: [first suggested option]
-- [ ] **A2**: [second suggested option]
-- [ ] **A3**: [third suggested option]
-- [ ] **Custom**: [write your own answer here]
-
----
-
-### Q[2]: [Question title]
-
-**Context**: [Why this question matters for product discovery]
-**Impact**: [What decisions depend on this answer]
-
-**Suggested Answers**:
-
-- [ ] **A1**: [first suggested option]
-- [ ] **A2**: [second suggested option]
-- [ ] **A3**: [third suggested option]
-- [ ] **Custom**: [write your own answer here]
-
----
+If there are no open items, write `None`.
 
 ## Answered Questions
 
-### Q[1]: [Question title]
+Use the canonical question-entry structure from [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md).
 
-**Context**: [Why this question matters for product discovery]
-**Impact**: [What decisions depend on this answer]
+Move a question here only when the user has given a clear, concrete answer.
 
-**Suggested Answers**:
+If there are no answered items, write `None`.
 
-- [ ] **A1**: [first suggested option]
-- [x] **A2**: [second suggested option]
-- [ ] **A3**: [third suggested option]
-- [ ] **Custom**: [write your own answer here]
+## Conventions
 
----
-
-## Quick Reference
-
-| Symbol   | Meaning                                       |
-| -------- | --------------------------------------------- |
-| `[ ]`    | Not selected                                  |
-| `[x]`    | Selected answer                               |
-| ~~text~~ | Question answered (moved to Answered section) |
+- Use markdown checkboxes: `[ ]` for unselected answers and `[x]` for the selected answer.
+- Do not use `✓` or other status markers for answer selection.
+- Keep question numbering stable when possible (`Q1`, `Q2`, `Q3`, ...).
+- Remove exact duplicates when synchronizing an existing file.

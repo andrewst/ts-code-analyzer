@@ -65,7 +65,7 @@ ARC is the third stage in the development workflow, after PM and before QA. See 
 
 ## Applicable Rules
 
-A01–A05, R01–R07
+See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the single source of truth for applicable rules.
 
 ## Input
 
@@ -107,16 +107,21 @@ A01–A05, R01–R07
 
 **MANDATORY**: If there are open questions that need clarification or require user input:
 
-1. Use [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) as the canonical base structure for the open questions file.
-1. Save all open questions to `docs/02_Discovery/open-questions-from-arc.md`
-1. The file MUST be created in the `docs/02_Discovery/` directory
-1. In the architecture output file, include only a link to the open questions file
+1. Use [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for document metadata and file structure.
+2. Use [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md) for the canonical question-entry structure.
+3. Save all open questions to `docs/02_Discovery/open-questions-from-arc.md`
+4. The file MUST be created in the `docs/02_Discovery/` directory
+5. In the architecture output file, include only a link to the open questions file
 
 ### File Workflow
 
 - If `open-questions-from-arc.md` does not exist, create it with the current open questions
 - If it already exists, read it first and synchronize the content
+- Mark a question as answered only when the user has given a clear, concrete answer
+- Do not move vague, deferred, or "later" responses into the answered section
 - Keep unanswered questions in the open section and move answered items to the answered section
+- Represent selected answers with markdown checkboxes (`[x]`), not symbols such as `✓`
+- Use `None` when a section has no items
 - Remove exact duplicates
 
 ## Purpose

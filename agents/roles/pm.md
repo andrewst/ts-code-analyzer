@@ -112,16 +112,17 @@ _(none — does not write code or make technical decisions)_
 
 ## Input
 
-- **MANDATORY**: Discovery file at `docs/02_Discovery/discovery.md` — MUST be read and used as the **primary and only** source for ALL user story creation
-- **OPTIONAL**: Vision file at `docs/01_Vision/vision.md` — for additional context if needed
-- **OPTIONAL**: Open questions file at `docs/01_Vision/open-questions-from-pda.md` — MUST be read if it exists to incorporate answered questions
+- **MANDATORY**: Discovery file at `docs/02_Discovery/discovery.md` — MUST be read and used as the **primary source** for all user story creation
+- **OPTIONAL**: Vision file at `docs/01_Vision/vision.md` — may be read only to clarify intent, not to add new scope
+- **OPTIONAL**: Open questions file at `docs/01_Vision/open-questions-from-pda.md` — MUST be read if it exists to incorporate answered questions, but it MUST NOT be used to add scope beyond the discovery file
 
 ### Input Workflow
 
 1. **ALWAYS** read `docs/02_Discovery/discovery.md` — this is the single source of truth
-2. **ALWAYS** read `docs/01_Vision/open-questions-from-pda.md` if it exists — incorporate answered questions
-3. Use PDA's feature groups, user journeys, and use cases as the foundation for user stories
-4. Do NOT invent features beyond what exists in the discovery file
+2. **ALWAYS** read `docs/01_Vision/open-questions-from-pda.md` if it exists — incorporate answered questions only as clarification of the discovery file
+3. Read `docs/01_Vision/vision.md` only when additional product context is needed to interpret the discovery file
+4. Use PDA's feature groups, user journeys, and use cases as the foundation for user stories
+5. Do NOT invent features beyond what exists in the discovery file
 
 ## Checklist
 
@@ -146,9 +147,11 @@ _(none — does not write code or make technical decisions)_
 
 **MANDATORY**: If there are open questions that need clarification or require user input:
 
-1. Save all open questions to: `docs/02_Discovery/open-questions-from-pm.md`
-2. The file MUST be created in the `docs/02_Discovery/` directory
-3. In the stories output file, include ONLY a **link** to the open questions file — NEVER duplicate the questions themselves
+1. Use [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for document metadata and file structure.
+2. Use [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md) for the canonical question-entry structure.
+3. Save all open questions to: `docs/02_Discovery/open-questions-from-pm.md`
+4. The file MUST be created in the `docs/02_Discovery/` directory
+5. In the stories output file, include ONLY a **link** to the open questions file — NEVER duplicate the questions themselves
 
 ### File Workflow
 
@@ -164,7 +167,10 @@ _(none — does not write code or make technical decisions)_
 
 - Read existing questions from the file
 - Synchronize with current analysis:
-  - Mark answered questions with ✓ and move them to "Answered Questions" section
+  - Mark questions as answered only when the user has given a clear, concrete answer
+  - Do not move vague, deferred, or "later" responses into the answered section
+  - Represent selected answers with markdown checkboxes (`[x]`), not symbols such as `✓`
+  - Move answered questions to the "Answered Questions" section
   - Add any new open questions that emerged from the current session
   - Keep unanswered questions that are still relevant
   - Update questions if context has changed
@@ -172,12 +178,13 @@ _(none — does not write code or make technical decisions)_
 
 ### Format Template
 
-See [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for the complete template format.
+See [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for the file-level template and [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md) for the canonical question format.
 
 **Key points:**
 
 - Each active question MUST include 2-4 suggested answer options
 - Suggested answers should cover the most reasonable and distinct choices
+- Use `None` when a section has no items
 
 ### Purpose
 

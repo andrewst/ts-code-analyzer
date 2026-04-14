@@ -148,7 +148,9 @@ _(none — does not write code or make technical decisions)_
 
 ## Open Questions Template Usage
 
-**MANDATORY**: Use [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) as the canonical structure when generating or editing the open questions file.
+**MANDATORY**: Use [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for document metadata and file structure.
+
+**MANDATORY**: Use [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md) as the canonical structure for each question entry.
 
 - Preserve the template's section order and question format unless the project explicitly requires a different structure.
 - Keep active questions in the open questions section and answered items in the answered section.
@@ -156,12 +158,14 @@ _(none — does not write code or make technical decisions)_
 
 ### Format Template
 
-See [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for the complete template format.
+See [agents/templates/open-questions-template.md](agents/templates/open-questions-template.md) for the file-level template and [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md) for the canonical question format.
 
 **Key points:**
 
 - Each active question MUST include 2-4 suggested answer options
 - Suggested answers should cover the most reasonable and distinct choices
+- Represent selected answers with markdown checkboxes (`[x]`)
+- Use `None` when a section has no items
 
 ### Purpose
 
