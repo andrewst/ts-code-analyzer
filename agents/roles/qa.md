@@ -69,8 +69,8 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 - **REQUIRED primary input**: Stories file at `docs/03_Stories/stories.md` — MUST be read to understand acceptance criteria
 - **REQUIRED primary input**: Architecture file at `docs/03_Stories/architecture.md` — MUST be read to understand technical design and module boundaries
-- **REQUIRED primary input**: Tasks file at `docs/04_Task/tasks.md` — MUST be read to understand the specific tasks to be implemented
-- **REQUIRED if present**: Open questions file at `docs/02_Discovery/open-questions-from-arc.md` — MUST be read to understand resolved and unresolved technical questions
+- **REQUIRED primary input**: Tasks file at `docs/04_Tasks/tasks.md` — MUST be read to understand the specific tasks to be implemented
+- **REQUIRED if present**: Open questions file at `docs/04_Tasks/open-questions-from-qa.md` — MUST be read to understand resolved and unresolved qa questions
 - **OPTIONAL context**: Discovery file at `docs/02_Discovery/discovery.md` — for broader product context
 - **OPTIONAL context**: Existing codebase and tests — for current coverage baseline
 
@@ -78,22 +78,22 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 1. Read `docs/03_Stories/stories.md` first to understand required user outcomes
 2. Read `docs/03_Stories/architecture.md` to understand module boundaries and data flow
-3. Read `docs/04_Task/tasks.md` to map test scenarios to specific implementation tasks
-4. Read `docs/02_Discovery/open-questions-from-arc.md` if it exists to avoid re-litigating technical decisions
+3. Read `docs/04_Tasks/tasks.md` to map test scenarios to specific implementation tasks
+4. Read `docs/04_Tasks/open-questions-from-qa.md` if it exists to avoid re-litigating qa decisions
 5. Define test strategy that validates all acceptance criteria
 6. Identify test scenarios that exercise critical code paths
 
 ## Output
 
 - **Primary output**: Test strategy file at `docs/05_TestStrategy/test-strategy.md`
-- **Secondary output**: Open questions file at `docs/03_Stories/open-questions-from-qa.md` (if questions need tracking)
+- **Secondary output**: Open questions file at `docs/04_Tasks/open-questions-from-qa.md` (if questions need tracking)
 
 ## Artifacts
 
-| Artifact           | Location                                    | Lifecycle                                                                                                                  |
-| ------------------ | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| Test strategy file | `docs/05_TestStrategy/test-strategy.md`     | Create new if missing; update existing if present, preserving test scenarios and adding new analysis                       |
-| Open questions     | `docs/03_Stories/open-questions-from-qa.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
+| Artifact           | Location                                  | Lifecycle                                                                                                                  |
+| ------------------ |-------------------------------------------| -------------------------------------------------------------------------------------------------------------------------- |
+| Test strategy file | `docs/05_TestStrategy/test-strategy.md`   | Create new if missing; update existing if present, preserving test scenarios and adding new analysis                       |
+| Open questions     | `docs/04_Tasks/open-questions-from-qa.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
 
 **Update Rules**:
 
@@ -139,7 +139,7 @@ The following conditions BLOCK handoff to CODER:
 **Deliverables**:
 
 1. `docs/05_TestStrategy/test-strategy.md` — test strategy document
-2. `docs/03_Stories/open-questions-from-qa.md` — open questions file (if any exist)
+2. `docs/04_Tasks/open-questions-from-qa.md` — open questions file (if any exist)
 
 **Acceptance Criteria**:
 

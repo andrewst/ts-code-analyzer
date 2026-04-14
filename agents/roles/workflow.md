@@ -94,7 +94,7 @@ Each stage produces specific artifacts. The lifecycle rules are:
 | PD    | `docs/02_Discovery/discovery.md`        | Create new if missing; update existing, preserving valid content            |
 | PM    | `docs/03_Stories/stories.md`            | Create new if missing; update existing, preserving valid stories            |
 | ARC   | `docs/03_Stories/architecture.md`       | Create new if missing; update existing, preserving design decisions         |
-| PLAN  | `docs/04_Task/tasks.md`                 | Create new if missing; update existing, preserving dependencies             |
+| PLAN  | `docs/04_Tasks/tasks.md`                 | Create new if missing; update existing, preserving dependencies             |
 | QA    | `docs/05_TestStrategy/test-strategy.md` | Create new if missing; update existing, preserving test scenarios           |
 | CODER | `src/` files                            | Implement according to architecture; update based on REV feedback           |
 | REV   | `docs/05_Review/review-report.md`       | Create fresh for each review cycle; reference previous reports              |

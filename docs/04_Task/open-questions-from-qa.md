@@ -1,14 +1,15 @@
-# Open Questions from PLAN
+# Open Questions from QA
 
 **Project**: TypeScript Code Analyzer
 **Last Updated**: 2026-04-14
-**Status**: current
-**Source Role**: PLAN
-**Primary Source File**: `docs/04_Tasks/tasks.md`
+**Status**: answered
+**Source Role**: QA
+**Primary Source File**: `docs/05_TestStrategy/test-strategy.md`
 **Related Source Files**:
 
 - `docs/03_Stories/stories.md`
 - `docs/03_Stories/architecture.md`
+- `docs/04_Tasks/tasks.md`
 
 ## Document Status Notes
 
