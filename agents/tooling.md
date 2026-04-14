@@ -1,5 +1,12 @@
 # Tooling & Configuration
 
+## Runtime & Package Metadata
+
+- **Package type**: CLI-only package
+- **Binary name**: `ts-code-analyzer`
+- **Runtime**: Node.js `20+`
+- **Package manager**: `pnpm@10.33.0`
+
 ## Linting
 
 | Tool         | Config File                        | Purpose                                                |
@@ -58,4 +65,13 @@ pnpm test:coverage   # Run tests with coverage report
 ```bash
 pnpm build         # Compile TypeScript (tsc)
 pnpm dev           # Watch mode (tsc --watch --noEmit)
+pnpm typecheck     # One-off TypeScript check (no emit)
+```
+
+## Packaging
+
+### Commands
+
+```bash
+pnpm prepack       # Build dist/ before package packing or publishing
 ```

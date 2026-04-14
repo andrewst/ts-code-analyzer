@@ -14,6 +14,7 @@ The long-term goal is to help engineers and maintainers inspect a codebase, unde
 - Status: active early development
 - Current CLI entry point exists, but analyzer functionality is not implemented yet
 - CLI commands, output format, and analysis scope are still evolving
+- Package is intended to remain a CLI-only tool, not a reusable library API
 
 ## Why This Project
 
@@ -51,6 +52,8 @@ pnpm install
 pnpm run start
 ```
 
+CLI package metadata is configured with the binary name `ts-code-analyzer`, which will resolve to `dist/index.js` in packaged builds.
+
 At the moment, the entry point is a development stub in [src/index.ts](src/index.ts). The production CLI interface and analysis commands are not finalized yet.
 
 ## Development
@@ -59,6 +62,7 @@ At the moment, the entry point is a development stub in [src/index.ts](src/index
 pnpm run dev           # Watch mode: type-check without emitting
 pnpm run dev-go        # Watch mode using TypeScript native preview
 pnpm run start         # Run the application with tsx (no build required)
+pnpm run typecheck     # Run a one-off TypeScript check
 ```
 
 ## Build
@@ -67,6 +71,8 @@ pnpm run start         # Run the application with tsx (no build required)
 pnpm run build         # Compile TypeScript to JavaScript
 pnpm run build-go      # Compile using TypeScript native preview
 ```
+
+Package builds use `pnpm run prepack` automatically before packaging so that the CLI binary is compiled into `dist/`.
 
 ## Testing
 

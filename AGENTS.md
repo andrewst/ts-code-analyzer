@@ -4,9 +4,9 @@ TypeScript static code analysis utility — agent-driven development.
 
 ## Project
 
-**Type**: TypeScript static code analysis utility (CLI tool)  
+**Type**: TypeScript static code analysis utility (CLI-only tool)  
 **Stage**: Early development (v0.0.1)  
-**Stack**: TypeScript 6.0+, TypeScript Compiler API, ESM, pnpm
+**Stack**: TypeScript 6.0+, TypeScript Compiler API, ESM, pnpm, Node.js 20+
 
 ## Roles
 
