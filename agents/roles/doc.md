@@ -60,7 +60,7 @@ If implementation is unclear or undocumented:
 
 ## Workflow Position
 
-DOC is the seventh stage in the development workflow, after REV and before Commit. See [Workflow](agents/roles/workflow.md) for full sequence.
+DOC is the eighth stage in the development workflow, after REV and before Commit. See [Workflow](agents/roles/workflow.md) for full sequence.
 
 ## Applicable Rules
 

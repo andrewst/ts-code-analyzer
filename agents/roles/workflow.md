@@ -5,7 +5,7 @@ The AI-driven software development workflow defines the sequence of roles from i
 ## Workflow Sequence
 
 ```
-Request → PD → PM → ARC → QA → CODER → REV → DOC → Commit
+Request → PD → PM → ARC → PLAN → QA → CODER → REV → DOC → Commit
 ```
 
 ## Role Stages Summary
@@ -13,13 +13,14 @@ Request → PD → PM → ARC → QA → CODER → REV → DOC → Commit
 | Stage | Role                       | Input                                                             | Output                              | Done Criteria                                                                                         | Blockers                                                                             | Handoff Target |
 | ----- | -------------------------- | ----------------------------------------------------------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | -------------- |
 | 1     | **PD** (Product Discovery) | Vision file, raw idea                                             | Discovery file, open questions      | Discovery follows template; user journeys defined; feature breakdown complete; no blocking questions  | Vision missing; scope ambiguous; blocking questions open                             | PM             |
-| 2     | **PM** (Product Manager)   | Discovery file, open questions                                    | Stories file, open questions        | All features have stories; acceptance criteria measurable; dependencies listed; no blocking questions | Discovery missing; scope ambiguous; blocking questions open; criteria not measurable | ARC, QA        |
-| 3     | **ARC** (Architect)        | Stories, discovery, open questions                                | Architecture file, open questions   | Module boundaries defined; data flow described; design decisions documented; no blocking questions    | Stories missing; scope ambiguous; blocking questions open; architecture incomplete   | QA, CODER      |
-| 4     | **QA** (Quality Assurance) | Stories, architecture, open questions                             | Test strategy, open questions       | All acceptance criteria have tests; edge cases identified; coverage goals set; no blocking questions  | Stories/architecture missing; strategy incomplete; blocking questions open           | CODER          |
-| 5     | **CODER** (Developer)      | Stories, architecture, test strategy, open questions              | Source code, tests, open questions  | All criteria implemented; tests pass; build/lint clean; no blocking questions                         | Inputs missing; implementation incomplete; build failures; blocking questions open   | REV            |
-| 6     | **REV** (Reviewer)         | Stories, architecture, test strategy, code, tests, open questions | Review report, open questions       | All criteria validated; architecture compliance checked; findings categorized; no blocking questions  | Critical findings; stories not satisfied; blocking questions open                    | DOC (if pass)  |
-| 7     | **DOC** (Documentation)    | Code, architecture, review report, open questions                 | Updated docs, JSDoc, open questions | All docs current; JSDoc complete; README synced; no blocking questions                                | Review missing; implementation undocumented; blocking questions open                 | Commit         |
-| 8     | **Commit**                 | All artifacts, review approval                                    | Committed code                      | All stages complete; no open blockers; documentation ready                                            | N/A                                                                                  | —              |
+| 2     | **PM** (Product Manager)   | Discovery file, open questions                                    | Stories file, open questions        | All features have stories; acceptance criteria measurable; dependencies listed; no blocking questions | Discovery missing; scope ambiguous; blocking questions open; criteria not measurable | ARC            |
+| 3     | **ARC** (Architect)        | Stories, discovery, open questions                                | Architecture file, open questions   | Module boundaries defined; data flow described; design decisions documented; no blocking questions    | Stories missing; scope ambiguous; blocking questions open; architecture incomplete   | PLAN           |
+| 4     | **PLAN** (Planner)         | Stories, architecture, discovery, open questions                  | Tasks file, open questions          | All requirements mapped to tasks; tasks are atomic and developer-ready; no blocking questions         | Stories/architecture missing; ambiguities open                                       | QA             |
+| 5     | **QA** (Quality Assurance) | Stories, architecture, tasks, open questions                      | Test strategy, open questions       | All acceptance criteria have tests; edge cases identified; coverage goals set; no blocking questions  | Stories/architecture/tasks missing; strategy incomplete; blocking questions open     | CODER          |
+| 6     | **CODER** (Developer)      | Stories, architecture, tasks, test strategy, open questions       | Source code, tests, open questions  | All criteria implemented; tests pass; build/lint clean; no blocking questions                         | Inputs missing; implementation incomplete; build failures; blocking questions open   | REV            |
+| 7     | **REV** (Reviewer)         | Stories, architecture, test strategy, code, tests, open questions | Review report, open questions       | All criteria validated; architecture compliance checked; findings categorized; no blocking questions  | Critical findings; stories not satisfied; blocking questions open                    | DOC (if pass)  |
+| 8     | **DOC** (Documentation)    | Code, architecture, review report, open questions                 | Updated docs, JSDoc, open questions | All docs current; JSDoc complete; README synced; no blocking questions                                | Review missing; implementation undocumented; blocking questions open                 | Commit         |
+| 9     | **Commit**                 | All artifacts, review approval                                    | Committed code                      | All stages complete; no open blockers; documentation ready                                            | N/A                                                                                  | —              |
 
 ## Role Details
 
@@ -28,6 +29,7 @@ For detailed role behavior, see individual role files:
 - [PD](agents/roles/pd.md) — Product Discovery
 - [PM](agents/roles/pm.md) — Product Manager
 - [ARC](agents/roles/arc.md) — Architect
+- [PLAN](agents/roles/plan.md) — Planner
 - [QA](agents/roles/qa.md) — Quality Assurance
 - [CODER](agents/roles/coder.md) — Developer
 - [REV](agents/roles/rev.md) — Reviewer
@@ -92,7 +94,8 @@ Each stage produces specific artifacts. The lifecycle rules are:
 | PD    | `docs/02_Discovery/discovery.md`        | Create new if missing; update existing, preserving valid content            |
 | PM    | `docs/03_Stories/stories.md`            | Create new if missing; update existing, preserving valid stories            |
 | ARC   | `docs/03_Stories/architecture.md`       | Create new if missing; update existing, preserving design decisions         |
-| QA    | `docs/04_TestStrategy/test-strategy.md` | Create new if missing; update existing, preserving test scenarios           |
+| PLAN  | `docs/04_Task/tasks.md`                 | Create new if missing; update existing, preserving dependencies             |
+| QA    | `docs/05_TestStrategy/test-strategy.md` | Create new if missing; update existing, preserving test scenarios           |
 | CODER | `src/` files                            | Implement according to architecture; update based on REV feedback           |
 | REV   | `docs/05_Review/review-report.md`       | Create fresh for each review cycle; reference previous reports              |
 | DOC   | Various documentation files             | Update to reflect current implementation per Document Responsibility Matrix |

@@ -60,7 +60,7 @@ If input is incomplete or unclear:
 
 ## Workflow Position
 
-CODER is the fifth stage in the development workflow, after QA and before REV. See [Workflow](agents/roles/workflow.md) for full sequence.
+CODER is the sixth stage in the development workflow, after QA and before REV. See [Workflow](agents/roles/workflow.md) for full sequence.
 
 ## Applicable Rules
 
@@ -70,7 +70,8 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 - **REQUIRED primary input**: Stories file at `docs/03_Stories/stories.md` — MUST be read to understand user outcomes and acceptance criteria
 - **REQUIRED primary input**: Architecture file at `docs/03_Stories/architecture.md` — MUST be read to understand technical design and module boundaries
-- **REQUIRED primary input**: Test strategy file at `docs/04_TestStrategy/test-strategy.md` — MUST be read to understand test expectations and coverage goals
+- **REQUIRED primary input**: Tasks file at `docs/04_Task/tasks.md` — MUST be read to understand the specific tasks to implement
+- **REQUIRED primary input**: Test strategy file at `docs/05_TestStrategy/test-strategy.md` — MUST be read to understand test expectations and coverage goals
 - **REQUIRED if present**: Open questions files from previous stages — MUST be read to understand resolved and unresolved decisions
 - **OPTIONAL context**: Discovery file at `docs/02_Discovery/discovery.md` — for broader product context
 - **OPTIONAL context**: Existing codebase — for integration context and reuse opportunities
@@ -79,15 +80,16 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 1. Read `docs/03_Stories/stories.md` first to understand required user outcomes
 2. Read `docs/03_Stories/architecture.md` to understand technical approach
-3. Read `docs/04_TestStrategy/test-strategy.md` to understand test expectations
-4. Read open questions files from previous stages to avoid re-litigating decisions
-5. Implement the solution according to the architecture and test strategy
+3. Read `docs/04_Task/tasks.md` to map implementations to specific actionable tasks
+4. Read `docs/05_TestStrategy/test-strategy.md` to understand test expectations
+5. Read open questions files from previous stages to avoid re-litigating decisions
+6. Implement the solution according to the architecture, tasks, and test strategy
 
 ## Output
 
 - **Primary output**: Implementation in `src/` according to architecture
 - **Secondary output**: Tests in `src/__tests__/` or alongside source files per project convention
-- **Secondary output**: Open questions file at `docs/04_TestStrategy/open-questions-from-coder.md` (if questions need tracking)
+- **Secondary output**: Open questions file at `docs/05_TestStrategy/open-questions-from-coder.md` (if questions need tracking)
 
 ## Artifacts
 
@@ -95,7 +97,7 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 | -------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | Source code    | `src/`                                              | Implement according to architecture; update based on REV feedback                                                          |
 | Test files     | `src/__tests__/` or alongside source files          | Implement according to test strategy; update based on REV feedback                                                         |
-| Open questions | `docs/04_TestStrategy/open-questions-from-coder.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
+| Open questions | `docs/05_TestStrategy/open-questions-from-coder.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
 
 **Update Rules**:
 
@@ -119,13 +121,13 @@ CODER's work is complete when ALL of the following are satisfied:
 
 The following conditions BLOCK handoff to REV:
 
-| Condition                                                     | Type          | Escalation                                   | Owner |
-| ------------------------------------------------------------- | ------------- | -------------------------------------------- | ----- |
-| Stories, architecture, or test strategy missing or unreadable | Unconditional | Escalate to user or re-run previous stage    | CODER |
-| Implementation incomplete (missing acceptance criteria)       | Unconditional | N/A — CODER must complete                    | CODER |
-| Tests incomplete (missing test scenarios)                     | Unconditional | N/A — CODER must complete                    | CODER |
-| Build or lint failures                                        | Unconditional | N/A — CODER must fix                         | CODER |
-| Blocking open questions remain unanswered                     | Unconditional | Cannot escalate; must resolve before handoff | CODER |
+| Condition                                               | Type          | Escalation                                   | Owner |
+| ------------------------------------------------------- | ------------- | -------------------------------------------- | ----- |
+| Stories, architecture, tasks, or test strategy missing  | Unconditional | Escalate to user or re-run previous stage    | CODER |
+| Implementation incomplete (missing acceptance criteria) | Unconditional | N/A — CODER must complete                    | CODER |
+| Tests incomplete (missing test scenarios)               | Unconditional | N/A — CODER must complete                    | CODER |
+| Build or lint failures                                  | Unconditional | N/A — CODER must fix                         | CODER |
+| Blocking open questions remain unanswered               | Unconditional | Cannot escalate; must resolve before handoff | CODER |
 
 **Escalation Rules**:
 
@@ -140,7 +142,7 @@ The following conditions BLOCK handoff to REV:
 **Deliverables**:
 
 1. Implementation in `src/` — source code and tests
-2. `docs/04_TestStrategy/open-questions-from-coder.md` — open questions file (if any exist)
+2. `docs/05_TestStrategy/open-questions-from-coder.md` — open questions file (if any exist)
 
 **Acceptance Criteria**:
 

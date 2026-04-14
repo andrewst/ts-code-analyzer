@@ -60,7 +60,7 @@ If review reveals a critical gap:
 
 ## Workflow Position
 
-REV is the sixth stage in the development workflow, after CODER and before DOC. See [Workflow](agents/roles/workflow.md) for full sequence.
+REV is the seventh stage in the development workflow, after CODER and before DOC. See [Workflow](agents/roles/workflow.md) for full sequence.
 
 ## Applicable Rules
 
@@ -70,7 +70,7 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 - **REQUIRED primary input**: Stories file at `docs/03_Stories/stories.md` — MUST be read to understand user outcomes and acceptance criteria
 - **REQUIRED primary input**: Architecture file at `docs/03_Stories/architecture.md` — MUST be read to validate implementation against technical design
-- **REQUIRED primary input**: Test strategy file at `docs/04_TestStrategy/test-strategy.md` — MUST be read to understand test expectations
+- **REQUIRED primary input**: Test strategy file at `docs/05_TestStrategy/test-strategy.md` — MUST be read to understand test expectations
 - **REQUIRED primary input**: Implemented code in `src/` — MUST be reviewed for all changes
 - **REQUIRED primary input**: Implemented tests in `src/__tests__/` or alongside source files — MUST be reviewed for coverage and quality
 - **REQUIRED if present**: Open questions files from previous stages — MUST be read to understand resolved and unresolved decisions
@@ -79,21 +79,21 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 1. Read `docs/03_Stories/stories.md` to understand required user outcomes
 2. Read `docs/03_Stories/architecture.md` to understand expected technical design
-3. Read `docs/04_TestStrategy/test-strategy.md` to understand expected test coverage
+3. Read `docs/05_TestStrategy/test-strategy.md` to understand expected test coverage
 4. Review the implemented code for correctness and quality
 5. Review the implemented tests for completeness and effectiveness
 
 ## Output
 
 - **Primary output**: Review report at `docs/05_Review/review-report.md`
-- **Secondary output**: Open questions file at `docs/04_TestStrategy/open-questions-from-rev.md` (if questions need tracking)
+- **Secondary output**: Open questions file at `docs/05_TestStrategy/open-questions-from-rev.md` (if questions need tracking)
 
 ## Artifacts
 
 | Artifact       | Location                                          | Lifecycle                                                                                                                  |
 | -------------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | Review report  | `docs/05_Review/review-report.md`                 | Create new for each review cycle; reference previous reports if re-review                                                  |
-| Open questions | `docs/04_TestStrategy/open-questions-from-rev.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
+| Open questions | `docs/05_TestStrategy/open-questions-from-rev.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
 
 **Update Rules**:
 
@@ -138,7 +138,7 @@ The following conditions BLOCK handoff to DOC:
 **Deliverables**:
 
 1. `docs/05_Review/review-report.md` — review report with findings and assessment
-2. `docs/04_TestStrategy/open-questions-from-rev.md` — open questions file (if any exist)
+2. `docs/05_TestStrategy/open-questions-from-rev.md` — open questions file (if any exist)
 
 **Acceptance Criteria**:
 

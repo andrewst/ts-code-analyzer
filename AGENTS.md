@@ -15,6 +15,7 @@ TypeScript static code analysis utility — agent-driven development.
 | PD       | [agents/roles/pd.md](agents/roles/pd.md)             | Idea structuring, discovery        |
 | PM       | [agents/roles/pm.md](agents/roles/pm.md)             | User stories, backlog creation     |
 | ARC      | [agents/roles/arc.md](agents/roles/arc.md)           | Architecture and technical design  |
+| PLAN     | [agents/roles/plan.md](agents/roles/plan.md)         | Task breakdown and execution plan  |
 | QA       | [agents/roles/qa.md](agents/roles/qa.md)             | Test strategy and quality gates    |
 | CODER    | [agents/roles/coder.md](agents/roles/coder.md)       | Implementation                     |
 | REV      | [agents/roles/rev.md](agents/roles/rev.md)           | Code review and quality validation |
@@ -43,6 +44,7 @@ Each role applies a specific subset of rules. This is the single source of truth
 | **PD**    | _(none — does not write code)_ |
 | **PM**    | _(none — does not write code)_ |
 | **ARC**   | A01–A05, R01–R07               |
+| **PLAN**  | _(none — does not write code)_ |
 | **QA**    | T01–T05, R01–R03, R07, A01–A03 |
 | **CODER** | R01–R07, A01–A05, T01–T05      |
 | **REV**   | R01–R07, A01–A05, T01–T05      |

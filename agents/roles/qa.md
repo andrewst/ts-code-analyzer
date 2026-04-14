@@ -53,12 +53,13 @@ If input is incomplete or unclear:
 ## When to Activate
 
 - ARC has produced technical design and architecture
+- PLAN has produced task breakdown
 - Implementation approach is defined
 - Test strategy and quality gates are needed before coding starts
 
 ## Workflow Position
 
-QA is the fourth stage in the development workflow, after ARC and before CODER. See [Workflow](agents/roles/workflow.md) for full sequence.
+QA is the fifth stage in the development workflow, after PLAN and before CODER. See [Workflow](agents/roles/workflow.md) for full sequence.
 
 ## Applicable Rules
 
@@ -68,6 +69,7 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 - **REQUIRED primary input**: Stories file at `docs/03_Stories/stories.md` — MUST be read to understand acceptance criteria
 - **REQUIRED primary input**: Architecture file at `docs/03_Stories/architecture.md` — MUST be read to understand technical design and module boundaries
+- **REQUIRED primary input**: Tasks file at `docs/04_Task/tasks.md` — MUST be read to understand the specific tasks to be implemented
 - **REQUIRED if present**: Open questions file at `docs/02_Discovery/open-questions-from-arc.md` — MUST be read to understand resolved and unresolved technical questions
 - **OPTIONAL context**: Discovery file at `docs/02_Discovery/discovery.md` — for broader product context
 - **OPTIONAL context**: Existing codebase and tests — for current coverage baseline
@@ -76,20 +78,21 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 1. Read `docs/03_Stories/stories.md` first to understand required user outcomes
 2. Read `docs/03_Stories/architecture.md` to understand module boundaries and data flow
-3. Read `docs/02_Discovery/open-questions-from-arc.md` if it exists to avoid re-litigating technical decisions
-4. Define test strategy that validates all acceptance criteria
-5. Identify test scenarios that exercise critical code paths
+3. Read `docs/04_Task/tasks.md` to map test scenarios to specific implementation tasks
+4. Read `docs/02_Discovery/open-questions-from-arc.md` if it exists to avoid re-litigating technical decisions
+5. Define test strategy that validates all acceptance criteria
+6. Identify test scenarios that exercise critical code paths
 
 ## Output
 
-- **Primary output**: Test strategy file at `docs/04_TestStrategy/test-strategy.md`
+- **Primary output**: Test strategy file at `docs/05_TestStrategy/test-strategy.md`
 - **Secondary output**: Open questions file at `docs/03_Stories/open-questions-from-qa.md` (if questions need tracking)
 
 ## Artifacts
 
 | Artifact           | Location                                    | Lifecycle                                                                                                                  |
 | ------------------ | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| Test strategy file | `docs/04_TestStrategy/test-strategy.md`     | Create new if missing; update existing if present, preserving test scenarios and adding new analysis                       |
+| Test strategy file | `docs/05_TestStrategy/test-strategy.md`     | Create new if missing; update existing if present, preserving test scenarios and adding new analysis                       |
 | Open questions     | `docs/03_Stories/open-questions-from-qa.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
 
 **Update Rules**:
@@ -101,7 +104,7 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 QA's work is complete when ALL of the following are satisfied:
 
-- [ ] Test strategy file exists at `docs/04_TestStrategy/test-strategy.md`
+- [ ] Test strategy file exists at `docs/05_TestStrategy/test-strategy.md`
 - [ ] All user story acceptance criteria have corresponding test scenarios
 - [ ] Edge cases and failure modes are identified for critical modules
 - [ ] Coverage goals are defined for core subsystems
@@ -118,13 +121,14 @@ The following conditions BLOCK handoff to CODER:
 | ------------------------------------------------------------------------- | ------------- | -------------------------------------------- | ----- |
 | Stories file missing or unreadable                                        | Unconditional | Escalate to user or re-run PM                | QA    |
 | Architecture file missing or unreadable                                   | Unconditional | Escalate to user or re-run ARC               | QA    |
+| Tasks file missing or unreadable                                          | Unconditional | Escalate to user or re-run PLAN              | QA    |
 | Test strategy fundamentally incomplete (cannot cover acceptance criteria) | Unconditional | Escalate to user or re-run ARC/PM            | QA    |
 | Blocking open questions remain unanswered                                 | Unconditional | Cannot escalate; must resolve before handoff | QA    |
 | Test strategy file not created or incomplete                              | Unconditional | N/A — QA must complete                       | QA    |
 
 **Escalation Rules**:
 
-- If stories or architecture are missing or unreadable: stop and request re-run of previous stage
+- If stories, architecture, or tasks are missing or unreadable: stop and request re-run of previous stage
 - If test strategy is incomplete: document specific gaps as blocking questions, do NOT proceed until resolved
 - If blocking questions exist: handoff is blocked until they are answered or reclassified as non-blocking/deferred
 
@@ -134,7 +138,7 @@ The following conditions BLOCK handoff to CODER:
 
 **Deliverables**:
 
-1. `docs/04_TestStrategy/test-strategy.md` — test strategy document
+1. `docs/05_TestStrategy/test-strategy.md` — test strategy document
 2. `docs/03_Stories/open-questions-from-qa.md` — open questions file (if any exist)
 
 **Acceptance Criteria**:

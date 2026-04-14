@@ -65,7 +65,7 @@ If there are no stories to validate, write `None`.
 
 ## Open Questions
 
-See `docs/04_TestStrategy/open-questions-from-rev.md` for unresolved review decisions.
+See `docs/05_TestStrategy/open-questions-from-rev.md` for unresolved review decisions.
 
 ## Blocking Conditions
 
