@@ -6,41 +6,43 @@ Derived from: [Idea](docs/00_Idea/idea.md)
 
 ## Product Summary
 
-A CLI-based static analysis tool for maintainers of large TypeScript npm libraries who need to understand the current state of the codebase, especially the public API surface, code health, and changes that may affect stability or maintenance.
+A CLI-based static analysis tool that helps engineers understand and maintain TypeScript codebases by surfacing structural insights, public API information, and change-related signals without requiring full manual code inspection.
 
 ## Problem
 
-## Short Description
+### Short Description
 
-When a TypeScript npm library grows large, it becomes difficult to understand what changed, what is exposed publicly, and where maintenance risk is increasing.
-Maintainers need a fast way to inspect the current state of the codebase without manually reading the entire project.
+As TypeScript codebases grow, it becomes harder to understand their structure, identify what is exposed publicly, and estimate the impact of changes.
+Engineers need a fast, reliable way to inspect a codebase and make maintenance decisions based on meaningful analysis rather than time-consuming manual exploration.
 
 ## Target Audience
 
-Developers who maintain large TypeScript npm libraries and need a quick, reliable overview of code health and public API impact.
+Engineers and maintainers working with TypeScript codebases who need a practical way to understand code structure, public API surface, and maintenance-relevant changes.
 
 ## Value Proposition
 
-Helps maintainers understand and control large TypeScript libraries faster, with less manual inspection.
+Helps engineers understand TypeScript codebases faster and maintain them more confidently by turning static analysis into actionable CLI insights.
 
 ## Key Characteristics
 
-- Surface accurate information about the library's public API
-- Highlight meaningful changes in the codebase
-- Define maintenance risk as the relationship between the size of the public API and the total size of the library's codebase
-- Help identify maintenance risks early using that ratio as a signal
-- Support quick codebase review for large libraries
-- Focus on practical, maintainable insights rather than raw low-level data
+- Provide clear structural insights about a TypeScript codebase
+- Surface information about the public API where relevant
+- Highlight changes or patterns that may affect maintenance
+- Help users identify areas that deserve attention first
+- Focus on actionable signals rather than raw compiler-level output
+- Fit naturally into CLI-based engineering workflows
 
 ## Primary Questions
 
-- What is exposed by the public API?
-- How large is the public API relative to the total codebase?
-- Where is the codebase becoming harder to maintain?
-- What parts of the library deserve attention first?
+- What does this codebase expose publicly?
+- Which parts of the codebase are most important to understand first?
+- What changed, and what may be affected by those changes?
+- Where are the likely maintenance hotspots?
+- How can a maintainer inspect the codebase faster than by manual reading alone?
 
 ## Success Criteria
 
-- A maintainer can understand the current state of a large library faster than by manual inspection alone
-- The tool provides useful signals for API changes and maintenance risk
-- The output is clear enough to support everyday library maintenance decisions
+- A user can understand the relevant structure of a TypeScript codebase faster than through manual inspection alone
+- The tool produces signals that are useful for maintenance and change analysis
+- The CLI output is clear, practical, and usable in everyday development workflows
+- The product can support both codebase understanding and ongoing maintenance tasks
