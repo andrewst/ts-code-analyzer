@@ -7,20 +7,20 @@ TypeScript dead-code detection utility — agent-driven development.
 **Type**: TypeScript dead-code detection utility (CLI tool + library)  
 **Stage**: Early development (v0.0.1)  
 **Stack**: TypeScript 6.0+, TypeScript Compiler API, ESM, pnpm  
-**Architecture**: RFC-driven — `docs/rfc_of_project.md`
 
 ## Roles
 
 | Role  | File                                                  | When                              |
 | ----- | ----------------------------------------------------- | --------------------------------- |
-| PM    | [agents/roles/pm.md](agents/agents/roles/pm.md)       | User stories, acceptance criteria |
-| ARC   | [agents/roles/arc.md](agents/agents/roles/arc.md)     | Design, architecture decisions    |
-| CODER | [agents/roles/coder.md](agents/agents/roles/coder.md) | Implementation                    |
-| QA    | [agents/roles/qa.md](agents/agents/roles/qa.md)       | Tests, fixtures                   |
-| REV   | [agents/roles/rev.md](agents/agents/roles/rev.md)     | Review                            |
-| DOC   | [agents/roles/doc.md](agents/agents/roles/doc.md)     | Documentation                     |
+| PDA   | [agents/roles/pda.md](agents/roles/pda.md)            | Idea structuring, discovery       |
+| PM    | [agents/roles/pm.md](agents/roles/pm.md)              | User stories, acceptance criteria |
+| ARC   | [agents/roles/arc.md](agents/roles/arc.md)            | Design, architecture decisions    |
+| CODER | [agents/roles/coder.md](agents/roles/coder.md)        | Implementation                    |
+| QA    | [agents/roles/qa.md](agents/roles/qa.md)              | Tests, fixtures                   |
+| REV   | [agents/roles/rev.md](agents/roles/rev.md)            | Review                            |
+| DOC   | [agents/roles/doc.md](agents/roles/doc.md)            | Documentation                     |
 
-**Workflow**: `Request → PM → ARC → QA → CODER → REV → DOC → Commit`
+**Workflow**: `Request → PDA → PM → ARC → QA → CODER → REV → DOC → Commit`
 
 ## Rules
 
@@ -37,6 +37,7 @@ Each role applies a specific subset of rules. This is the single source of truth
 
 | Role      | Applicable Rules                   |
 | --------- | ---------------------------------- |
+| **PDA**   | _(none — does not write code)_     |
 | **PM**    | _(none — does not write code)_     |
 | **ARC**   | A01–A05, R01–R07                   |
 | **QA**    | T01–T05, R01–R03, R07, A01–A03     |

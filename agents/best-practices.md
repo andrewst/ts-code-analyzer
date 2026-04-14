@@ -2,10 +2,9 @@
 
 ## Before Writing Code
 
-1. Read [docs/rfc_of_project.md](docs/rfc_of_project.md)
-2. Read sibling files for style/patterns
-3. Ask user on architectural ambiguity
-4. Write tests first (TDD)
+1. Read sibling files for style/patterns
+2. Ask user on architectural ambiguity
+3. Write tests first (TDD)
 
 ## While Writing Code
 
