@@ -80,12 +80,13 @@ _(none — does not write code or make technical decisions)_
 
 ## Artifacts
 
-| Artifact | Location | Lifecycle |
-| -------- | -------- | --------- |
-| Stories file | `docs/03_Stories/stories.md` | Create new if missing; update existing if present, preserving story structure and adding new analysis |
+| Artifact       | Location                                      | Lifecycle                                                                                                                  |
+| -------------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Stories file   | `docs/03_Stories/stories.md`                  | Create new if missing; update existing if present, preserving story structure and adding new analysis                      |
 | Open questions | `docs/02_Discovery/open-questions-from-pm.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
 
 **Update Rules**:
+
 - If `stories.md` exists: update content to reflect current story breakdown, do not discard previous valid stories without justification
 - If `open-questions-from-pm.md` exists: synchronize with current session, preserve answered questions, update statuses
 
@@ -106,15 +107,16 @@ PM's work is complete when ALL of the following are satisfied:
 
 The following conditions BLOCK handoff to ARC and QA:
 
-| Condition | Type | Escalation | Owner |
-| --------- | ---- | ---------- | ----- |
-| Discovery file missing or unreadable | Unconditional | Escalate to user or re-run PD | PM |
-| Feature scope fundamentally ambiguous (cannot derive user stories) | Unconditional | Escalate to user or re-run PD | PM |
-| Blocking open questions remain unanswered | Unconditional | Cannot escalate; must resolve before handoff | PM |
-| Stories file not created or incomplete | Unconditional | N/A — PM must complete | PM |
-| Acceptance criteria not measurable or verifiable | Unconditional | N/A — PM must refine | PM |
+| Condition                                                          | Type          | Escalation                                   | Owner |
+| ------------------------------------------------------------------ | ------------- | -------------------------------------------- | ----- |
+| Discovery file missing or unreadable                               | Unconditional | Escalate to user or re-run PD                | PM    |
+| Feature scope fundamentally ambiguous (cannot derive user stories) | Unconditional | Escalate to user or re-run PD                | PM    |
+| Blocking open questions remain unanswered                          | Unconditional | Cannot escalate; must resolve before handoff | PM    |
+| Stories file not created or incomplete                             | Unconditional | N/A — PM must complete                       | PM    |
+| Acceptance criteria not measurable or verifiable                   | Unconditional | N/A — PM must refine                         | PM    |
 
 **Escalation Rules**:
+
 - If discovery is missing or unreadable: stop and request PD re-run
 - If feature scope is ambiguous: document specific ambiguities as blocking questions, do NOT proceed until resolved
 - If blocking questions exist: handoff is blocked until they are answered or reclassified as non-blocking/deferred
@@ -124,16 +126,19 @@ The following conditions BLOCK handoff to ARC and QA:
 **Target**: ARC (Architect) and QA (Quality Assurance) — both consume stories file
 
 **Deliverables**:
+
 1. `docs/03_Stories/stories.md` — user stories with acceptance criteria
 2. `docs/02_Discovery/open-questions-from-pm.md` — open questions file (if any exist)
 
 **Acceptance Criteria**:
+
 - ARC can design technical architecture from stories without guessing user intent
 - QA can define test strategy from acceptance criteria without ambiguity
 - All stories are independent and testable
 - No blocking questions remain open
 
 **Failure Handling**:
+
 - If ARC or QA finds stories insufficient: they record new open questions and request PM re-run
 - PM MUST address their questions before workflow proceeds
 
@@ -141,11 +146,11 @@ The following conditions BLOCK handoff to ARC and QA:
 
 PM's completion is validated through:
 
-| Method | What It Checks | Enforcement |
-| ------ | -------------- | ----------- |
-| Story format | Each story follows "As a... I want... so that..." pattern | review-enforced |
-| Acceptance criteria | Each criterion is measurable and verifiable | review-enforced |
-| Completeness | All discovery feature groups have corresponding stories | manual only |
+| Method                | What It Checks                                                                                                                       | Enforcement     |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| Story format          | Each story follows "As a... I want... so that..." pattern                                                                            | review-enforced |
+| Acceptance criteria   | Each criterion is measurable and verifiable                                                                                          | review-enforced |
+| Completeness          | All discovery feature groups have corresponding stories                                                                              | manual only     |
 | Open questions format | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced |
 
 **Note**: PM verification is primarily manual — there is no automated tooling to validate story quality. ARC and QA act as verification gates.

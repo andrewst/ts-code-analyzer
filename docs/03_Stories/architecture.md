@@ -106,13 +106,13 @@ ARC's work is complete when ALL of the following are satisfied:
 
 ## Handoff Readiness
 
-| Checklist Item | Status |
-| -------------- | ------ |
-| Coherence - architecture has one clear approach | [x] |
-| Boundaries - modules have single responsibilities | [x] |
-| Testability - core logic can be tested without I/O | [x] |
-| Maintainability - dependency flow is directional | [x] |
-| Handoff quality - QA and CODER can proceed with implementation | [x] |
+| Checklist Item                                                 | Status |
+| -------------------------------------------------------------- | ------ |
+| Coherence - architecture has one clear approach                | [x]    |
+| Boundaries - modules have single responsibilities              | [x]    |
+| Testability - core logic can be tested without I/O             | [x]    |
+| Maintainability - dependency flow is directional               | [x]    |
+| Handoff quality - QA and CODER can proceed with implementation | [x]    |
 
 **Verdict**: ready
 

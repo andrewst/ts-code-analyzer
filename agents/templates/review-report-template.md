@@ -71,8 +71,8 @@ See `docs/04_TestStrategy/open-questions-from-rev.md` for unresolved review deci
 
 List any conditions that block handoff to DOC:
 
-| Condition | Status | Resolution |
-| --------- | ------ | ---------- |
+| Condition     | Status            | Resolution                        |
+| ------------- | ----------------- | --------------------------------- |
 | [Condition 1] | [resolved / open] | [how resolved or escalation plan] |
 | [Condition 2] | [resolved / open] | [how resolved or escalation plan] |
 
@@ -80,13 +80,13 @@ If there are no blocking conditions, write `None`.
 
 ## Handoff Readiness
 
-| Checklist Item | Status |
-| -------------- | ------ |
-| Correctness - implementation satisfies all acceptance criteria | [ ] |
-| Quality - code follows all applicable rules (R01–R07, A01–A05) | [ ] |
-| Test coverage - tests exercise all critical paths and edge cases | [ ] |
-| Security - no security vulnerabilities or exposed secrets | [ ] |
-| Performance - no obvious performance issues | [ ] |
-| Handoff quality - DOC can update documentation based on validated implementation | [ ] |
+| Checklist Item                                                                   | Status |
+| -------------------------------------------------------------------------------- | ------ |
+| Correctness - implementation satisfies all acceptance criteria                   | [ ]    |
+| Quality - code follows all applicable rules (R01–R07, A01–A05)                   | [ ]    |
+| Test coverage - tests exercise all critical paths and edge cases                 | [ ]    |
+| Security - no security vulnerabilities or exposed secrets                        | [ ]    |
+| Performance - no obvious performance issues                                      | [ ]    |
+| Handoff quality - DOC can update documentation based on validated implementation | [ ]    |
 
 **Verdict**: [ready / needs follow-up / blocked]

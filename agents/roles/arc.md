@@ -90,12 +90,13 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 ## Artifacts
 
-| Artifact | Location | Lifecycle |
-| -------- | -------- | --------- |
-| Architecture file | `docs/03_Stories/architecture.md` | Create new if missing; update existing if present, preserving design decisions and adding new analysis |
-| Open questions | `docs/02_Discovery/open-questions-from-arc.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
+| Artifact          | Location                                       | Lifecycle                                                                                                                  |
+| ----------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Architecture file | `docs/03_Stories/architecture.md`              | Create new if missing; update existing if present, preserving design decisions and adding new analysis                     |
+| Open questions    | `docs/02_Discovery/open-questions-from-arc.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
 
 **Update Rules**:
+
 - If `architecture.md` exists: update content to reflect current design, do not discard previous valid design without justification
 - If `open-questions-from-arc.md` exists: synchronize with current session, preserve answered questions, update statuses
 
@@ -116,15 +117,16 @@ ARC's work is complete when ALL of the following are satisfied:
 
 The following conditions BLOCK handoff to QA and CODER:
 
-| Condition | Type | Escalation | Owner |
-| --------- | ---- | ---------- | ----- |
-| Stories file missing or unreadable | Unconditional | Escalate to user or re-run PM | ARC |
-| Technical scope fundamentally ambiguous (cannot define module boundaries) | Unconditional | Escalate to user or re-run PM | ARC |
-| Blocking open questions remain unanswered | Unconditional | Cannot escalate; must resolve before handoff | ARC |
-| Architecture file not created or incomplete | Unconditional | N/A — ARC must complete | ARC |
-| Architecture violates user story requirements | Unconditional | N/A — ARC must fix | ARC |
+| Condition                                                                 | Type          | Escalation                                   | Owner |
+| ------------------------------------------------------------------------- | ------------- | -------------------------------------------- | ----- |
+| Stories file missing or unreadable                                        | Unconditional | Escalate to user or re-run PM                | ARC   |
+| Technical scope fundamentally ambiguous (cannot define module boundaries) | Unconditional | Escalate to user or re-run PM                | ARC   |
+| Blocking open questions remain unanswered                                 | Unconditional | Cannot escalate; must resolve before handoff | ARC   |
+| Architecture file not created or incomplete                               | Unconditional | N/A — ARC must complete                      | ARC   |
+| Architecture violates user story requirements                             | Unconditional | N/A — ARC must fix                           | ARC   |
 
 **Escalation Rules**:
+
 - If stories are missing or unreadable: stop and request PM re-run
 - If technical scope is ambiguous: document specific ambiguities as blocking questions, do NOT proceed until resolved
 - If blocking questions exist: handoff is blocked until they are answered or reclassified as non-blocking/deferred
@@ -134,16 +136,19 @@ The following conditions BLOCK handoff to QA and CODER:
 **Target**: QA (Quality Assurance) and CODER (Developer) — both consume architecture file
 
 **Deliverables**:
+
 1. `docs/03_Stories/architecture.md` — technical design document
 2. `docs/02_Discovery/open-questions-from-arc.md` — open questions file (if any exist)
 
 **Acceptance Criteria**:
+
 - QA can define test strategy that covers all module boundaries and data flows
 - CODER can implement modules without guessing at boundaries or responsibilities
 - All user stories are addressed in the design
 - No blocking questions remain open
 
 **Failure Handling**:
+
 - If QA or CODER finds architecture insufficient: they record new open questions and request ARC re-run
 - ARC MUST address their questions before workflow proceeds
 
@@ -151,13 +156,13 @@ The following conditions BLOCK handoff to QA and CODER:
 
 ARC's completion is validated through:
 
-| Method | What It Checks | Enforcement |
-| ------ | -------------- | ----------- |
-| Template structure | Architecture file follows [architecture template](agents/templates/architecture-template.md) | review-enforced |
-| Required sections | All mandatory sections present (Module Boundaries, Technical Flow, Data Flow, Design Decisions, Error Handling) | review-enforced |
-| Rule compliance | Architecture satisfies A01–A05, R01–R07 | review-enforced (REV stage) |
-| Open questions format | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced |
-| Handoff readiness | Checklist in architecture file is complete | manual only |
+| Method                | What It Checks                                                                                                                       | Enforcement                 |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------- |
+| Template structure    | Architecture file follows [architecture template](agents/templates/architecture-template.md)                                         | review-enforced             |
+| Required sections     | All mandatory sections present (Module Boundaries, Technical Flow, Data Flow, Design Decisions, Error Handling)                      | review-enforced             |
+| Rule compliance       | Architecture satisfies A01–A05, R01–R07                                                                                              | review-enforced (REV stage) |
+| Open questions format | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced             |
+| Handoff readiness     | Checklist in architecture file is complete                                                                                           | manual only                 |
 
 **Note**: ARC verification is primarily review-enforced — QA and REV validate that the architecture is testable and implementable.
 

@@ -57,8 +57,8 @@ See `docs/01_Vision/open-questions-from-pd.md` if questions need to be tracked s
 
 List any conditions that block handoff to PM:
 
-| Condition | Status | Resolution |
-| --------- | ------ | ---------- |
+| Condition     | Status            | Resolution                        |
+| ------------- | ----------------- | --------------------------------- |
 | [Condition 1] | [resolved / open] | [how resolved or escalation plan] |
 | [Condition 2] | [resolved / open] | [how resolved or escalation plan] |
 
@@ -78,13 +78,13 @@ PD's work is complete when ALL of the following are satisfied:
 
 ## PM Handoff Readiness
 
-| Checklist Item | Status |
-| -------------- | ------ |
-| Coherence - idea is structured and logical | [ ] |
-| User focus - journeys cover primary flows | [ ] |
-| Completeness - use cases cover the main needs | [ ] |
-| Scope clarity - feature breakdown is unambiguous | [ ] |
-| Handoff quality - PM can derive user stories from this input | [ ] |
+| Checklist Item                                               | Status |
+| ------------------------------------------------------------ | ------ |
+| Coherence - idea is structured and logical                   | [ ]    |
+| User focus - journeys cover primary flows                    | [ ]    |
+| Completeness - use cases cover the main needs                | [ ]    |
+| Scope clarity - feature breakdown is unambiguous             | [ ]    |
+| Handoff quality - PM can derive user stories from this input | [ ]    |
 
 **Verdict**: [ready / needs follow-up / blocked]
 

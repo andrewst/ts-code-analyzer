@@ -90,13 +90,14 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 ## Artifacts
 
-| Artifact | Location | Lifecycle |
-| -------- | -------- | --------- |
-| Documentation files | Per Document Responsibility Matrix (see below) | Update to reflect current implementation; do not delete existing content without justification |
-| JSDoc comments | In source files (`src/`) | Add or update for all public APIs and exported symbols |
-| Open questions | `docs/05_Review/open-questions-from-doc.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
+| Artifact            | Location                                       | Lifecycle                                                                                                                  |
+| ------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Documentation files | Per Document Responsibility Matrix (see below) | Update to reflect current implementation; do not delete existing content without justification                             |
+| JSDoc comments      | In source files (`src/`)                       | Add or update for all public APIs and exported symbols                                                                     |
+| Open questions      | `docs/05_Review/open-questions-from-doc.md`    | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
 
 **Update Rules**:
+
 - Documentation files are updated to reflect current implementation — do not discard valid content without justification
 - If `open-questions-from-doc.md` exists: synchronize with current session, preserve answered questions, update statuses
 
@@ -117,15 +118,16 @@ DOC's work is complete when ALL of the following are satisfied:
 
 The following conditions BLOCK commit:
 
-| Condition | Type | Escalation | Owner |
-| --------- | ---- | ---------- | ----- |
-| Review report missing or indicates documentation gaps | Unconditional | Escalate to user or re-run REV | DOC |
-| Implementation unclear or undocumented | Unconditional | Recommend documentation update; escalate if critical | DOC |
-| Blocking open questions remain unanswered | Unconditional | Cannot escalate; must resolve before commit | DOC |
-| JSDoc incomplete for public APIs | Unconditional | N/A — DOC must complete | DOC |
-| README or architecture document out of sync | Unconditional | N/A — DOC must update | DOC |
+| Condition                                             | Type          | Escalation                                           | Owner |
+| ----------------------------------------------------- | ------------- | ---------------------------------------------------- | ----- |
+| Review report missing or indicates documentation gaps | Unconditional | Escalate to user or re-run REV                       | DOC   |
+| Implementation unclear or undocumented                | Unconditional | Recommend documentation update; escalate if critical | DOC   |
+| Blocking open questions remain unanswered             | Unconditional | Cannot escalate; must resolve before commit          | DOC   |
+| JSDoc incomplete for public APIs                      | Unconditional | N/A — DOC must complete                              | DOC   |
+| README or architecture document out of sync           | Unconditional | N/A — DOC must update                                | DOC   |
 
 **Escalation Rules**:
+
 - If review report is missing: stop and request REV completion
 - If implementation is unclear: document specific gaps as blocking questions, recommend DOC improvements
 - If blocking questions exist: commit is blocked until they are answered or reclassified as non-blocking/deferred
@@ -135,17 +137,20 @@ The following conditions BLOCK commit:
 **Target**: Commit (final stage)
 
 **Deliverables**:
+
 1. Updated documentation files per Document Responsibility Matrix
 2. Updated JSDoc in source files
 3. `docs/05_Review/open-questions-from-doc.md` — open questions file (if any exist)
 
 **Acceptance Criteria**:
+
 - All documentation is accurate and current
 - JSDoc is complete for public APIs
 - No documentation gaps remain
 - No blocking questions remain open
 
 **Failure Handling**:
+
 - If documentation is incomplete: commit is blocked until DOC fixes
 - If documentation gaps are found: DOC must address before commit proceeds
 
@@ -153,14 +158,14 @@ The following conditions BLOCK commit:
 
 DOC's completion is validated through:
 
-| Method | What It Checks | Enforcement |
-| ------ | -------------- | ----------- |
-| JSDoc completeness | All public APIs have JSDoc per R07 | review-enforced (R07) |
-| README accuracy | CLI commands and features match implementation | manual only |
-| Architecture sync | Architecture document matches implementation | manual only |
-| Rule compliance | R07 satisfied (JSDoc on exported functions/types) | review-enforced (DOC stage) |
-| Open questions format | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced |
-| Consistency | Terminology and structure consistent across documents | manual only |
+| Method                | What It Checks                                                                                                                       | Enforcement                 |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------- |
+| JSDoc completeness    | All public APIs have JSDoc per R07                                                                                                   | review-enforced (R07)       |
+| README accuracy       | CLI commands and features match implementation                                                                                       | manual only                 |
+| Architecture sync     | Architecture document matches implementation                                                                                         | manual only                 |
+| Rule compliance       | R07 satisfied (JSDoc on exported functions/types)                                                                                    | review-enforced (DOC stage) |
+| Open questions format | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced             |
+| Consistency           | Terminology and structure consistent across documents                                                                                | manual only                 |
 
 **Note**: DOC verification is primarily manual and review-enforced — there is no automated tooling to validate documentation quality. REV and user act as final validation gates.
 
@@ -168,16 +173,16 @@ DOC's completion is validated through:
 
 **MANDATORY**: DOC MUST update the following documents when corresponding changes are present in the implementation:
 
-| When this changes | Update this document |
-| ----------------- | -------------------- |
-| CLI commands or arguments | `README.md` (usage section) |
-| Public API or exported functions | JSDoc in source files |
-| Architecture or module boundaries | `docs/03_Stories/architecture.md` |
-| Analysis capabilities or detectors | `README.md` (features section) |
-| Workflow or role changes | `AGENTS.md`, `agents/roles/workflow.md` |
-| Rules or quality standards | `agents/rules/*.md` |
-| Tooling or build configuration | `agents/tooling.md` |
-| Known issues or limitations | `docs/` (appropriate section or new file) |
+| When this changes                  | Update this document                      |
+| ---------------------------------- | ----------------------------------------- |
+| CLI commands or arguments          | `README.md` (usage section)               |
+| Public API or exported functions   | JSDoc in source files                     |
+| Architecture or module boundaries  | `docs/03_Stories/architecture.md`         |
+| Analysis capabilities or detectors | `README.md` (features section)            |
+| Workflow or role changes           | `AGENTS.md`, `agents/roles/workflow.md`   |
+| Rules or quality standards         | `agents/rules/*.md`                       |
+| Tooling or build configuration     | `agents/tooling.md`                       |
+| Known issues or limitations        | `docs/` (appropriate section or new file) |
 
 ## Open Questions Handling
 

@@ -35,6 +35,12 @@ As TypeScript codebases grow, it becomes harder to understand their structure, p
 - Concise CLI overview that points to the most important areas for manual inspection
 - Practical analysis workflow that fits local CLI-based engineering usage
 
+## Agent-Driven Development
+
+This project is developed using an **agent-driven approach**. We use a structured multi-role AI workflow to ensure high quality, maintainability, and clear documentation.
+
+Detailed information about the roles, rules, and workflow can be found in the [**`agents/`**](agents/README.md) directory and the [**`AGENTS.md`**](AGENTS.md) file.
+
 ## Requirements
 
 - Node.js 20+

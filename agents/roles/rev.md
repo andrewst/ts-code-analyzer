@@ -90,12 +90,13 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 ## Artifacts
 
-| Artifact | Location | Lifecycle |
-| -------- | -------- | --------- |
-| Review report | `docs/05_Review/review-report.md` | Create new for each review cycle; reference previous reports if re-review |
+| Artifact       | Location                                          | Lifecycle                                                                                                                  |
+| -------------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Review report  | `docs/05_Review/review-report.md`                 | Create new for each review cycle; reference previous reports if re-review                                                  |
 | Open questions | `docs/04_TestStrategy/open-questions-from-rev.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
 
 **Update Rules**:
+
 - Review report is created fresh for each review cycle — do not overwrite previous reports
 - If `open-questions-from-rev.md` exists: synchronize with current session, preserve answered questions, update statuses
 
@@ -116,15 +117,16 @@ REV's work is complete when ALL of the following are satisfied:
 
 The following conditions BLOCK handoff to DOC:
 
-| Condition | Type | Escalation | Owner |
-| --------- | ---- | ---------- | ----- |
-| Critical findings in review (blocks commit) | Unconditional | CODER must fix; re-review required | REV |
-| Implementation does not satisfy user stories | Unconditional | CODER must fix; re-review required | REV |
-| Architecture violations are unacceptable | Unconditional | CODER must fix or escalate to user | REV |
-| Blocking open questions remain unanswered | Unconditional | Cannot escalate; must resolve before handoff | REV |
-| Review report not created or incomplete | Unconditional | N/A — REV must complete | REV |
+| Condition                                    | Type          | Escalation                                   | Owner |
+| -------------------------------------------- | ------------- | -------------------------------------------- | ----- |
+| Critical findings in review (blocks commit)  | Unconditional | CODER must fix; re-review required           | REV   |
+| Implementation does not satisfy user stories | Unconditional | CODER must fix; re-review required           | REV   |
+| Architecture violations are unacceptable     | Unconditional | CODER must fix or escalate to user           | REV   |
+| Blocking open questions remain unanswered    | Unconditional | Cannot escalate; must resolve before handoff | REV   |
+| Review report not created or incomplete      | Unconditional | N/A — REV must complete                      | REV   |
 
 **Escalation Rules**:
+
 - If critical findings exist: handoff is blocked until CODER fixes and re-review passes
 - If implementation does not satisfy stories: document as critical finding, request CODER re-run
 - If blocking questions exist: handoff is blocked until they are answered or reclassified as non-blocking/deferred
@@ -134,16 +136,19 @@ The following conditions BLOCK handoff to DOC:
 **Target**: DOC (Documentation) — only if review passes (Pass or Conditional Pass)
 
 **Deliverables**:
+
 1. `docs/05_Review/review-report.md` — review report with findings and assessment
 2. `docs/04_TestStrategy/open-questions-from-rev.md` — open questions file (if any exist)
 
 **Acceptance Criteria**:
+
 - Review assessment is Pass or Conditional Pass (no unresolved critical findings)
 - All major findings have recommended fixes that CODER can address
 - Documentation gaps are identified for DOC to address
 - No blocking questions remain open
 
 **Failure Handling**:
+
 - If review assessment is Fail: handoff to DOC is blocked; CODER must fix and re-review
 - If review assessment is Conditional Pass: DOC may proceed but must address documentation gaps; re-review may be required
 
@@ -151,14 +156,14 @@ The following conditions BLOCK handoff to DOC:
 
 REV's completion is validated through:
 
-| Method | What It Checks | Enforcement |
-| ------ | -------------- | ----------- |
-| Template structure | Review report follows [review report template](agents/templates/review-report-template.md) | review-enforced |
-| Story validation | Each acceptance criterion is validated with Yes/No and evidence | review-enforced |
-| Architecture validation | Implementation compliance with architecture is assessed | review-enforced |
-| Rule compliance | All applicable rules (R01–R07, A01–A05, T01–T05) are checked | review-enforced |
-| Open questions format | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced |
-| Severity categorization | Findings are properly categorized (critical, major, minor, suggestion) | manual only |
+| Method                  | What It Checks                                                                                                                       | Enforcement     |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| Template structure      | Review report follows [review report template](agents/templates/review-report-template.md)                                           | review-enforced |
+| Story validation        | Each acceptance criterion is validated with Yes/No and evidence                                                                      | review-enforced |
+| Architecture validation | Implementation compliance with architecture is assessed                                                                              | review-enforced |
+| Rule compliance         | All applicable rules (R01–R07, A01–A05, T01–T05) are checked                                                                         | review-enforced |
+| Open questions format   | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced |
+| Severity categorization | Findings are properly categorized (critical, major, minor, suggestion)                                                               | manual only     |
 
 **Note**: REV verification is entirely review-enforced — there is no automated tooling for code review quality. The reviewer's judgment is the primary validation mechanism.
 
