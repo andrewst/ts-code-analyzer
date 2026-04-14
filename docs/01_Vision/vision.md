@@ -1,13 +1,28 @@
 # Problem
 ## Short Description
-When a TypeScript npm library grows large, it becomes very difficult to keep the code under control.
-There is a need to quickly and easily get information about the current state of the codebase.
+When a TypeScript npm library grows large, it becomes difficult to understand what changed, what is exposed publicly, and where maintenance risk is increasing.
+Maintainers need a fast way to inspect the current state of the codebase without manually reading the entire project.
 
 ## Target Audience
-Developers who maintain large TypeScript libraries and want to quickly understand the current state of the code.
+Developers who maintain large TypeScript npm libraries and need a quick, reliable overview of code health and public API impact.
 
 ## Value Proposition
-Simplifies the maintenance of large TypeScript npm libraries.
+Helps maintainers understand and control large TypeScript libraries faster, with less manual inspection.
 
 ## Key Characteristics
-- Get accurate information about the library's public API
+- Surface accurate information about the library's public API
+- Highlight meaningful changes in the codebase
+- Help identify maintenance risks early
+- Support quick codebase review for large libraries
+- Focus on practical, maintainable insights rather than raw low-level data
+
+## Primary Questions
+- What is exposed by the public API?
+- What changed recently?
+- Where is the codebase becoming harder to maintain?
+- What parts of the library deserve attention first?
+
+## Success Criteria
+- A maintainer can understand the current state of a large library faster than by manual inspection alone
+- The tool provides useful signals for API changes and maintenance risk
+- The output is clear enough to support everyday library maintenance decisions
