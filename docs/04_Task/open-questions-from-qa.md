@@ -9,7 +9,7 @@
 
 - `docs/03_Stories/stories.md`
 - `docs/03_Stories/architecture.md`
-- `docs/04_Tasks/tasks.md`
+- `docs/04_Task/tasks.md`
 
 ## Document Status Notes
 

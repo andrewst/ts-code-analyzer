@@ -75,7 +75,7 @@ _(none — does not write code or make technical decisions)_
 
 ## Output
 
-- **Primary output**: Stories file at `docs/03_Stories/stories.md`
+- **Primary output**: Stories file at `docs/03_Stories/stories.md` — **MANDATORY**: Use [stories template](agents/templates/stories-template.md) for output structure.
 - **Secondary output**: Open questions file at `docs/02_Discovery/open-questions-from-pm.md` (if questions need tracking)
 
 ## Artifacts
@@ -94,7 +94,7 @@ _(none — does not write code or make technical decisions)_
 
 PM's work is complete when ALL of the following are satisfied:
 
-- [ ] Stories file exists at `docs/03_Stories/stories.md`
+- [ ] Stories file exists at `docs/03_Stories/stories.md` and follows [stories template](agents/templates/stories-template.md)
 - [ ] Every feature group from discovery has corresponding user stories
 - [ ] Each story follows format: "As a [user], I want to [action], so that [outcome]"
 - [ ] Each story has at least 3 measurable, verifiable acceptance criteria
@@ -148,6 +148,7 @@ PM's completion is validated through:
 
 | Method                | What It Checks                                                                                                                       | Enforcement     |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| Template structure    | Stories file follows [stories template](agents/templates/stories-template.md)                                                        | review-enforced |
 | Story format          | Each story follows "As a... I want... so that..." pattern                                                                            | review-enforced |
 | Acceptance criteria   | Each criterion is measurable and verifiable                                                                                          | review-enforced |
 | Completeness          | All discovery feature groups have corresponding stories                                                                              | manual only     |

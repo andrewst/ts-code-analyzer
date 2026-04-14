@@ -70,7 +70,7 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 - **REQUIRED primary input**: Stories file at `docs/03_Stories/stories.md` — MUST be read to understand user outcomes and acceptance criteria
 - **REQUIRED primary input**: Architecture file at `docs/03_Stories/architecture.md` — MUST be read to understand technical design and module boundaries
-- **REQUIRED primary input**: Tasks file at `docs/04_Tasks/tasks.md` — MUST be read to understand the specific tasks to implement
+- **REQUIRED primary input**: Tasks file at `docs/04_Task/tasks.md` — MUST be read to understand the specific tasks to implement
 - **REQUIRED primary input**: Test strategy file at `docs/05_TestStrategy/test-strategy.md` — MUST be read to understand test expectations and coverage goals
 - **REQUIRED if present**: Open questions files from previous stages — MUST be read to understand resolved and unresolved decisions
 - **OPTIONAL context**: Discovery file at `docs/02_Discovery/discovery.md` — for broader product context
@@ -80,7 +80,7 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 1. Read `docs/03_Stories/stories.md` first to understand required user outcomes
 2. Read `docs/03_Stories/architecture.md` to understand technical approach
-3. Read `docs/04_Tasks/tasks.md` to map implementations to specific actionable tasks
+3. Read `docs/04_Task/tasks.md` to map implementations to specific actionable tasks
 4. Read `docs/05_TestStrategy/test-strategy.md` to understand test expectations
 5. Read open questions files from previous stages to avoid re-litigating decisions
 6. Implement the solution according to the architecture, tasks, and test strategy
