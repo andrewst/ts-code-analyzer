@@ -108,9 +108,6 @@ pnpm run format:check  # Check formatting with prettier
 
 - [Idea](docs/00_Idea/idea.md) - original product idea
 - [Vision](docs/01_Vision/vision.md) - product direction and goals
-- [Discovery](docs/02_Discovery/discovery.md) - problem framing and analysis
-- [Stories](docs/03_Stories/stories.md) - current scope and user stories
-- [Architecture](docs/03_Stories/architecture.md) - proposed technical design
 - [Project documentation](docs) - complete documentation index
 
 ## License

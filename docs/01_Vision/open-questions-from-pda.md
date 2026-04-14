@@ -1,13 +1,14 @@
 # Open Questions from PDA
 
-**Project**: ts_code_analyzer
+**Project**: TypeScript Code Analyzer
 **Last Updated**: 2026-04-14
 **Status**: answered
 **Source Role**: PDA
-**Primary Source File**: `docs/01_Vision/vision.md`
+**Primary Source File**: `docs/02_Discovery/discovery.md`
 **Related Source Files**:
 
-- `docs/02_Discovery/discovery.md`
+- `docs/01_Vision/vision.md`
+- `docs/00_Idea/idea.md`
 
 ## Document Status Notes
 
@@ -18,72 +19,48 @@
 
 ## Unanswered Questions
 
-None
+None.
 
 ## Answered Questions
 
-### Q1: What is the intended input scope?
+### Q1: Which analysis perspective should define the first CLI workflow in v0.0.1?
 
-**Context**: The vision says the tool analyzes large TypeScript npm libraries, but it does not yet state whether the main input is a local repository, a published package, or both.
-**Impact**: This affects how the product is framed for users and which workflows PM should prioritize.
+**Context**: The vision includes structural insights, public API discovery, change-related signals, and maintenance hotspots.
+**Impact**: PM can write more focused stories if the first user workflow is framed around one primary entry point instead of several equally weighted ones.
 **Status**: answered
-**Answered By**: User
+**Answered By**: user
 **Answered Date**: 2026-04-14
 
 **Suggested Answers**:
 
-- [x] **A1**: Local repository analysis only
-- [ ] **A2**: Local repository first, with package metadata support later
-- [ ] **A3**: Local repositories and published npm packages equally
-- [ ] **Custom**: Define a different input scope
+- [ ] **A1**: Start with general codebase exploration as the primary workflow.
+- [x] **A2**: Start with public API inspection as the primary workflow.
+- [ ] **A3**: Start with change impact review as the primary workflow.
+- [ ] **Custom**: Write a different priority for the first workflow.
 
 ---
 
-### Q2: What should v1 treat as the public API boundary?
+### Q2: What level of user guidance should the CLI output provide in v0.0.1?
 
-**Context**: "Public API" can mean exported symbols, package.json `exports`, generated type declarations, or documentation-facing entry points.
-**Impact**: This determines what the tool must recognize as public-facing and what counts as an API change.
+**Context**: The vision emphasizes actionable signals, but the degree of interpretation is still open.
+**Impact**: PM can define stories differently depending on whether output should mainly describe findings or also suggest where the user should look next.
 **Status**: answered
-**Answered By**: User
+**Answered By**: user
 **Answered Date**: 2026-04-14
 
 **Suggested Answers**:
 
-- [ ] **A1**: `package.json` exports and entry points
-- [x] **A2**: Exported TypeScript symbols and re-exports
-- [ ] **A3**: A combined boundary including package metadata and exports
-- [ ] **Custom**: Define a project-specific API boundary model
+- [x] **A1**: Output should mainly report observations and let users interpret them.
+- [ ] **A2**: Output should report observations and explicitly highlight likely next inspection targets.
+- [ ] **A3**: Output should provide brief summaries plus ranked recommendations for attention.
+- [ ] **Custom**: Define a different level of guidance.
 
 ---
 
-### Q3: What is the primary output format for the user?
+## Conventions
 
-**Context**: The vision emphasizes quick understanding, but not whether the user should receive terminal output, JSON, markdown, or another format.
-**Impact**: This changes how users consume the tool and how PM should describe the core experience.
-**Status**: answered
-**Answered By**: User
-**Answered Date**: 2026-04-14
-
-**Suggested Answers**:
-
-- [x] **A1**: Human-readable CLI summary
-- [ ] **A2**: Machine-readable JSON output
-- [ ] **A3**: Both human-readable and machine-readable output
-- [ ] **Custom**: Another primary format
-
----
-
-### Q4: How should the tool define "maintenance risk" at the product level?
-
-**Context**: The vision now defines maintenance risk as the relationship between the size of the public API and the total size of the codebase.
-**Impact**: This determines what the tool should calculate and which signals the PM should treat as the core risk metric.
-**Status**: answered
-**Answered By**: User
-**Answered Date**: 2026-04-14
-
-**Suggested Answers**:
-
-- [x] **A1**: Public API size relative to total codebase size
-- [ ] **A2**: Structural complexity and coupling signals
-- [ ] **A3**: Change volatility and churn signals
-- [ ] **Custom**: Define another risk model
+- Use markdown checkboxes: `[ ]` for unselected answers and `[x]` for the selected answer.
+- Do not use `✓` or other status markers for answer selection.
+- Keep question numbering stable when possible (`Q1`, `Q2`, `Q3`, ...).
+- Remove exact duplicates when synchronizing an existing file.
+- When synchronizing, update Status and Owner fields as context changes.
