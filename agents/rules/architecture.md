@@ -1,9 +1,9 @@
 # Architecture Rules
 
-| ID  | Rule                                                               | Why                     |
-| --- | ------------------------------------------------------------------ | ----------------------- |
-| A01 | **Single responsibility**: each module has one clear purpose       | Maintainability         |
+| ID  | Rule                                                                                                                                                                                                                                | Why                     |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| A01 | **Single responsibility**: each module has one clear purpose                                                                                                                                                                        | Maintainability         |
 | A02 | **Module isolation**: each module or subsystem has clear ownership boundary. Directory structure should follow runtime/analysis boundaries, not arbitrary decomposition. Apply only where module separation is genuinely justified. | Independent testing     |
-| A03 | **Pure core logic**: no side effects, no I/O in analysis functions | Deterministic, testable |
-| A04 | **Dependency injection**: constructor/args, no globals             | Mockability             |
-| A05 | **No circular dependencies**: unidirectional data flow             | Clear architecture      |
+| A03 | **Pure core logic**: no side effects, no I/O in analysis functions                                                                                                                                                                  | Deterministic, testable |
+| A04 | **Dependency injection**: constructor/args, no globals                                                                                                                                                                              | Mockability             |
+| A05 | **No circular dependencies**: unidirectional data flow                                                                                                                                                                              | Clear architecture      |

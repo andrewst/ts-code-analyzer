@@ -91,13 +91,14 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 ## Artifacts
 
-| Artifact | Location | Lifecycle |
-| -------- | -------- | --------- |
-| Source code | `src/` | Implement according to architecture; update based on REV feedback |
-| Test files | `src/__tests__/` or alongside source files | Implement according to test strategy; update based on REV feedback |
+| Artifact       | Location                                            | Lifecycle                                                                                                                  |
+| -------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Source code    | `src/`                                              | Implement according to architecture; update based on REV feedback                                                          |
+| Test files     | `src/__tests__/` or alongside source files          | Implement according to test strategy; update based on REV feedback                                                         |
 | Open questions | `docs/04_TestStrategy/open-questions-from-coder.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
 
 **Update Rules**:
+
 - Source and test files are updated iteratively based on REV feedback until ready for commit
 - If `open-questions-from-coder.md` exists: synchronize with current session, preserve answered questions, update statuses
 
@@ -118,15 +119,16 @@ CODER's work is complete when ALL of the following are satisfied:
 
 The following conditions BLOCK handoff to REV:
 
-| Condition | Type | Escalation | Owner |
-| --------- | ---- | ---------- | ----- |
-| Stories, architecture, or test strategy missing or unreadable | Unconditional | Escalate to user or re-run previous stage | CODER |
-| Implementation incomplete (missing acceptance criteria) | Unconditional | N/A — CODER must complete | CODER |
-| Tests incomplete (missing test scenarios) | Unconditional | N/A — CODER must complete | CODER |
-| Build or lint failures | Unconditional | N/A — CODER must fix | CODER |
-| Blocking open questions remain unanswered | Unconditional | Cannot escalate; must resolve before handoff | CODER |
+| Condition                                                     | Type          | Escalation                                   | Owner |
+| ------------------------------------------------------------- | ------------- | -------------------------------------------- | ----- |
+| Stories, architecture, or test strategy missing or unreadable | Unconditional | Escalate to user or re-run previous stage    | CODER |
+| Implementation incomplete (missing acceptance criteria)       | Unconditional | N/A — CODER must complete                    | CODER |
+| Tests incomplete (missing test scenarios)                     | Unconditional | N/A — CODER must complete                    | CODER |
+| Build or lint failures                                        | Unconditional | N/A — CODER must fix                         | CODER |
+| Blocking open questions remain unanswered                     | Unconditional | Cannot escalate; must resolve before handoff | CODER |
 
 **Escalation Rules**:
+
 - If required inputs are missing: stop and request re-run of previous stage
 - If implementation is blocked: document specific issues as blocking questions, do NOT proceed until resolved
 - If blocking questions exist: handoff is blocked until they are answered or reclassified as non-blocking/deferred
@@ -136,16 +138,19 @@ The following conditions BLOCK handoff to REV:
 **Target**: REV (Reviewer)
 
 **Deliverables**:
+
 1. Implementation in `src/` — source code and tests
 2. `docs/04_TestStrategy/open-questions-from-coder.md` — open questions file (if any exist)
 
 **Acceptance Criteria**:
+
 - REV can review implementation against stories, architecture, and test strategy
 - All files compile and pass linter
 - Tests execute and report coverage
 - No blocking questions remain open
 
 **Failure Handling**:
+
 - If REV finds implementation deficient: REV records findings in review report and requests CODER re-run
 - CODER MUST address REV's findings before workflow proceeds
 
@@ -153,14 +158,14 @@ The following conditions BLOCK handoff to REV:
 
 CODER's completion is validated through:
 
-| Method | What It Checks | Enforcement |
-| ------ | -------------- | ----------- |
-| TypeScript compiler | `tsconfig.json: strict: true` passes with no errors | lint-enforced (R01, R02, R03) |
-| Oxc lint | Code quality rules pass (no `explicit-any`, etc.) | lint-enforced (R02, R06) |
-| Test execution | All tests pass | test-enforced (T04) |
-| Coverage report | Coverage meets targets for critical core | test-enforced (T02) |
-| Rule compliance | All applicable rules (R01–R07, A01–A05, T01–T05) satisfied | review-enforced (REV stage) |
-| Open questions format | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced |
+| Method                | What It Checks                                                                                                                       | Enforcement                   |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------- |
+| TypeScript compiler   | `tsconfig.json: strict: true` passes with no errors                                                                                  | lint-enforced (R01, R02, R03) |
+| Oxc lint              | Code quality rules pass (no `explicit-any`, etc.)                                                                                    | lint-enforced (R02, R06)      |
+| Test execution        | All tests pass                                                                                                                       | test-enforced (T04)           |
+| Coverage report       | Coverage meets targets for critical core                                                                                             | test-enforced (T02)           |
+| Rule compliance       | All applicable rules (R01–R07, A01–A05, T01–T05) satisfied                                                                           | review-enforced (REV stage)   |
+| Open questions format | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced               |
 
 **Note**: CODER verification is partially automated — compiler and linter enforce code quality rules. Tests and coverage provide automated validation. REV validates code quality manually.
 

@@ -87,12 +87,13 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 ## Artifacts
 
-| Artifact | Location | Lifecycle |
-| -------- | -------- | --------- |
-| Test strategy file | `docs/04_TestStrategy/test-strategy.md` | Create new if missing; update existing if present, preserving test scenarios and adding new analysis |
-| Open questions | `docs/03_Stories/open-questions-from-qa.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
+| Artifact           | Location                                    | Lifecycle                                                                                                                  |
+| ------------------ | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Test strategy file | `docs/04_TestStrategy/test-strategy.md`     | Create new if missing; update existing if present, preserving test scenarios and adding new analysis                       |
+| Open questions     | `docs/03_Stories/open-questions-from-qa.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
 
 **Update Rules**:
+
 - If `test-strategy.md` exists: update content to reflect current test strategy, do not discard previous valid scenarios without justification
 - If `open-questions-from-qa.md` exists: synchronize with current session, preserve answered questions, update statuses
 
@@ -113,15 +114,16 @@ QA's work is complete when ALL of the following are satisfied:
 
 The following conditions BLOCK handoff to CODER:
 
-| Condition | Type | Escalation | Owner |
-| --------- | ---- | ---------- | ----- |
-| Stories file missing or unreadable | Unconditional | Escalate to user or re-run PM | QA |
-| Architecture file missing or unreadable | Unconditional | Escalate to user or re-run ARC | QA |
-| Test strategy fundamentally incomplete (cannot cover acceptance criteria) | Unconditional | Escalate to user or re-run ARC/PM | QA |
-| Blocking open questions remain unanswered | Unconditional | Cannot escalate; must resolve before handoff | QA |
-| Test strategy file not created or incomplete | Unconditional | N/A — QA must complete | QA |
+| Condition                                                                 | Type          | Escalation                                   | Owner |
+| ------------------------------------------------------------------------- | ------------- | -------------------------------------------- | ----- |
+| Stories file missing or unreadable                                        | Unconditional | Escalate to user or re-run PM                | QA    |
+| Architecture file missing or unreadable                                   | Unconditional | Escalate to user or re-run ARC               | QA    |
+| Test strategy fundamentally incomplete (cannot cover acceptance criteria) | Unconditional | Escalate to user or re-run ARC/PM            | QA    |
+| Blocking open questions remain unanswered                                 | Unconditional | Cannot escalate; must resolve before handoff | QA    |
+| Test strategy file not created or incomplete                              | Unconditional | N/A — QA must complete                       | QA    |
 
 **Escalation Rules**:
+
 - If stories or architecture are missing or unreadable: stop and request re-run of previous stage
 - If test strategy is incomplete: document specific gaps as blocking questions, do NOT proceed until resolved
 - If blocking questions exist: handoff is blocked until they are answered or reclassified as non-blocking/deferred
@@ -131,16 +133,19 @@ The following conditions BLOCK handoff to CODER:
 **Target**: CODER (Developer)
 
 **Deliverables**:
+
 1. `docs/04_TestStrategy/test-strategy.md` — test strategy document
 2. `docs/03_Stories/open-questions-from-qa.md` — open questions file (if any exist)
 
 **Acceptance Criteria**:
+
 - CODER can implement tests according to test scenarios
 - All acceptance criteria have corresponding test coverage
 - Quality gates are clear and implementable
 - No blocking questions remain open
 
 **Failure Handling**:
+
 - If CODER finds test strategy insufficient: CODER records new open questions and requests QA re-run
 - QA MUST address CODER's questions before workflow proceeds
 
@@ -148,13 +153,13 @@ The following conditions BLOCK handoff to CODER:
 
 QA's completion is validated through:
 
-| Method | What It Checks | Enforcement |
-| ------ | -------------- | ----------- |
-| Test scenario coverage | All user story acceptance criteria have test scenarios | review-enforced (REV stage) |
-| Quality gates | Mandatory validation steps are listed and implementable | review-enforced |
-| Rule compliance | Test strategy satisfies T01–T05, R01–R03, R07, A01–A03 | review-enforced (REV stage) |
-| Open questions format | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced |
-| Test implementation | Tests in codebase match test strategy | test-enforced (T02, coverage tooling) |
+| Method                 | What It Checks                                                                                                                       | Enforcement                           |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
+| Test scenario coverage | All user story acceptance criteria have test scenarios                                                                               | review-enforced (REV stage)           |
+| Quality gates          | Mandatory validation steps are listed and implementable                                                                              | review-enforced                       |
+| Rule compliance        | Test strategy satisfies T01–T05, R01–R03, R07, A01–A03                                                                               | review-enforced (REV stage)           |
+| Open questions format  | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced                       |
+| Test implementation    | Tests in codebase match test strategy                                                                                                | test-enforced (T02, coverage tooling) |
 
 **Note**: QA verification is partially test-enforced — coverage tooling validates that tests exist and meet coverage goals. REV validates test quality.
 

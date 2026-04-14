@@ -22,6 +22,7 @@
 Use the canonical question-entry structure from [agents/templates/open-questions-base-template.md](agents/templates/open-questions-base-template.md).
 
 Each question MUST include:
+
 - `Status`: one of `blocking`, `non-blocking`, or `deferred`
 - `Owner`: required if Status is `deferred`
 - `Handoff Impact`: explain whether this question blocks handoff or can pass forward

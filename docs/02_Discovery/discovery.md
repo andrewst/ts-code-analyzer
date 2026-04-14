@@ -72,13 +72,13 @@ PD's work is complete when ALL of the following are satisfied:
 
 ## PM Handoff Readiness
 
-| Checklist Item | Status |
-| -------------- | ------ |
-| Coherence - idea is structured and logical | [x] |
-| User focus - journeys cover primary flows | [x] |
-| Completeness - use cases cover the main needs | [x] |
-| Scope clarity - feature breakdown is unambiguous | [x] |
-| Handoff quality - PM can derive user stories from this input | [x] |
+| Checklist Item                                               | Status |
+| ------------------------------------------------------------ | ------ |
+| Coherence - idea is structured and logical                   | [x]    |
+| User focus - journeys cover primary flows                    | [x]    |
+| Completeness - use cases cover the main needs                | [x]    |
+| Scope clarity - feature breakdown is unambiguous             | [x]    |
+| Handoff quality - PM can derive user stories from this input | [x]    |
 
 **Verdict**: ready
 

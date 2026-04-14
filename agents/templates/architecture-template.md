@@ -53,8 +53,8 @@ See `docs/02_Discovery/open-questions-from-arc.md` for unresolved architecture d
 
 List any conditions that block handoff to QA and CODER:
 
-| Condition | Status | Resolution |
-| --------- | ------ | ---------- |
+| Condition     | Status            | Resolution                        |
+| ------------- | ----------------- | --------------------------------- |
 | [Condition 1] | [resolved / open] | [how resolved or escalation plan] |
 | [Condition 2] | [resolved / open] | [how resolved or escalation plan] |
 
@@ -75,13 +75,13 @@ ARC's work is complete when ALL of the following are satisfied:
 
 ## Handoff Readiness
 
-| Checklist Item | Status |
-| -------------- | ------ |
-| Coherence - architecture has one clear approach | [ ] |
-| Boundaries - modules have single responsibilities | [ ] |
-| Testability - core logic can be tested without I/O | [ ] |
-| Maintainability - dependency flow is directional | [ ] |
-| Handoff quality - QA and CODER can proceed with implementation | [ ] |
+| Checklist Item                                                 | Status |
+| -------------------------------------------------------------- | ------ |
+| Coherence - architecture has one clear approach                | [ ]    |
+| Boundaries - modules have single responsibilities              | [ ]    |
+| Testability - core logic can be tested without I/O             | [ ]    |
+| Maintainability - dependency flow is directional               | [ ]    |
+| Handoff quality - QA and CODER can proceed with implementation | [ ]    |
 
 **Verdict**: [ready / needs follow-up / blocked]
 

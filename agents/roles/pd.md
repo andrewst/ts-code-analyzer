@@ -94,12 +94,13 @@ _(none — does not write code or make technical decisions)_
 
 ## Artifacts
 
-| Artifact | Location | Lifecycle |
-| -------- | -------- | --------- |
-| Discovery file | `docs/02_Discovery/discovery.md` | Create new if missing; update existing if present, preserving answered questions and adding new analysis |
+| Artifact       | Location                                   | Lifecycle                                                                                                                  |
+| -------------- | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
+| Discovery file | `docs/02_Discovery/discovery.md`           | Create new if missing; update existing if present, preserving answered questions and adding new analysis                   |
 | Open questions | `docs/01_Vision/open-questions-from-pd.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
 
 **Update Rules**:
+
 - If `discovery.md` exists: update content to reflect current analysis, do not discard previous valid content without justification
 - If `open-questions-from-pd.md` exists: synchronize with current session, preserve answered questions, update statuses
 
@@ -119,14 +120,15 @@ PD's work is complete when ALL of the following are satisfied:
 
 The following conditions BLOCK handoff to PM:
 
-| Condition | Type | Escalation | Owner |
-| --------- | ---- | ---------- | ----- |
-| Vision file missing or unreadable | Unconditional | Escalate to user | PD |
-| Product scope fundamentally ambiguous (cannot identify core value proposition) | Unconditional | Escalate to user | PD |
-| Blocking open questions remain unanswered | Unconditional | Cannot escalate; must resolve before handoff | PD |
-| Discovery file not created or incomplete | Unconditional | N/A — PD must complete | PD |
+| Condition                                                                      | Type          | Escalation                                   | Owner |
+| ------------------------------------------------------------------------------ | ------------- | -------------------------------------------- | ----- |
+| Vision file missing or unreadable                                              | Unconditional | Escalate to user                             | PD    |
+| Product scope fundamentally ambiguous (cannot identify core value proposition) | Unconditional | Escalate to user                             | PD    |
+| Blocking open questions remain unanswered                                      | Unconditional | Cannot escalate; must resolve before handoff | PD    |
+| Discovery file not created or incomplete                                       | Unconditional | N/A — PD must complete                       | PD    |
 
 **Escalation Rules**:
+
 - If vision is missing or unreadable: stop and request user to provide valid vision file
 - If product scope is ambiguous: document specific ambiguities as blocking questions, do NOT proceed until resolved
 - If blocking questions exist: handoff is blocked until they are answered or reclassified as non-blocking/deferred
@@ -136,16 +138,19 @@ The following conditions BLOCK handoff to PM:
 **Target**: PM (Product Manager)
 
 **Deliverables**:
+
 1. `docs/02_Discovery/discovery.md` — structured discovery analysis
 2. `docs/01_Vision/open-questions-from-pd.md` — open questions file (if any exist)
 
 **Acceptance Criteria**:
+
 - PM can derive user stories directly from discovery without guessing
 - All feature groups are identifiable
 - User journeys are clear enough to map to acceptance criteria
 - No blocking questions remain open
 
 **Failure Handling**:
+
 - If PM finds discovery insufficient: PM records new open questions and requests PD re-run
 - PD MUST address PM's questions before workflow proceeds
 
@@ -153,12 +158,12 @@ The following conditions BLOCK handoff to PM:
 
 PD's completion is validated through:
 
-| Method | What It Checks | Enforcement |
-| ------ | -------------- | ----------- |
-| Template structure | Discovery file follows [discovery template](agents/templates/discovery-template.md) | review-enforced |
-| Required sections | All mandatory sections present (Product Understanding, Target Users, Core Need, User Journey, Assumptions, Risks) | review-enforced |
+| Method                | What It Checks                                                                                                                       | Enforcement     |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| Template structure    | Discovery file follows [discovery template](agents/templates/discovery-template.md)                                                  | review-enforced |
+| Required sections     | All mandatory sections present (Product Understanding, Target Users, Core Need, User Journey, Assumptions, Risks)                    | review-enforced |
 | Open questions format | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced |
-| Handoff readiness | Checklist in discovery file is complete | manual only |
+| Handoff readiness     | Checklist in discovery file is complete                                                                                              | manual only     |
 
 **Note**: PD verification is primarily manual — there is no automated tooling to validate product discovery quality. PM acts as the first verification gate.
 
