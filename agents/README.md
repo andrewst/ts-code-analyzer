@@ -18,7 +18,7 @@ We use a structured multi-role AI workflow to improve code quality, architectura
 
 ## What this is (and is not)
 
-- This is documentation for the *development workflow* used in this repo (roles, rules, templates, tooling).
+- This is documentation for the _development workflow_ used in this repo (roles, rules, templates, tooling).
 - This is not product documentation for the TypeScript analyzer itself (see the repo root `README.md` and `docs/` for product-level docs).
 
 ## Workflow
@@ -40,16 +40,16 @@ In practice, a small change typically looks like:
 
 Role IDs (e.g. `PD`, `PM`, `ARC`) are canonical and match the role documents under [`agents/roles/`](agents/roles/).
 
-| Role (ID)    | Responsibility                                                |
-| :----------- | :------------------------------------------------------------ |
-| **PD**       | Product Discovery: idea structuring and conceptual breakdown. |
-| **PM**       | Product Manager: user stories and backlog creation.           |
-| **ARC**      | Architect: technical design and architectural constraints.    |
-| **PLAN**     | Planner: task breakdown and execution plan.                   |
-| **QA**       | Quality Assurance: test strategy and quality gates.           |
-| **CODER**    | Developer: implementation and unit testing.                   |
-| **REV**      | Reviewer: code review and quality validation.                 |
-| **DOC**      | Documentation: keeping documentation in sync with changes.    |
+| Role (ID) | Responsibility                                                |
+| :-------- | :------------------------------------------------------------ |
+| **PD**    | Product Discovery: idea structuring and conceptual breakdown. |
+| **PM**    | Product Manager: user stories and backlog creation.           |
+| **ARC**   | Architect: technical design and architectural constraints.    |
+| **PLAN**  | Planner: task breakdown and execution plan.                   |
+| **QA**    | Quality Assurance: test strategy and quality gates.           |
+| **CODER** | Developer: implementation and unit testing.                   |
+| **REV**   | Reviewer: code review and quality validation.                 |
+| **DOC**   | Documentation: keeping documentation in sync with changes.    |
 
 ## Rules & Verification
 
