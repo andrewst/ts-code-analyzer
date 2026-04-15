@@ -76,7 +76,7 @@ The following are **not** architecture changes:
   - prepare test scaffolding/fixtures/tooling
   - perform refactors with **no behavior change** (validated by tests)
   - implement independent tasks that do not touch the disputed area
-- If a question is **non-blocking**, you MAY proceed but MUST record the assumption in the open questions file, including handoff impact.
+- If a question is **non-blocking**, you MAY proceed but MUST record the assumption in the appropriate open questions file, including handoff impact.
 
 ---
 
@@ -117,15 +117,20 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 - **Primary output**: Implementation in `src/` according to architecture
 - **Secondary output**: Tests in `test/` (project convention; source of truth: `agents/rules/code-quality.md`)
-- **Secondary output**: Open questions file at `docs/05_TestStrategy/open-questions-from-coder.md` (if questions need tracking)
+- **Secondary output**: Open questions files (created only when questions need tracking):
+  - `docs/04_Tasks/open-questions-from-coder-arc.md` — for ARC / architecture-impacting questions
+  - `docs/05_TestStrategy/open-questions-from-coder-qa.md` — for QA / test-strategy questions
+
+**Note**: These open-questions files are temporary artifacts. They are created when CODER raises questions during implementation and are consumed by ARC or QA during their re-invocation. They MUST NOT exist as permanent standalone files with only header content.
 
 ## Artifacts
 
-| Artifact       | Location                                            | Lifecycle                                                                                                                  |
-| -------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| Source code    | `src/`                                              | Implement according to architecture; update based on REV feedback                                                          |
-| Test files     | `test/`                                             | Implement according to test strategy; update based on REV feedback                                                         |
-| Open questions | `docs/05_TestStrategy/open-questions-from-coder.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
+| Artifact             | Location                                               | Lifecycle                                                                                                                                    |
+| -------------------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Source code          | `src/`                                                 | Implement according to architecture; update based on REV feedback                                                                            |
+| Test files           | `test/`                                                | Implement according to test strategy; update based on REV feedback                                                                           |
+| Open questions (ARC) | `docs/04_Tasks/open-questions-from-coder-arc.md`       | Temporary — created when CODER raises architecture questions; consumed by ARC on re-invocation; MUST NOT exist as header-only permanent file |
+| Open questions (QA)  | `docs/05_TestStrategy/open-questions-from-coder-qa.md` | Temporary — created when CODER raises test-strategy questions; consumed by QA on re-invocation; MUST NOT exist as header-only permanent file |
 
 **Update Rules**:
 
@@ -144,7 +149,7 @@ CODER's work is complete when ALL of the following are satisfied:
 - [ ] Tests pass with expected coverage
 - [ ] Coverage run is executed (`pnpm test:coverage`)
 - [ ] All blocking open questions are answered (no questions with `Status: blocking` remain unanswered)
-- [ ] Open questions file (if any) is created/synchronized with correct statuses
+- [ ] Open questions files (if any) are created/synchronized with correct statuses
 
 ## Local Verification Commands (Quality Gates)
 
@@ -173,7 +178,7 @@ The following conditions BLOCK handoff to REV:
 **Escalation Rules**:
 
 - If required inputs are missing: stop and request re-run of previous stage
-- If implementation is blocked: document specific issues as blocking questions in `docs/05_TestStrategy/open-questions-from-coder.md`, do NOT proceed until resolved
+- If implementation is blocked: document specific issues as blocking questions in the appropriate open questions file, do NOT proceed until resolved
 - If blocking questions exist: handoff is blocked until they are answered or reclassified as non-blocking/deferred
 - For questions that require decisions from a previous stage, include an explicit `Requires: ARC/PM/QA` marker and a clear `Handoff impact`
 
@@ -184,7 +189,11 @@ The following conditions BLOCK handoff to REV:
 **Deliverables**:
 
 1. Implementation in `src/` — source code and tests
-2. `docs/05_TestStrategy/open-questions-from-coder.md` — open questions file (if any exist)
+2. Open questions files (only if they contain actual questions):
+   - `docs/04_Tasks/open-questions-from-coder-arc.md`
+   - `docs/05_TestStrategy/open-questions-from-coder-qa.md`
+
+**Note**: If these files exist but contain only headers with no questions, they MUST be deleted before handoff.
 
 **Acceptance Criteria**:
 
@@ -235,6 +244,15 @@ CODER's completion is validated through:
   - Add new open questions that emerged from current session
   - Update statuses and owners as context changes
   - Remove exact duplicates
+
+### Which Open Questions File to Use
+
+These files are **temporary lifecycle artifacts**. They exist only during the CODER → ARC/QA feedback loop and are consumed when the target role re-runs.
+
+- Use `docs/04_Tasks/open-questions-from-coder-arc.md` for questions that may impact architecture, module boundaries, public contracts, DI strategy, or runtime dependencies.
+- Use `docs/05_TestStrategy/open-questions-from-coder-qa.md` for questions about tests, coverage targets, fixtures, scenarios, or test strategy.
+
+**DO NOT** create these files as permanent standalone documents with only header/metadata content. They MUST contain actual questions when they exist.
 
 ### What Counts as a “Critical Path”
 

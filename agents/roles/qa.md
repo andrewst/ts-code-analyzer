@@ -197,6 +197,17 @@ QA's completion is validated through:
 - `deferred`: question intentionally postponed; requires explicit Owner
 - `answered`: question resolved; move to answered section with Answered By and Answered Date
 
+### Consuming Open Questions from CODER
+
+CODER may create `docs/05_TestStrategy/open-questions-from-coder-qa.md` with questions that emerged during implementation and affect tests, coverage targets, fixtures, scenarios, or test strategy expectations.
+
+QA (when re-invoked) MUST:
+
+- Read `docs/05_TestStrategy/open-questions-from-coder-qa.md` if it exists
+- Evaluate each question for test strategy impact
+- Provide answers or reclassify questions with updated status
+- Synchronize the file: mark answered questions, update statuses, remove duplicates
+
 ### Purpose
 
 - Track assumptions and clarifications needed for accurate test strategy

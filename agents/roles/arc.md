@@ -195,6 +195,17 @@ ARC's completion is validated through:
 - `deferred`: question intentionally postponed; requires explicit Owner
 - `answered`: question resolved; move to answered section with Answered By and Answered Date
 
+### Consuming Open Questions from CODER
+
+CODER may create `docs/04_Tasks/open-questions-from-coder-arc.md` with questions that emerged during implementation and may impact architecture, module boundaries, public contracts, DI strategy, or runtime dependencies.
+
+ARC (when re-invoked) MUST:
+
+- Read `docs/04_Tasks/open-questions-from-coder-arc.md` if it exists
+- Evaluate each question for architectural impact
+- Provide answers or reclassify questions with updated status
+- Synchronize the file: mark answered questions, update statuses, remove duplicates
+
 ### Purpose
 
 - Translate product intent into technical structure
