@@ -25,6 +25,7 @@ You MUST NOT:
 - skip test coverage for critical paths
 - hide unresolved implementation decisions
 - introduce side effects in core logic
+- treat **dev-only** dependency additions as architecture changes
 
 If input is incomplete or unclear:
 → explicitly list open implementation questions instead of guessing
@@ -49,6 +50,23 @@ If input is incomplete or unclear:
 - Keep core logic pure and testable in isolation
 - Use dependency injection for external concerns
 - Follow the project's existing patterns and conventions
+
+---
+
+## Definition: Architecture Change (Scope of Change)
+
+Treat the following as **architecture changes** (record an open question and escalate as needed):
+
+- changes to public contracts (public types/interfaces, CLI flags, output formats)
+- changes to module boundaries or layering (e.g., moving core logic into IO-oriented layers)
+- adding **runtime** dependencies or changing dependency direction
+- changing DI strategy in a way that introduces hidden global dependencies
+
+The following are **not** architecture changes:
+
+- internal refactors that preserve public behavior and public APIs
+- changes strictly improving testability while preserving behavior
+- adding **dev-only** dependencies
 
 ---
 
@@ -88,21 +106,24 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 ## Output
 
 - **Primary output**: Implementation in `src/` according to architecture
-- **Secondary output**: Tests in `src/__tests__/` or alongside source files per project convention
-- **Secondary output**: Open questions file at `docs/05_TestStrategy/open-questions-from-coder.md` (if questions need tracking)
+- **Secondary output**: Tests in `test/` (project convention; source of truth: `agents/rules/code-quality.md`)
+- **Secondary output**: Open questions files (if questions need tracking):
+  - `docs/04_Tasks/open-questions-from-coder-arc.md`
+  - `docs/05_TestStrategy/open-questions-from-coder-qa.md`
 
 ## Artifacts
 
 | Artifact       | Location                                            | Lifecycle                                                                                                                  |
 | -------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | Source code    | `src/`                                              | Implement according to architecture; update based on REV feedback                                                          |
-| Test files     | `src/__tests__/` or alongside source files          | Implement according to test strategy; update based on REV feedback                                                         |
-| Open questions | `docs/05_TestStrategy/open-questions-from-coder.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
+| Test files     | `test/`                                             | Implement according to test strategy; update based on REV feedback                                                         |
+| Open questions (ARC) | `docs/04_Tasks/open-questions-from-coder-arc.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
+| Open questions (QA)  | `docs/05_TestStrategy/open-questions-from-coder-qa.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
 
 **Update Rules**:
 
 - Source and test files are updated iteratively based on REV feedback until ready for commit
-- If `open-questions-from-coder.md` exists: synchronize with current session, preserve answered questions, update statuses
+- If an open questions file exists: synchronize with current session, preserve answered questions, update statuses
 
 ## Done Criteria
 
@@ -114,8 +135,9 @@ CODER's work is complete when ALL of the following are satisfied:
 - [ ] TypeScript compiler passes with no errors (`strict: true`)
 - [ ] Linter passes with no errors (oxc lint)
 - [ ] Tests pass with expected coverage
+- [ ] Coverage run is executed (`pnpm test:coverage`)
 - [ ] All blocking open questions are answered (no questions with `Status: blocking` remain unanswered)
-- [ ] Open questions file is created or synchronized with correct statuses
+- [ ] Open questions files (if any) are created/synchronized with correct statuses
 
 ## Blocking Conditions
 
@@ -142,7 +164,9 @@ The following conditions BLOCK handoff to REV:
 **Deliverables**:
 
 1. Implementation in `src/` — source code and tests
-2. `docs/05_TestStrategy/open-questions-from-coder.md` — open questions file (if any exist)
+2. Open questions files (if any exist):
+   - `docs/04_Tasks/open-questions-from-coder-arc.md`
+   - `docs/05_TestStrategy/open-questions-from-coder-qa.md`
 
 **Acceptance Criteria**:
 
@@ -179,12 +203,12 @@ CODER's completion is validated through:
 
 ### File Workflow
 
-**If `open-questions-from-coder.md` does NOT exist:**
+**If an open questions file does NOT exist:**
 
 - Create a new file with all current open questions
 - Format each question with Status, Owner (if deferred), and Handoff Impact
 
-**If `open-questions-from-coder.md` already exists:**
+**If an open questions file already exists:**
 
 - Read existing questions from the file
 - Synchronize with current analysis:
@@ -193,6 +217,11 @@ CODER's completion is validated through:
   - Add new open questions that emerged from current session
   - Update statuses and owners as context changes
   - Remove exact duplicates
+
+**Which file to use**
+
+- Use `docs/04_Tasks/open-questions-from-coder-arc.md` for questions that require architect input or may change the architecture.
+- Use `docs/05_TestStrategy/open-questions-from-coder-qa.md` for questions about tests, coverage targets, and test strategy.
 
 ### Status Rules
 
