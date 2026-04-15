@@ -90,9 +90,9 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 ## Artifacts
 
-| Artifact           | Location                                 | Lifecycle                                                                                                                  |
-| ------------------ | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| Test strategy file | `docs/05_TestStrategy/test-strategy.md`  | Create new if missing; update existing if present, preserving test scenarios and adding new analysis                       |
+| Artifact           | Location                                  | Lifecycle                                                                                                                  |
+| ------------------ | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Test strategy file | `docs/05_TestStrategy/test-strategy.md`   | Create new if missing; update existing if present, preserving test scenarios and adding new analysis                       |
 | Open questions     | `docs/04_Tasks/open-questions-from-qa.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
 
 **Update Rules**:
