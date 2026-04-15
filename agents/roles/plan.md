@@ -89,7 +89,7 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 | Artifact       | Location                                      | Lifecycle                                                         |
 | -------------- | --------------------------------------------- | ----------------------------------------------------------------- |
-| Task List      | `docs/04_Tasks/tasks.md`                       | Create new if missing; update existing if present, with new tasks |
+| Task List      | `docs/04_Tasks/tasks.md`                      | Create new if missing; update existing if present, with new tasks |
 | Open Questions | `docs/03_Stories/open-questions-from-plan.md` | Create new if missing; synchronize existing                       |
 
 **Update Rules**:
@@ -152,7 +152,7 @@ PLAN's completion is validated through:
 
 | Method                | What It Checks                                                                                                                       | Enforcement     |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| Template structure    | `docs/04_Tasks/tasks.md` contains title, description, inputs, outputs, acceptance_criteria, dependencies                              | review-enforced |
+| Template structure    | `docs/04_Tasks/tasks.md` contains title, description, inputs, outputs, acceptance_criteria, dependencies                             | review-enforced |
 | Atomicity check       | Tasks are small, implementable, and unambiguous                                                                                      | review-enforced |
 | Coverage check        | Tasks comprehensively cover `docs/03_Stories/stories.md` and `docs/03_Stories/architecture.md`                                       | manual only     |
 | Open questions format | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced |

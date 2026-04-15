@@ -9,6 +9,7 @@
 The following tasks decompose the architectural layout into actionable units, ordered by execution hierarchy (dependencies first).
 
 ### T01: Define Core Domain Contracts
+
 - **Description**: Implement the foundational domain types described in the architecture. This provides interfaces that all later components will share, ensuring analyzers are decoupleable from specific implementations.
 - **Inputs**: `docs/03_Stories/architecture.md` (Data Flow and Contracts section)
 - **Outputs**: `src/contracts/index.ts`
@@ -21,6 +22,7 @@ The following tasks decompose the architectural layout into actionable units, or
 - **Dependencies**: None
 
 ### T02: Implement TypeScript Compiler Adapter
+
 - **Description**: Build the compiler layer that consumes an active TypeScript program and exposes project metadata conforming to `ProjectSnapshot`.
 - **Inputs**: `src/contracts/index.ts`
 - **Outputs**: `src/compiler/index.ts`, `src/compiler/snapshot-builder.ts`
@@ -32,6 +34,7 @@ The following tasks decompose the architectural layout into actionable units, or
 - **Dependencies**: T01
 
 ### T03: Implement Project Loading Strategy
+
 - **Description**: Build the layer capable of resolving the user-supplied repository path, interpreting `tsconfig.json`, and configuring the target files for compiler ingestion.
 - **Inputs**: `src/contracts/index.ts`, `docs/03_Stories/architecture.md`
 - **Outputs**: `src/project-loading/index.ts`, `src/project-loading/resolver.ts`
@@ -43,6 +46,7 @@ The following tasks decompose the architectural layout into actionable units, or
 - **Dependencies**: T01
 
 ### T04: Implement Structure Analyzer
+
 - **Description**: Create the first logical analyzer to derive high-level structural codebase observations off a `ProjectSnapshot`.
 - **Inputs**: `src/contracts/index.ts` (ProjectSnapshot)
 - **Outputs**: `src/analysis/structure/index.ts`
@@ -53,6 +57,7 @@ The following tasks decompose the architectural layout into actionable units, or
 - **Dependencies**: T01
 
 ### T05: Implement Public API Analyzer
+
 - **Description**: Create the analyzer that detects the statically exposed public interface of the target repository based on explicit precedence rules.
 - **Inputs**: `src/contracts/index.ts` (ProjectSnapshot)
 - **Outputs**: `src/analysis/public-api/index.ts`
@@ -63,6 +68,7 @@ The following tasks decompose the architectural layout into actionable units, or
 - **Dependencies**: T01
 
 ### T06: Implement Change Impact Analyzer
+
 - **Description**: Extract neighbors and dependencies impacted by explicit file changes using the generated snapshots.
 - **Inputs**: `src/contracts/index.ts`
 - **Outputs**: `src/analysis/change-impact/index.ts`
@@ -72,6 +78,7 @@ The following tasks decompose the architectural layout into actionable units, or
 - **Dependencies**: T01
 
 ### T07: Implement Hotspot Analyzer
+
 - **Description**: Formulate maintenance hotspot and risk metrics from static topology.
 - **Inputs**: `src/contracts/index.ts`
 - **Outputs**: `src/analysis/hotspots/index.ts`
@@ -81,6 +88,7 @@ The following tasks decompose the architectural layout into actionable units, or
 - **Dependencies**: T01
 
 ### T08: Implement Application Orchestration Layer
+
 - **Description**: Combine the adapters and analyzers together for end-to-end execution.
 - **Inputs**: T02, T03, T04, T05, T06, T07
 - **Outputs**: `src/application/index.ts`, `src/application/pipeline.ts`
@@ -91,6 +99,7 @@ The following tasks decompose the architectural layout into actionable units, or
 - **Dependencies**: T02, T03, T04, T05, T06, T07
 
 ### T09: Implement CLI Presentation Layer
+
 - **Description**: Format raw `AnalysisReport` findings safely into markdown or basic console phrasing.
 - **Inputs**: `src/contracts/index.ts`
 - **Outputs**: `src/presentation/index.ts`, `src/presentation/formatter.ts`
@@ -101,6 +110,7 @@ The following tasks decompose the architectural layout into actionable units, or
 - **Dependencies**: T01
 
 ### T10: Implement CLI Entry Point Shell
+
 - **Description**: Wire user-facing CLI inputs to the internal application API.
 - **Inputs**: T08, T09
 - **Outputs**: `src/cli/index.ts`

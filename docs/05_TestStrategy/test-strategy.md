@@ -11,39 +11,47 @@ The testing approach for the TypeScript Code Analyzer prioritizes isolated, pure
 
 ## 2. Coverage Expectations
 
-| Layer                   | Target Coverage | Testing Approach                    |
-| ----------------------- | --------------- | ----------------------------------- |
-| `src/contracts/`        | N/A (Types)     | N/A                                 |
-| `src/analysis/*/`       | 95%+            | Pure Unit Tests (Data in -> Data out)|
-| `src/project-loading/`  | 85%+            | Integration (File system fixtures)  |
-| `src/compiler/`         | 85%+            | Integration (Compiler API fixtures) |
-| `src/presentation/`     | 90%+            | Unit Tests (String formatting)      |
-| `src/application/`      | 80%+            | Integration (Pipeline orchestration)|
-| `src/cli/`              | 70%+            | E2E (CLI command execution)         |
+| Layer                  | Target Coverage | Testing Approach                      |
+| ---------------------- | --------------- | ------------------------------------- |
+| `src/contracts/`       | N/A (Types)     | N/A                                   |
+| `src/analysis/*/`      | 95%+            | Pure Unit Tests (Data in -> Data out) |
+| `src/project-loading/` | 85%+            | Integration (File system fixtures)    |
+| `src/compiler/`        | 85%+            | Integration (Compiler API fixtures)   |
+| `src/presentation/`    | 90%+            | Unit Tests (String formatting)        |
+| `src/application/`     | 80%+            | Integration (Pipeline orchestration)  |
+| `src/cli/`             | 70%+            | E2E (CLI command execution)           |
 
 ## 3. Test Scenarios by User Story
 
 ### Feature Group: Structural codebase inspection
+
 **Story**: Understand the codebase structure quickly
+
 - **TS-STR-01**: Given a valid `ProjectSnapshot`, the structural analyzer returns an array of `StructureObservation` summarizing file counts, dominant module types, and hierarchy depth.
 - **TS-STR-02**: Given an empty repository snapshot, the analyzer correctly returns zero counts without rejecting or crashing.
 - **TS-STR-03**: The presentation layer formats the structural summary without making prescriptive recommendations about codebase design.
 
 ### Feature Group: Public API surface discovery
+
 **Story**: Inspect the exposed public surface & Review without over-interpretation
+
 - **TS-PUB-01**: (Exports precedence) A snapshot reflecting explicit `package.json` exports correctly limits `PublicApiObservation` to only those explicitly defined paths.
 - **TS-PUB-02**: (Fallback precedence) A snapshot lacking `package.json` exports traces exposed API from `src/index.ts` and its recursive re-exports.
 - **TS-PUB-03**: (Graceful degradation) A snapshot lacking both explicit exports and well-known entry modules yields an observation noting limited visible API surface, skipping guesses.
 - **TS-PUB-04**: Verifying the presentation layer uses words like "observed" or "exposed" and explicitly avoids "should be".
 
 ### Feature Group: Change impact signals
+
 **Story**: Focus review effort after changes
+
 - **TS-CHG-01**: Given a snapshot and explicit changed file paths, correctly link upstream importing modules as "potentially affected" paths in `ChangeImpactObservation`.
 - **TS-CHG-02**: Changing an isolated file with zero dependencies yields a change-impact signal of zero affected neighbors.
 - **TS-CHG-03**: Presentation output strictly partitions observed changes from derived risk areas.
 
 ### Feature Group: Maintenance hotspot identification
+
 **Story**: Identify areas that deserve closer maintenance attention & Decide next step
+
 - **TS-HOT-01**: A snapshot with a file having extreme fan-in (many dependents) properly flags it as a hotspot observation.
 - **TS-HOT-02**: For massive graph snapshots, the hotspot analyzer caps returned observations to the most prominent N nodes, preserving conciseness.
 - **TS-HOT-03**: The presentation labels hotspots using neutral descriptors (e.g., "central dependency") rather than directive prescriptions (e.g., "complex, must refactor").
@@ -65,6 +73,7 @@ The testing approach for the TypeScript Code Analyzer prioritizes isolated, pure
 ## 6. Handoff to CODER
 
 CODER should proceed by:
+
 1. Setting up `test/fixtures/` dummy repositories to unblock T02 and T03 loader buildout.
 2. Building raw data instances of `ProjectSnapshot` to test T04-T07 without requiring the compiler to be fully ready.
 3. Constructing logic incrementally ensuring strict TypeScript lint rules (`no-explicit-any`, strict mode) are respected (Rules R01, R02).

@@ -40,7 +40,7 @@
     "build": "tsc",
     "build-go": "tsgo",
     "start": "tsx ./src/index.ts",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit --rootDir .",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",

@@ -10,6 +10,7 @@ describe('Basic Math Operations', () => {
   });
 
   it('should handle string concatenation', () => {
-    expect('hello' + ' ' + 'world').toBe('hello world');
+    const space = ' ';
+    expect('hello' + space + 'world').toBe('hello world');
   });
 });
