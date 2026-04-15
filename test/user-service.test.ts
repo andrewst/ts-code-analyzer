@@ -1,24 +1,11 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
+import { type User, createUser, deactivateUser, updateEmail } from '../src/userService.js';
 
-interface MockUser {
-  name: string;
-  email: string;
-  isActive: boolean;
-}
-
-describe('Mock User Service', () => {
-  let mockUser: MockUser;
+describe('User Service', () => {
+  let mockUser: User;
 
   beforeEach(() => {
-    mockUser = {
-      name: 'John Doe',
-      email: 'john@example.com',
-      isActive: true,
-    };
-  });
-
-  afterEach(() => {
-    mockUser = {} as MockUser;
+    mockUser = createUser('John Doe', 'john@example.com');
   });
 
   it('should create a mock user with correct properties', () => {
@@ -28,13 +15,13 @@ describe('Mock User Service', () => {
   });
 
   it('should deactivate a user', () => {
-    mockUser.isActive = false;
-    expect(mockUser.isActive).toBe(false);
+    const deactivated = deactivateUser(mockUser);
+    expect(deactivated.isActive).toBe(false);
   });
 
   it('should update user email', () => {
-    mockUser.email = 'newemail@example.com';
-    expect(mockUser.email).toBe('newemail@example.com');
+    const updated = updateEmail(mockUser, 'newemail@example.com');
+    expect(updated.email).toBe('newemail@example.com');
   });
 
   it('should handle user object serialization', () => {
