@@ -24,6 +24,29 @@ TypeScript static code analysis utility — agent-driven development.
 
 **Workflow**: `Request → PD → PM → ARC → PLAN → QA → CODER → REV → DOC → Commit` (See [agents/roles/workflow.md](agents/roles/workflow.md))
 
+## Stage Outputs (minimum)
+
+Minimum expected artifacts per stage (guidance — adapt as needed to the task size):
+
+| Stage | Output artifacts (minimum)                      | Typical location                       |
+| ----- | ----------------------------------------------- | -------------------------------------- |
+| PD    | Problem framing + goals + open questions        | `docs/` (e.g. discovery/vision)        |
+| PM    | User stories / acceptance criteria              | `docs/`                                |
+| ARC   | Architecture decisions, trade-offs, constraints | `docs/` (e.g. ADRs/architecture notes) |
+| PLAN  | Execution plan / task breakdown                 | PR description or `docs/`              |
+| QA    | Test plan + quality gates for the change        | PR description or `docs/`              |
+| CODER | Implementation + tests                          | `src/`, `test/`                        |
+| REV   | Review notes + required follow-ups              | PR review / checklist                  |
+| DOC   | Updated documentation & links                   | `docs/`, `agents/`                     |
+
+## Quality gates / Commands
+
+- `pnpm build`
+- `pnpm typecheck`
+- `pnpm lint`
+- `pnpm test`
+- `pnpm test:coverage` (when coverage validation is needed)
+
 ## Rules
 
 | File                                         | IDs     |
@@ -52,7 +75,7 @@ Each role applies a specific subset of rules. This is the single source of truth
 
 ## Conflict Resolution
 
-When rules, templates, templates, workflow, and local practices conflict, agents MUST resolve conflicts using this priority order:
+When rules, templates, workflow, and local practices conflict, agents MUST resolve conflicts using this priority order:
 
 1. **User request**: explicit user instructions always take highest priority
 2. **Repository safety and architecture constraints**: rules that protect code quality, architecture, and testability (R01–R07, A01–A05, T01–T05)
