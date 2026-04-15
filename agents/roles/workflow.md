@@ -70,7 +70,8 @@ When a role completes their work and hands off to the next stage:
 ### Role-Specific Rules
 
 - **PD and PM**: blocking questions about product scope or user needs MUST be resolved before handoff to ARC
-- **ARC**: blocking technical decisions MUST be resolved before handoff to QA
+- **ARC**: blocking technical decisions MUST be resolved before handoff to PLAN
+- **PLAN**: blocking planning questions MUST be resolved before handoff to QA
 - **QA**: blocking test strategy gaps MUST be resolved before handoff to CODER
 - **CODER**: blocking implementation questions MUST be resolved; if blocked by external dependency, record and escalate
 - **REV**: blocking findings in review MUST be addressed before handoff to DOC
