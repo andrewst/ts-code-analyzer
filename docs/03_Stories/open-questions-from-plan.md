@@ -4,7 +4,7 @@
 **Last Updated**: 2026-04-14
 **Status**: current
 **Source Role**: PLAN
-**Primary Source File**: `docs/04_Task/tasks.md`
+**Primary Source File**: `docs/04_Tasks/tasks.md`
 **Related Source Files**:
 
 - `docs/03_Stories/stories.md`

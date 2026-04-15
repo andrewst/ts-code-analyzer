@@ -29,5 +29,5 @@ PLAN's work is complete when ALL of the following are satisfied:
 - [ ] Tasks are atomic, developer-ready, and executable without further clarification
 - [ ] Every task includes title, description, inputs, outputs, acceptance_criteria, and dependencies
 - [ ] Task dependencies are clearly mapped and logically sequenced
-- [ ] `docs/04_Task/tasks.md` is generated and follows this template
+- [ ] `docs/04_Tasks/tasks.md` is generated and follows this template
 - [ ] All blocking open questions are answered
