@@ -1,6 +1,7 @@
 # TypeScript Code Analyzer
 
 [![CI](https://img.shields.io/github/actions/workflow/status/andrewst/ts-code-analyzer/ci.yml?branch=main)](https://github.com/andrewst/ts-code-analyzer/actions/workflows/ci.yml)
+[![Coverage](https://img.shields.io/github/actions/workflow/status/andrewst/ts-code-analyzer/ci.yml?branch=main&label=coverage)](https://github.com/andrewst/ts-code-analyzer/actions/workflows/ci.yml)
 
 > ⚠️ **Early Development**: This project is in its initial stages of development. Features, APIs, and documentation are subject to change.
 
