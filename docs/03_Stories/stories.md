@@ -1,7 +1,7 @@
 # Stories
 
 **Project**: TypeScript Code Analyzer
-**Date**: 2026-04-14
+**Date**: 2026-04-15
 **Status**: ready
 **Source**: [docs/02_Discovery/discovery.md](docs/02_Discovery/discovery.md)
 
@@ -20,7 +20,7 @@
 
 As an engineer onboarding to an existing TypeScript codebase, I want to see a concise structural overview of the analyzed codebase, so that I can orient myself before reading files manually.
 
-- Acceptance Criteria:
+- **Acceptance Criteria**:
   - [ ] The CLI output includes a high-level summary of the analyzed codebase structure.
   - [ ] The summary is concise enough to review in a single CLI session without overwhelming detail.
   - [ ] The summary is presented as observations about the codebase, not as implementation advice or prescriptive recommendations.
@@ -31,7 +31,7 @@ As an engineer onboarding to an existing TypeScript codebase, I want to see a co
 
 As a repository maintainer, I want to identify what the codebase exposes publicly, so that I can understand the most relevant entry points for consumers and maintainers.
 
-- Acceptance Criteria:
+- **Acceptance Criteria**:
   - [ ] The CLI can be run in a workflow focused on public API inspection.
   - [ ] The output identifies the codebase's publicly exposed surface in a way that distinguishes it from internal code.
   - [ ] The output highlights the most relevant exposed areas or interfaces without requiring the user to read the entire repository first.
@@ -40,7 +40,7 @@ As a repository maintainer, I want to identify what the codebase exposes publicl
 
 As an engineer planning a change, I want the public API results to be phrased as observed facts, so that I can make my own maintenance decisions from the output.
 
-- Acceptance Criteria:
+- **Acceptance Criteria**:
   - [ ] Public API output uses observational language rather than ranked recommendations or prescriptive conclusions.
   - [ ] The output makes it clear when it is reporting exposed surface rather than asserting likely user intent.
   - [ ] A user can use the output to decide what to inspect next without the CLI claiming certainty beyond the observed analysis.
@@ -51,7 +51,7 @@ As an engineer planning a change, I want the public API results to be phrased as
 
 As an engineer reviewing or planning changes, I want change-related signals about potentially affected areas, so that I can focus my manual review on the most relevant parts of the codebase.
 
-- Acceptance Criteria:
+- **Acceptance Criteria**:
   - [ ] The CLI output includes change-related signals that connect observed changes to potentially affected areas.
   - [ ] The output distinguishes observed changes from likely impact so users can interpret the signals correctly.
   - [ ] The change-related output helps narrow the set of modules or areas that need manual follow-up.
@@ -62,7 +62,7 @@ As an engineer reviewing or planning changes, I want change-related signals abou
 
 As a repository maintainer, I want the CLI to highlight areas that appear more central, important, or risky to maintain, so that I can prioritize where to investigate manually.
 
-- Acceptance Criteria:
+- **Acceptance Criteria**:
   - [ ] The output includes maintenance-relevant signals about areas that appear more central, important, or risky.
   - [ ] The highlighted areas are presented as prioritized observations rather than definitive judgments.
   - [ ] The output remains concise even for a large or unfamiliar codebase.
@@ -71,7 +71,7 @@ As a repository maintainer, I want the CLI to highlight areas that appear more c
 
 As an engineer working in a large or unfamiliar codebase, I want the analysis results to narrow my attention to the modules or entry points worth reading next, so that I can reduce investigation time.
 
-- Acceptance Criteria:
+- **Acceptance Criteria**:
   - [ ] The combined output helps the user identify which modules or entry points deserve manual inspection next.
   - [ ] The CLI keeps the output concise when the codebase is large or only partially changed.
   - [ ] The output supports maintenance decisions without replacing manual code reading.
@@ -95,3 +95,16 @@ See [docs/02_Discovery/open-questions-from-pm.md](docs/02_Discovery/open-questio
 - GUI workflows or non-CLI interfaces.
 - Prescriptive recommendations that replace user judgment as the primary output style.
 - Support commitments for repository types or layouts not explicitly defined in discovery.
+
+## Done Criteria
+
+PM's work is complete when ALL of the following are satisfied:
+
+- [x] Stories file exists and follows this template structure
+- [x] Every feature group from discovery has corresponding user stories
+- [x] Each story follows format: "As a [user], I want to [action], so that [outcome]"
+- [x] Each story has at least 3 measurable, verifiable acceptance criteria
+- [x] Dependencies between stories are explicitly listed
+- [x] Out of scope items are explicitly listed
+- [x] All blocking open questions are answered (no questions with `Status: blocking` remain unanswered)
+- [x] Open questions file is created or synchronized with correct statuses
