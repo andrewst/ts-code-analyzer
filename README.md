@@ -1,5 +1,7 @@
 # TypeScript Code Analyzer
 
+[![CI](https://github.com/andrewst/ts-code-analyzer/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/andrewst/ts-code-analyzer/actions/workflows/ci.yml)
+
 > ⚠️ **Early Development**: This project is in its initial stages of development. Features, APIs, and documentation are subject to change.
 
 > 📖 **Documentation & Roadmap**: Detailed design documents, ideas, and development plans are available in the [`docs`](docs) directory.
