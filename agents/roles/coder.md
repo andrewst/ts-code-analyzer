@@ -70,6 +70,16 @@ The following are **not** architecture changes:
 
 ---
 
+## Working With Incomplete or Unclear Input
+
+- If a question is **blocking**, do not change the disputed behavior/contracts. You MAY still:
+  - prepare test scaffolding/fixtures/tooling
+  - perform refactors with **no behavior change** (validated by tests)
+  - implement independent tasks that do not touch the disputed area
+- If a question is **non-blocking**, you MAY proceed but MUST record the assumption in the open questions file, including handoff impact.
+
+---
+
 ## When to Activate
 
 - QA has produced test strategy and quality gates
@@ -107,9 +117,7 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 - **Primary output**: Implementation in `src/` according to architecture
 - **Secondary output**: Tests in `test/` (project convention; source of truth: `agents/rules/code-quality.md`)
-- **Secondary output**: Open questions files (if questions need tracking):
-  - `docs/04_Tasks/open-questions-from-coder-arc.md`
-  - `docs/05_TestStrategy/open-questions-from-coder-qa.md`
+- **Secondary output**: Open questions file at `docs/05_TestStrategy/open-questions-from-coder.md` (if questions need tracking)
 
 ## Artifacts
 
@@ -117,8 +125,7 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 | -------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | Source code    | `src/`                                              | Implement according to architecture; update based on REV feedback                                                          |
 | Test files     | `test/`                                             | Implement according to test strategy; update based on REV feedback                                                         |
-| Open questions (ARC) | `docs/04_Tasks/open-questions-from-coder-arc.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
-| Open questions (QA)  | `docs/05_TestStrategy/open-questions-from-coder-qa.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
+| Open questions | `docs/05_TestStrategy/open-questions-from-coder.md` | Create new if missing; synchronize existing: mark answered only with clear responses, add new questions, remove duplicates |
 
 **Update Rules**:
 
@@ -137,7 +144,19 @@ CODER's work is complete when ALL of the following are satisfied:
 - [ ] Tests pass with expected coverage
 - [ ] Coverage run is executed (`pnpm test:coverage`)
 - [ ] All blocking open questions are answered (no questions with `Status: blocking` remain unanswered)
-- [ ] Open questions files (if any) are created/synchronized with correct statuses
+- [ ] Open questions file (if any) is created/synchronized with correct statuses
+
+## Local Verification Commands (Quality Gates)
+
+Run these commands and ensure they exit successfully (exit code 0):
+
+- `pnpm build`
+- `pnpm typecheck`
+- `pnpm lint`
+- `pnpm test`
+- `pnpm test:coverage`
+
+See also `AGENTS.md` (quality gates) and `agents/tooling.md` (tooling details).
 
 ## Blocking Conditions
 
@@ -154,8 +173,9 @@ The following conditions BLOCK handoff to REV:
 **Escalation Rules**:
 
 - If required inputs are missing: stop and request re-run of previous stage
-- If implementation is blocked: document specific issues as blocking questions, do NOT proceed until resolved
+- If implementation is blocked: document specific issues as blocking questions in `docs/05_TestStrategy/open-questions-from-coder.md`, do NOT proceed until resolved
 - If blocking questions exist: handoff is blocked until they are answered or reclassified as non-blocking/deferred
+- For questions that require decisions from a previous stage, include an explicit `Requires: ARC/PM/QA` marker and a clear `Handoff impact`
 
 ## Handoff to Next Role
 
@@ -164,9 +184,7 @@ The following conditions BLOCK handoff to REV:
 **Deliverables**:
 
 1. Implementation in `src/` — source code and tests
-2. Open questions files (if any exist):
-   - `docs/04_Tasks/open-questions-from-coder-arc.md`
-   - `docs/05_TestStrategy/open-questions-from-coder-qa.md`
+2. `docs/05_TestStrategy/open-questions-from-coder.md` — open questions file (if any exist)
 
 **Acceptance Criteria**:
 
@@ -218,10 +236,14 @@ CODER's completion is validated through:
   - Update statuses and owners as context changes
   - Remove exact duplicates
 
-**Which file to use**
+### What Counts as a “Critical Path”
 
-- Use `docs/04_Tasks/open-questions-from-coder-arc.md` for questions that require architect input or may change the architecture.
-- Use `docs/05_TestStrategy/open-questions-from-coder-qa.md` for questions about tests, coverage targets, and test strategy.
+For purposes of test coverage requirements, “critical paths” are defined by:
+
+- acceptance criteria in `docs/03_Stories/stories.md`
+- “core / must not break” scope in `docs/05_TestStrategy/test-strategy.md`
+
+CODER MUST ensure there is a clear mapping from acceptance criteria to tests (at minimum as a checklist in tasks/PR context) so REV can validate coverage.
 
 ### Status Rules
 
