@@ -48,7 +48,7 @@
     "oxlint": "oxlint",
     "oxlint:fix": "oxlint --fix",
     "lint": "concurrently --names 'LINT,FMT' 'pnpm oxlint' 'pnpm format:check'",
-    "lint:fix": "concurrently --names 'LINT,FMT' 'pnpm oxlint:fix' 'pnpm format'",
+    "lint:fix": "pnpm oxlint:fix && pnpm format",
     "format": "prettier --write \"**/*.{ts,js,json,md}\"",
     "format:check": "prettier --check \"**/*.{ts,js,json,md}\"",
     "prepack": "pnpm run build"
