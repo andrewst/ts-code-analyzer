@@ -82,7 +82,7 @@ See [Role → Rules Mapping](AGENTS.md#role--rules-mapping). `AGENTS.md` is the 
 
 ## Output
 
-- **Primary output**: `docs/04_Tasks/tasks.md` — structured task list containing title, description, inputs, outputs, acceptance_criteria, and dependencies
+- **Primary output**: `docs/04_Tasks/tasks.md` — structured task list. **MANDATORY**: Use [tasks template](agents/templates/tasks-template.md) for output structure.
 - **Secondary output**: `docs/03_Stories/open-questions-from-plan.md` — updated with any blocking ambiguities found during planning
 
 ## Artifacts
@@ -106,7 +106,7 @@ PLAN's work is complete when ALL of the following are satisfied:
 - [ ] Tasks are atomic, developer-ready, and executable without further clarification.
 - [ ] Every task includes title, description, inputs, outputs, acceptance_criteria, and dependencies.
 - [ ] Task dependencies are clearly mapped and logically sequenced without cyclical dependencies.
-- [ ] `docs/04_Tasks/tasks.md` is generated and formatted as a structured task list.
+- [ ] `docs/04_Tasks/tasks.md` is generated and follows [tasks template](agents/templates/tasks-template.md).
 - [ ] No blocking, unclarified questions remain about requirements or architecture.
 
 ## Blocking Conditions
@@ -152,7 +152,7 @@ PLAN's completion is validated through:
 
 | Method                | What It Checks                                                                                                                       | Enforcement     |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| Template structure    | `docs/04_Tasks/tasks.md` contains title, description, inputs, outputs, acceptance_criteria, dependencies                             | review-enforced |
+| Template structure    | `docs/04_Tasks/tasks.md` follows [tasks template](agents/templates/tasks-template.md)                                                | review-enforced |
 | Atomicity check       | Tasks are small, implementable, and unambiguous                                                                                      | review-enforced |
 | Coverage check        | Tasks comprehensively cover `docs/03_Stories/stories.md` and `docs/03_Stories/architecture.md`                                       | manual only     |
 | Open questions format | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced |

@@ -22,7 +22,7 @@ TypeScript static code analysis utility — agent-driven development.
 | DOC      | [agents/roles/doc.md](agents/roles/doc.md)           | Documentation updates              |
 | Workflow | [agents/roles/workflow.md](agents/roles/workflow.md) | Full development sequence          |
 
-**Workflow**: See [agents/roles/workflow.md](agents/roles/workflow.md)
+**Workflow**: `Request → PD → PM → ARC → PLAN → QA → CODER → REV → DOC → Commit` (See [agents/roles/workflow.md](agents/roles/workflow.md))
 
 ## Rules
 

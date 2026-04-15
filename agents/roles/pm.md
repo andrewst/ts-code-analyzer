@@ -53,7 +53,7 @@ If input is incomplete or unclear:
 
 PM is the second stage in the development workflow, after PD. See [Workflow](agents/roles/workflow.md) for full sequence.
 
-**Note**: PM comes **after** PD — it reads the discovery file and converts it into execution-ready user stories for ARC, QA, and CODER.
+**Note**: PM comes **after** PD — it reads the discovery file and converts it into execution-ready user stories for ARC, PLAN, QA, and CODER.
 
 ## Applicable Rules
 
@@ -75,7 +75,7 @@ _(none — does not write code or make technical decisions)_
 
 ## Output
 
-- **Primary output**: Stories file at `docs/03_Stories/stories.md`
+- **Primary output**: Stories file at `docs/03_Stories/stories.md` — **MANDATORY**: Use [stories template](agents/templates/stories-template.md) for output structure.
 - **Secondary output**: Open questions file at `docs/02_Discovery/open-questions-from-pm.md` (if questions need tracking)
 
 ## Artifacts
@@ -94,7 +94,7 @@ _(none — does not write code or make technical decisions)_
 
 PM's work is complete when ALL of the following are satisfied:
 
-- [ ] Stories file exists at `docs/03_Stories/stories.md`
+- [ ] Stories file exists at `docs/03_Stories/stories.md` and follows [stories template](agents/templates/stories-template.md)
 - [ ] Every feature group from discovery has corresponding user stories
 - [ ] Each story follows format: "As a [user], I want to [action], so that [outcome]"
 - [ ] Each story has at least 3 measurable, verifiable acceptance criteria
@@ -105,7 +105,7 @@ PM's work is complete when ALL of the following are satisfied:
 
 ## Blocking Conditions
 
-The following conditions BLOCK handoff to ARC and QA:
+The following conditions BLOCK handoff to ARC, PLAN, and QA:
 
 | Condition                                                          | Type          | Escalation                                   | Owner |
 | ------------------------------------------------------------------ | ------------- | -------------------------------------------- | ----- |
@@ -123,7 +123,7 @@ The following conditions BLOCK handoff to ARC and QA:
 
 ## Handoff to Next Role
 
-**Target**: ARC (Architect) and QA (Quality Assurance) — both consume stories file
+**Target**: ARC (Architect), PLAN (Planner), and QA (Quality Assurance) — all consume stories file
 
 **Deliverables**:
 
@@ -133,13 +133,14 @@ The following conditions BLOCK handoff to ARC and QA:
 **Acceptance Criteria**:
 
 - ARC can design technical architecture from stories without guessing user intent
+- PLAN can decompose stories into tasks without ambiguity
 - QA can define test strategy from acceptance criteria without ambiguity
 - All stories are independent and testable
 - No blocking questions remain open
 
 **Failure Handling**:
 
-- If ARC or QA finds stories insufficient: they record new open questions and request PM re-run
+- If ARC, PLAN, or QA finds stories insufficient: they record new open questions and request PM re-run
 - PM MUST address their questions before workflow proceeds
 
 ## Verification
@@ -148,12 +149,13 @@ PM's completion is validated through:
 
 | Method                | What It Checks                                                                                                                       | Enforcement     |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| Template structure    | Stories file follows [stories template](agents/templates/stories-template.md)                                                        | review-enforced |
 | Story format          | Each story follows "As a... I want... so that..." pattern                                                                            | review-enforced |
 | Acceptance criteria   | Each criterion is measurable and verifiable                                                                                          | review-enforced |
 | Completeness          | All discovery feature groups have corresponding stories                                                                              | manual only     |
 | Open questions format | Questions follow [open questions base template](agents/templates/open-questions-base-template.md) with Status, Owner, Handoff Impact | review-enforced |
 
-**Note**: PM verification is primarily manual — there is no automated tooling to validate story quality. ARC and QA act as verification gates.
+**Note**: PM verification is primarily manual — there is no automated tooling to validate story quality. ARC, PLAN, and QA act as verification gates.
 
 ## Open Questions Handling
 
@@ -181,7 +183,7 @@ PM's completion is validated through:
 ### Status Rules
 
 - `blocking`: question blocks PM from completing stories; MUST be answered before handoff
-- `non-blocking`: question does not block progress; can pass to ARC and QA
+- `non-blocking`: question does not block progress; can pass to ARC, PLAN, and QA
 - `deferred`: question intentionally postponed; requires explicit Owner
 - `answered`: question resolved; move to answered section with Answered By and Answered Date
 

@@ -13,7 +13,7 @@
 
 ## Agent Workflow
 
-**Workflow**: `Request → PD → PM → ARC → QA → CODER → REV → DOC → Commit`
+**Workflow**: `Request → PD → PM → ARC → PLAN → QA → CODER → REV → DOC → Commit`
 
 **Always read [AGENTS.md](AGENTS.md) for the authoritative role and rule mapping before starting work.**
 
@@ -40,7 +40,7 @@ pnpm test             # Run tests
 ## Guidelines for Claude Code
 
 1. **Always read AGENTS.md** at the start of a session for complete context
-2. **Follow the workflow**: Request → PD → PM → ARC → QA → CODER → REV → DOC → Commit
+2. **Follow the workflow**: Request → PD → PM → ARC → PLAN → QA → CODER → REV → DOC → Commit
 3. **Use role-specific files** when working on tasks in a particular role
 4. **Apply rules** from `agents/rules/` consistently
 5. **Write tests** for all new functionality (per T01–T05)

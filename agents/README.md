@@ -15,6 +15,7 @@ The workflow consists of the following roles:
 | **PD**       | Product Discovery: idea structuring and conceptual breakdown. |
 | **PM**       | Product Manager: user stories and backlog creation.           |
 | **ARC**      | Architect: technical design and architectural constraints.    |
+| **PLAN**     | Planner: task breakdown and execution plan.                   |
 | **QA**       | Quality Assurance: test strategy and quality gates.           |
 | **CODER**    | Developer: implementation and unit testing.                   |
 | **REV**      | Reviewer: code review and quality validation.                 |

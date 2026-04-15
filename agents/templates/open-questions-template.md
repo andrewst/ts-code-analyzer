@@ -3,7 +3,7 @@
 **Project**: [project name]
 **Last Updated**: [YYYY-MM-DD]
 **Status**: [current | answered | blocked]
-**Source Role**: [PD | PM | ARC | QA | CODER | REV | DOC | other]
+**Source Role**: [PD | PM | ARC | PLAN | QA | CODER | REV | DOC | other]
 **Primary Source File**: `[path/to/source.md]`
 **Related Source Files**:
 
