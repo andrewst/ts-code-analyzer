@@ -55,7 +55,9 @@ Minimum expected artifacts per stage (guidance — adapt as needed to the task s
 | [Architecture](agents/rules/architecture.md) | A01–A05 |
 | [Testing](agents/rules/testing.md)           | T01–T05 |
 
-- **All repository documents must be written in English**: this includes vision, discovery, questions, and other documentation files in `docs/` and related repository documentation.
+- **Repository documentation language**:
+  - Default: **English** for repo-facing docs (including `README.md`, `docs/**`, `agents/**`).
+  - Allowed exceptions: localized analysis/notes under `docs/analysis/**` or `docs/notes/**` (use a language suffix in the filename, e.g. `*.ru.md`).
 - **Internal document links must be relative to the repository root**: any link from one repository document to another repository document must use a path relative to the repository root, which is the current project directory. Do not use absolute filesystem paths or current-file-relative paths for internal documentation links.
 
 ### Role → Rules Mapping
@@ -107,25 +109,25 @@ Different layers of documentation serve different purposes. This table clarifies
 
 Each rule is associated with a verification mechanism that enforces or validates compliance:
 
-| Rule | Verification Type | Tooling / Process                                     |
-| ---- | ----------------- | ----------------------------------------------------- |
-| R01  | lint-enforced     | TypeScript compiler (`tsconfig.json: strict: true`)   |
-| R02  | lint-enforced     | TypeScript compiler, oxc lint (`no-explicit-any`)     |
-| R03  | lint-enforced     | TypeScript compiler (`tsconfig.json: module: ESNext`) |
-| R04  | review-enforced   | Manual review in REV stage                            |
-| R05  | review-enforced   | Manual review in REV stage (with exception policy)    |
-| R06  | lint-enforced     | oxc lint (custom rule or manual check in REV)         |
-| R07  | review-enforced   | Manual review in REV stage, DOC stage validation      |
-| A01  | review-enforced   | Architecture review in REV stage                      |
-| A02  | review-enforced   | Architecture review in REV stage                      |
-| A03  | test-enforced     | Unit tests verify pure functions have no side effects |
-| A04  | test-enforced     | Dependency injection enables testability              |
-| A05  | lint-enforced     | Dependency analysis tooling or REV stage              |
-| T01  | review-enforced   | Test files exist alongside or before source code      |
-| T02  | test-enforced     | Coverage tooling (vitest coverage reports)            |
-| T03  | review-enforced   | Fixture files present in `test/fixtures/`             |
-| T04  | test-enforced     | Integration test suite validates e2e flows            |
-| T05  | review-enforced   | Naming conventions checked in REV stage               |
+| Rule | Verification Type | Tooling / Process                                                                          |
+| ---- | ----------------- | ------------------------------------------------------------------------------------------ |
+| R01  | lint-enforced     | TypeScript compiler (`tsconfig.json: strict: true`)                                        |
+| R02  | lint-enforced     | TypeScript compiler, oxc lint (`no-explicit-any`)                                          |
+| R03  | lint-enforced     | TypeScript compiler (`tsconfig.json: module: ESNext`)                                      |
+| R04  | review-enforced   | Manual review in REV stage                                                                 |
+| R05  | review-enforced   | Manual review in REV stage (with exception policy)                                         |
+| R06  | lint-enforced     | oxc lint (custom rule or manual check in REV)                                              |
+| R07  | review-enforced   | Manual review in REV stage, DOC stage validation                                           |
+| A01  | review-enforced   | Architecture review in REV stage                                                           |
+| A02  | review-enforced   | Architecture review in REV stage                                                           |
+| A03  | test-enforced     | Unit tests verify pure functions have no side effects                                      |
+| A04  | test-enforced     | Dependency injection enables testability                                                   |
+| A05  | review-enforced   | REV checklist: avoid unnecessary deps; justify any new deps; run `pnpm lint` + `pnpm test` |
+| T01  | review-enforced   | Test files exist alongside or before source code                                           |
+| T02  | test-enforced     | Coverage tooling (vitest coverage reports)                                                 |
+| T03  | review-enforced   | Fixture files present in `test/fixtures/`                                                  |
+| T04  | test-enforced     | Integration test suite validates e2e flows                                                 |
+| T05  | review-enforced   | Naming conventions checked in REV stage                                                    |
 
 **Verification types**:
 
@@ -141,9 +143,5 @@ See [agents/tooling.md](agents/tooling.md) for specific tool configuration and c
 - [Best Practices](agents/best-practices.md) — before/while/after coding
 - [Reference](agents/reference.md) — commands, files, documentation sections
 - [Tooling](agents/tooling.md) — linting, testing, and build configuration
-
-## Tooling & Configuration
-
-See [agents/tooling.md](agents/tooling.md) — linting, testing, and build configuration.
 
 _Last updated: 2026-04-14_
