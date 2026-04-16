@@ -13,7 +13,7 @@ The long-term goal is to help engineers and maintainers inspect a codebase, unde
 
 ## Current Status
 
-- Version: `0.0.1`
+- Version: `0.0.2`
 - Status: active early development
 - Current CLI entry point exists, but analyzer functionality is not implemented yet
 - CLI commands, output format, and analysis scope are still evolving

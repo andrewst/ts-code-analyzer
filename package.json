@@ -1,6 +1,6 @@
 {
   "name": "ts-code-analyzer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "CLI project for analyzing TypeScript codebases and surfacing maintenance insights",
   "keywords": [
     "typescript",
