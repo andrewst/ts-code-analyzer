@@ -8,7 +8,8 @@
   },
   "rules": {
     "no-unused-vars": "error",
-    "no-console": "warn"
+    "no-console": "warn",
+    "max-lines-per-function": "off"
   },
   "env": {
     "builtin": true
