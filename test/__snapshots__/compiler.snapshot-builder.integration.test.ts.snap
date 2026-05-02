@@ -1,0 +1,89 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`buildProjectSnapshot > should build a pure snapshot from a fixture project 1`] = `
+{
+  "exportGraph": [
+    {
+      "from": "src/feature.ts",
+      "names": [
+        "helper",
+      ],
+      "to": "src/helper.ts",
+    },
+    {
+      "from": "src/index.ts",
+      "names": [
+        "createWidget",
+      ],
+      "to": "src/feature.ts",
+    },
+    {
+      "from": "src/index.ts",
+      "names": [
+        "sharedValue",
+      ],
+      "to": "src/shared.ts",
+    },
+  ],
+  "exports": [
+    {
+      "resolvedFile": "src/index.ts",
+      "subpath": ".",
+      "target": "./dist/index.js",
+    },
+    {
+      "resolvedFile": "src/feature.ts",
+      "subpath": "./feature",
+      "target": "./dist/feature.js",
+    },
+  ],
+  "files": [
+    "src/feature.ts",
+    "src/helper.ts",
+    "src/index.ts",
+    "src/shared.ts",
+  ],
+  "moduleExports": [
+    {
+      "exportedNames": [
+        "createWidget",
+        "helper",
+      ],
+      "filePath": "src/feature.ts",
+    },
+    {
+      "exportedNames": [
+        "helper",
+      ],
+      "filePath": "src/helper.ts",
+    },
+    {
+      "exportedNames": [
+        "createWidget",
+        "sharedValue",
+      ],
+      "filePath": "src/index.ts",
+    },
+    {
+      "exportedNames": [
+        "sharedValue",
+      ],
+      "filePath": "src/shared.ts",
+    },
+  ],
+  "moduleGraph": [
+    {
+      "from": "src/feature.ts",
+      "to": "src/helper.ts",
+    },
+    {
+      "from": "src/index.ts",
+      "to": "src/feature.ts",
+    },
+    {
+      "from": "src/index.ts",
+      "to": "src/shared.ts",
+    },
+  ],
+}
+`;

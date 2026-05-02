@@ -1,0 +1,7 @@
+{
+  "name": "cycle-project",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

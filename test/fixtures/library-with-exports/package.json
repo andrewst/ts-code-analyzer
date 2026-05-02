@@ -1,0 +1,8 @@
+{
+  "name": "library-with-exports",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./feature": "./dist/feature.js"
+  }
+}

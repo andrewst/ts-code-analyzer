@@ -1,0 +1,9 @@
+{
+  "name": "conditional-root-exports",
+  "type": "module",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.js",
+    "default": "./dist/index.js"
+  }
+}
