@@ -37,8 +37,9 @@
   "scripts": {
     "dev": "tsc --watch --noEmit",
     "dev-go": "tsgo --watch --noEmit",
-    "build": "tsc",
-    "build-go": "tsgo",
+    "clean": "rm -rf dist",
+    "build": "pnpm run clean && tsc -p tsconfig.build.json",
+    "build-go": "pnpm run clean && tsgo -p tsconfig.build.json",
     "start": "tsx ./src/index.ts",
     "typecheck": "tsc --noEmit",
     "typecheck-go": "tsgo --noEmit",
