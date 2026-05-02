@@ -7,8 +7,10 @@
 | R03 | **ESM only**: `import`/`export` syntax                                                                                                                                                             | Matches tsconfig              |
 | R04 | **Named exports preferred**: no `export default` unless required                                                                                                                                   | Tree-shaking, symbol tracking |
 | R05 | **File < 300 lines, function < 50 lines** (target; exceptions allowed with justification for visitor/transformer modules or other complex cases where mechanical splitting would hurt readability) | Testability                   |
-| R06 | **No `console.log` in core logic**: use proper error handling                                                                                                                                      | Clean CLI output              |
+| R06 | **No `console.log` in core logic**: use proper error handling. `console.info`/`console.error` are permitted only in the CLI layer or via a dedicated output wrapper.                               | Clean CLI output              |
 | R07 | **JSDoc on exported functions/types**: required for public APIs, extension points, complex types, and non-obvious contracts. May be omitted for trivial internal exports.                          | Self-documenting              |
+| R08 | **Automated checks**: all code must pass `pnpm lint` (oxlint) and `pnpm format` (prettier) before committing.                                                                                     | Consistent style              |
+| R09 | **AST traversal**: use built-in traversal methods (ts-morph Visitor or native Compiler API) over manual string parsing of source code.                                                             | Correctness, performance      |
 
 ## Project Conventions (Source of Truth)
 
