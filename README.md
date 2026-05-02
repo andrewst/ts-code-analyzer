@@ -124,7 +124,7 @@ pnpm run typecheck     # Run a one-off TypeScript check
 
 ```bash
 pnpm run clean         # Remove dist/
-pnpm run build         # Compile TypeScript to dist/ (CLI-only build config)
+pnpm run build         # Bundle + minify into dist/index.js (single-file)
 pnpm run build-go      # Compile using TypeScript native preview
 ```
 
