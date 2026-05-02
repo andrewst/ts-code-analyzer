@@ -1,3 +1,4 @@
+// oxlint-disable max-lines
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { resolve, dirname, extname, relative } from 'node:path';
 import ts from 'typescript';

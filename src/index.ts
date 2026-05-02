@@ -1,9 +1,3 @@
-const help = `ts-code-analyzer (early development)
+import { runCli } from './cli/index.js';
 
-This CLI is a stub. Analyzer commands are not implemented yet.
-
-Usage:
-  ts-code-analyzer
-`;
-
-process.stdout.write(help);
+runCli(process.argv.slice(2));
