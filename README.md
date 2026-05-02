@@ -58,12 +58,58 @@ pnpm install
 ## Usage
 
 ```bash
-pnpm run start
+pnpm run start -- --help
 ```
 
-CLI package metadata is configured with the binary name `ts-code-analyzer`, which will resolve to `dist/index.js` in packaged builds.
+The CLI binary name is `ts-code-analyzer` (mapped to `dist/index.js` in packaged builds).
 
-At the moment, the entry point is a development stub in [src/index.ts](src/index.ts). The production CLI interface and analysis commands are not finalized yet.
+### Running in development (no build)
+
+```bash
+# Show help
+pnpm run start -- --help
+
+# Analyze the current directory
+pnpm run start
+
+# Analyze a specific repository path (positional)
+pnpm run start -- ../some-repo
+
+# Equivalent using --target
+pnpm run start -- --target ../some-repo
+```
+
+### Running a production build
+
+```bash
+pnpm run build
+node dist/index.js --help
+```
+
+### CLI arguments
+
+- Target path:
+  - `ts-code-analyzer [target-path]` (positional; defaults to `.`)
+  - `-t, --target <path>` (equivalent to positional)
+- Workflow mode:
+  - `-w, --workflow <mode>` where `<mode>` is one of: `full`, `public-api`, `structure` (default: `full`)
+- Changed files list:
+  - `-c, --changes <path>` where `<path>` points to a **newline-delimited** text file of changed file paths
+- Help:
+  - `-h, --help`
+
+Examples:
+
+```bash
+# Full analysis (default)
+pnpm run start -- ../some-repo
+
+# Public API focused mode
+pnpm run start -- ../some-repo --workflow public-api
+
+# Provide a changed-files list (one path per line)
+pnpm run start -- ../some-repo --changes ./changed-files.txt
+```
 
 ## Development
 
@@ -77,7 +123,8 @@ pnpm run typecheck     # Run a one-off TypeScript check
 ## Build
 
 ```bash
-pnpm run build         # Compile TypeScript to JavaScript
+pnpm run clean         # Remove dist/
+pnpm run build         # Compile TypeScript to dist/ (CLI-only build config)
 pnpm run build-go      # Compile using TypeScript native preview
 ```
 
