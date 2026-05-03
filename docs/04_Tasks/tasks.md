@@ -14,11 +14,11 @@ The following tasks decompose the architectural layout into actionable units, or
 - **Inputs**: `docs/03_Stories/architecture.md` (Data Flow and Contracts section)
 - **Outputs**: `src/contracts/index.ts`
 - **Acceptance Criteria**:
-  - [ ] `AnalysisRequest` type is defined with target path, workflow mode, and optional change input.
-  - [ ] `ProjectSnapshot` interface is defined, including file inventory, module graph, and export graph.
-  - [ ] `ObservationSet` interface is defined containing arrays for each observation type (Structure, PublicApi, ChangeImpact, Hotspots).
-  - [ ] `AnalysisReport` interface is defined.
-  - [ ] Types are purely structural (no implementation dependencies, no `typescript` direct logic bleeding).
+  - [x] `AnalysisRequest` type is defined with target path, workflow mode, and optional change input.
+  - [x] `ProjectSnapshot` interface is defined, including file inventory, module graph, and export graph.
+  - [x] `ObservationSet` interface is defined containing arrays for each observation type (Structure, PublicApi, ChangeImpact, Hotspots).
+  - [x] `AnalysisReport` interface is defined.
+  - [x] Types are purely structural (no implementation dependencies, no `typescript` direct logic bleeding).
 - **Dependencies**: None
 
 ### T02: Implement TypeScript Compiler Adapter
@@ -27,10 +27,10 @@ The following tasks decompose the architectural layout into actionable units, or
 - **Inputs**: `src/contracts/index.ts`
 - **Outputs**: `src/compiler/index.ts`, `src/compiler/snapshot-builder.ts`
 - **Acceptance Criteria**:
-  - [ ] Uses TypeScript Compiler API to extract source files, symbols, and export metadata.
-  - [ ] Maps compiler artifacts to a pure `ProjectSnapshot` object.
-  - [ ] Exposes a factory function or class to perform snapshot extraction.
-  - [ ] Does not contain CLI or analysis logic.
+  - [x] Uses TypeScript Compiler API to extract source files, symbols, and export metadata.
+  - [x] Maps compiler artifacts to a pure `ProjectSnapshot` object.
+  - [x] Exposes a factory function or class to perform snapshot extraction.
+  - [x] Does not contain CLI or analysis logic.
 - **Dependencies**: T01
 
 ### T03: Implement Project Loading Strategy
@@ -39,10 +39,10 @@ The following tasks decompose the architectural layout into actionable units, or
 - **Inputs**: `src/contracts/index.ts`, `docs/03_Stories/architecture.md`
 - **Outputs**: `src/project-loading/index.ts`, `src/project-loading/resolver.ts`
 - **Acceptance Criteria**:
-  - [ ] Converts a raw CLI path into a resolved absolute path.
-  - [ ] Supports extracting options from the repository's `tsconfig.json`.
-  - [ ] Handles explicitly stated excluded/included targets.
-  - [ ] Yields a clear error context if loading fails (avoid automatic crashes, handoff to application).
+  - [x] Converts a raw CLI path into a resolved absolute path.
+  - [x] Supports extracting options from the repository's `tsconfig.json`.
+  - [x] Handles explicitly stated excluded/included targets.
+  - [x] Yields a clear error context if loading fails (avoid automatic crashes, handoff to application).
 - **Dependencies**: T01
 
 ### T04: Implement Structure Analyzer
@@ -51,9 +51,9 @@ The following tasks decompose the architectural layout into actionable units, or
 - **Inputs**: `src/contracts/index.ts` (ProjectSnapshot)
 - **Outputs**: `src/analysis/structure/index.ts`
 - **Acceptance Criteria**:
-  - [ ] Consumes the `ProjectSnapshot`.
-  - [ ] Returns a summarized `StructureObservation[]` array identifying basic metrics and layout.
-  - [ ] Uses empirical logic, entirely independent of CLI contexts.
+  - [x] Consumes the `ProjectSnapshot`.
+  - [x] Returns a summarized `StructureObservation[]` array identifying basic metrics and layout.
+  - [x] Uses empirical logic, entirely independent of CLI contexts.
 - **Dependencies**: T01
 
 ### T05: Implement Public API Analyzer
@@ -62,9 +62,9 @@ The following tasks decompose the architectural layout into actionable units, or
 - **Inputs**: `src/contracts/index.ts` (ProjectSnapshot)
 - **Outputs**: `src/analysis/public-api/index.ts`
 - **Acceptance Criteria**:
-  - [ ] Uses package `exports` first, fallback to common entry modules (`src/index.ts`), and computes re-export closures.
-  - [ ] Returns `PublicApiObservation[]` cleanly dividing public surface signals.
-  - [ ] Emits graceful degradation bounds if entry points cannot be discovered.
+  - [x] Uses package `exports` first, fallback to common entry modules (`src/index.ts`), and computes re-export closures.
+  - [x] Returns `PublicApiObservation[]` cleanly dividing public surface signals.
+  - [x] Emits graceful degradation bounds if entry points cannot be discovered.
 - **Dependencies**: T01
 
 ### T06: Implement Change Impact Analyzer
@@ -73,8 +73,8 @@ The following tasks decompose the architectural layout into actionable units, or
 - **Inputs**: `src/contracts/index.ts`
 - **Outputs**: `src/analysis/change-impact/index.ts`
 - **Acceptance Criteria**:
-  - [ ] Only fires when explicit change lists are provided in `AnalysisRequest`.
-  - [ ] Returns `ChangeImpactObservation[]` linking modified nodes to their dependencies and dependent modules.
+  - [x] Only fires when explicit change lists are provided in `AnalysisRequest`.
+  - [x] Returns `ChangeImpactObservation[]` linking modified nodes to their dependencies and dependent modules.
 - **Dependencies**: T01
 
 ### T07: Implement Hotspot Analyzer
@@ -83,8 +83,8 @@ The following tasks decompose the architectural layout into actionable units, or
 - **Inputs**: `src/contracts/index.ts`
 - **Outputs**: `src/analysis/hotspots/index.ts`
 - **Acceptance Criteria**:
-  - [ ] Assigns scores and signals to centrally depended-upon or highly exposed components.
-  - [ ] Outputs `HotspotObservation[]`.
+  - [x] Assigns scores and signals to centrally depended-upon or highly exposed components.
+  - [x] Outputs `HotspotObservation[]`.
 - **Dependencies**: T01
 
 ### T08: Implement Application Orchestration Layer
@@ -93,9 +93,9 @@ The following tasks decompose the architectural layout into actionable units, or
 - **Inputs**: T02, T03, T04, T05, T06, T07
 - **Outputs**: `src/application/index.ts`, `src/application/pipeline.ts`
 - **Acceptance Criteria**:
-  - [ ] Exposes a primary workflow function taking `AnalysisRequest` and yielding `AnalysisReport`.
-  - [ ] Triggers compiler snapshot extraction -> invokes specific analyzers sequentially -> groups results to an `ObservationSet` -> populates `AnalysisReport`.
-  - [ ] Catches initialization failures and transforms them to normalized output errors.
+  - [x] Exposes a primary workflow function taking `AnalysisRequest` and yielding `AnalysisReport`.
+  - [x] Triggers compiler snapshot extraction -> invokes specific analyzers sequentially -> groups results to an `ObservationSet` -> populates `AnalysisReport`.
+  - [x] Catches initialization failures and transforms them to normalized output errors.
 - **Dependencies**: T02, T03, T04, T05, T06, T07
 
 ### T09: Implement CLI Presentation Layer
@@ -104,9 +104,9 @@ The following tasks decompose the architectural layout into actionable units, or
 - **Inputs**: `src/contracts/index.ts`
 - **Outputs**: `src/presentation/index.ts`, `src/presentation/formatter.ts`
 - **Acceptance Criteria**:
-  - [ ] Exposes functions for converting `AnalysisReport` into string streams.
-  - [ ] Ensures language remains strictly observational per PM's user-story requirements.
-  - [ ] Distinguishes exposed surface from heuristics without imposing changes on users.
+  - [x] Exposes functions for converting `AnalysisReport` into string streams.
+  - [x] Ensures language remains strictly observational per PM's user-story requirements.
+  - [x] Distinguishes exposed surface from heuristics without imposing changes on users.
 - **Dependencies**: T01
 
 ### T10: Implement CLI Entry Point Shell
@@ -115,7 +115,7 @@ The following tasks decompose the architectural layout into actionable units, or
 - **Inputs**: T08, T09
 - **Outputs**: `src/cli/index.ts`
 - **Acceptance Criteria**:
-  - [ ] Resolves standard flags (target path, explicit workflow option, explicit changes path).
-  - [ ] Instantiates the application pipeline and passes `AnalysisRequest`.
-  - [ ] Routes application `AnalysisReport` through the presentation formatter to standard output.
+  - [x] Resolves standard flags (target path, explicit workflow option, explicit changes path).
+  - [x] Instantiates the application pipeline and passes `AnalysisRequest`.
+  - [x] Routes application `AnalysisReport` through the presentation formatter to standard output.
 - **Dependencies**: T08, T09

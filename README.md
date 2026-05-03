@@ -13,11 +13,11 @@ The long-term goal is to help engineers and maintainers inspect a codebase, unde
 
 ## Current Status
 
-- Version: `0.0.2`
-- Status: active early development
-- Current CLI entry point exists, but analyzer functionality is not implemented yet
-- CLI commands, output format, and analysis scope are still evolving
-- Package is intended to remain a CLI-only tool, not a reusable library API
+- **Version**: `0.0.2`
+- **Stage**: active early development (CLI flags, heuristics, and report wording may change)
+- **Implemented**: an end-to-end CLI pipeline — resolve the target directory and `tsconfig.json`, build a TypeScript Compiler API snapshot (file inventory, module graph, export/re-export graph, diagnostics), run analyzers, and print an observational text report to standard output
+- **Workflow modes** (`--workflow`): `structure` (layout metrics only), `public-api` (public surface only), `full` (structure, public API, change-impact, and hotspots). Change-impact and hotspots are produced only in `full`; change-impact additionally requires `--changes` with a newline-delimited list of paths
+- **Scope**: CLI-only distribution (`ts-code-analyzer` → `dist/index.js`); using the package as a stable programmatic library API is not a goal for this phase
 
 ## Why This Project
 
@@ -31,12 +31,21 @@ As TypeScript codebases grow, it becomes harder to understand their structure, p
 - Where are the likely maintenance hotspots?
 - How can a maintainer inspect the codebase faster than by manual reading alone?
 
-## Planned Capabilities
+## Capabilities
 
-- Public API summary for exported declarations and re-exports
-- Maintenance-risk signal based on public surface size relative to codebase size
-- Concise CLI overview that points to the most important areas for manual inspection
-- Practical analysis workflow that fits local CLI-based engineering usage
+**Available today**
+
+- Structure overview (file and directory counts, dominant module-type heuristics, path depth)
+- Public API observations prioritizing `package.json` `exports`, then common entry files (for example `src/index.ts`), with re-export reachability used for related signals
+- Change-impact neighbors for explicitly listed changed files (module and export edges), when running `full` with `--changes`
+- Hotspot candidates from static topology (fan-in, fan-out, public exposure, dependency concentration), top-ranked in `full` mode
+- Observational CLI output (descriptive language; no prescriptions)
+
+**Roadmap / follow-ups**
+
+- Deeper maintenance-risk metrics and calibration (for example size-relative public surface)
+- Richer or optional output formats and stability guarantees as the tool matures
+- Broader project-layout and package-edge cases
 
 ## Agent-Driven Development
 
@@ -63,6 +72,8 @@ pnpm run start -- --help
 
 The CLI binary name is `ts-code-analyzer` (mapped to `dist/index.js` in packaged builds).
 
+When you run through `pnpm run start`, everything **after** the first `--` is forwarded to the CLI (`pnpm` otherwise treats flags as its own). Installed or built binaries are invoked directly: `ts-code-analyzer …` or `node dist/index.js …`.
+
 ### Running in development (no build)
 
 ```bash
@@ -86,29 +97,61 @@ pnpm run build
 node dist/index.js --help
 ```
 
-### CLI arguments
+### CLI arguments (reference)
 
-- Target path:
-  - `ts-code-analyzer [target-path]` (positional; defaults to `.`)
-  - `-t, --target <path>` (equivalent to positional)
-- Workflow mode:
-  - `-w, --workflow <mode>` where `<mode>` is one of: `full`, `public-api`, `structure` (default: `full`)
-- Changed files list:
-  - `-c, --changes <path>` where `<path>` points to a **newline-delimited** text file of changed file paths
-- Help:
-  - `-h, --help`
+| Flag | Short | Required | Default | Purpose |
+|------|-------|----------|---------|---------|
+| _(positional)_ | — | No | `.` | Directory of the TypeScript project to analyze (same meaning as `--target`). Only the **first** non-option argument is accepted as the target; additional bare tokens are rejected as unknown. |
+| `--target` | `-t` | No | `.` | Explicit project root. Cannot be combined with a second target: once the target is set (positional or `-t`), another path without a flag is an error. |
+| `--workflow` | `-w` | No | `full` | Which slices of the report to compute and print (see **Workflow modes** below). |
+| `--changes` | `-c` | No | _(none)_ | Path to a UTF-8 text file listing changed source paths (see **Changes file** below). Parsed at startup; invalid paths or missing files fail the run before analysis. |
+| `--help` | `-h` | No | — | Print usage and exit with status `0`. |
+
+**Target directory**
+
+- Must exist and be a **directory** (not a single file).
+- The loader looks for **`tsconfig.json` directly under** that directory (`<target>/tsconfig.json`). Extend or compose projects via your tsconfig (references, paths); the CLI does not accept a separate `--project` path yet.
+- Paths may be relative (resolved from the current working directory) or absolute.
+
+**Workflow modes**
+
+| Mode | Report sections | Notes |
+|------|-----------------|-------|
+| `structure` | Structure only | Fast layout-oriented snapshot (counts, depth, module-type heuristics). |
+| `public-api` | Public API only | Entry discovery (`package.json` `exports` first, then common entry files such as `src/index.ts`) and observed export names. |
+| `full` | Structure, Public API, Change impact, Hotspots | Change-impact observations appear **only** when `--changes` is provided (otherwise that section is empty). Hotspots are always computed in this mode from the snapshot topology. |
+
+Using `--changes` with `structure` or `public-api` is allowed but **has no effect** on the printed report today (those workflows never emit change-impact or hotspots).
+
+**Changes file (`--changes`)**
+
+- Plain text, **one path per line**; Windows (`\r\n`) and Unix (`\n`) newlines are accepted.
+- Empty lines are skipped; leading/trailing whitespace on a line is trimmed.
+- Paths are typically **relative to the project root** (for example `src/app.ts`). Absolute paths under the project root are normalized when possible; paths outside the analyzed file list yield empty neighbor sets for that row but do not abort the run.
+
+**Parsing rules**
+
+- Options that take a value (`--target`, `--workflow`, `--changes`) require the value to **follow immediately** as the next argv token; omitting the value is an error.
+- Unknown flags or unexpected positional arguments (after the target is already fixed) produce an error message on stderr and exit code `1`.
+- Flags may be mixed in any order relative to the positional target, except that the first bare non-flag argument only sets the target while it is still the default (`.`).
 
 Examples:
 
 ```bash
-# Full analysis (default)
+# Full analysis (default): structure, public API, change-impact (if --changes), hotspots
 pnpm run start -- ../some-repo
 
-# Public API focused mode
+# Public API only (no structure / change-impact / hotspots sections)
 pnpm run start -- ../some-repo --workflow public-api
 
-# Provide a changed-files list (one path per line)
-pnpm run start -- ../some-repo --changes ./changed-files.txt
+# Changed-files list (one path per line); affects output only with --workflow full
+pnpm run start -- ../some-repo --workflow full --changes ./changed-files.txt
+
+# Explicit target and workflow (equivalent to positional target)
+pnpm run start -- --target ../some-repo --workflow structure
+
+# Built binary (after pnpm run build)
+node dist/index.js . --workflow public-api --changes /tmp/changed.txt
 ```
 
 ## Development
@@ -151,7 +194,7 @@ pnpm run format:check  # Check formatting with prettier
 
 ## Tech Stack
 
-- **TypeScript 6.0+** with TypeScript Compiler API for AST parsing
+- **TypeScript 6.0+** with TypeScript Compiler API (programs, type checker, module resolution)
 - **ES2022** target with NodeNext module resolution
 - **ES modules (ESM)**
 - **pnpm** package manager (v10.33.0)
