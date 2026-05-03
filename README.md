@@ -1,6 +1,6 @@
 # TypeScript Code Analyzer
 
-[![CI](https://img.shields.io/badge/CI-GitHub_Actions-2088FF?style=flat&logo=githubactions&logoColor=white)](https://github.com/andrewst/ts-code-analyzer/actions/workflows/ci.yml)
+[![CI](https://github.com/andrewst/ts-code-analyzer/actions/workflows/ci.yml/badge.svg)](https://github.com/andrewst/ts-code-analyzer/actions/workflows/ci.yml)
 [![Coverage](https://img.shields.io/badge/Coverage-artifacts-646CFF?style=flat&logo=vitest&logoColor=white)](https://github.com/andrewst/ts-code-analyzer/actions/workflows/ci.yml)
 
 > ⚠️ **Early Development**: This project is in its initial stages of development. Features, APIs, and documentation are subject to change.
