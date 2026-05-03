@@ -158,9 +158,11 @@ describe('runCli', () => {
         stderrChunks.push(typeof chunk === 'string' ? chunk : Buffer.from(chunk).toString());
         return true;
       });
-    const exitSpy = vi.spyOn(process, 'exit').mockImplementation((code?: number) => {
-      throw new Error(`exit:${code ?? 0}`);
-    });
+    const exitSpy = vi
+      .spyOn(process, 'exit')
+      .mockImplementation((code?: string | number | null | undefined) => {
+        throw new Error(`exit:${code ?? 0}`);
+      });
 
     expect(() => runCli(['--not-a-real-flag'])).toThrow('exit:1');
 

@@ -99,13 +99,13 @@ node dist/index.js --help
 
 ### CLI arguments (reference)
 
-| Flag | Short | Required | Default | Purpose |
-|------|-------|----------|---------|---------|
-| _(positional)_ | — | No | `.` | Directory of the TypeScript project to analyze (same meaning as `--target`). Only the **first** non-option argument is accepted as the target; additional bare tokens are rejected as unknown. |
-| `--target` | `-t` | No | `.` | Explicit project root. Cannot be combined with a second target: once the target is set (positional or `-t`), another path without a flag is an error. |
-| `--workflow` | `-w` | No | `full` | Which slices of the report to compute and print (see **Workflow modes** below). |
-| `--changes` | `-c` | No | _(none)_ | Path to a UTF-8 text file listing changed source paths (see **Changes file** below). Parsed at startup; invalid paths or missing files fail the run before analysis. |
-| `--help` | `-h` | No | — | Print usage and exit with status `0`. |
+| Flag           | Short | Required | Default  | Purpose                                                                                                                                                                                        |
+| -------------- | ----- | -------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _(positional)_ | —     | No       | `.`      | Directory of the TypeScript project to analyze (same meaning as `--target`). Only the **first** non-option argument is accepted as the target; additional bare tokens are rejected as unknown. |
+| `--target`     | `-t`  | No       | `.`      | Explicit project root. Cannot be combined with a second target: once the target is set (positional or `-t`), another path without a flag is an error.                                          |
+| `--workflow`   | `-w`  | No       | `full`   | Which slices of the report to compute and print (see **Workflow modes** below).                                                                                                                |
+| `--changes`    | `-c`  | No       | _(none)_ | Path to a UTF-8 text file listing changed source paths (see **Changes file** below). Parsed at startup; invalid paths or missing files fail the run before analysis.                           |
+| `--help`       | `-h`  | No       | —        | Print usage and exit with status `0`.                                                                                                                                                          |
 
 **Target directory**
 
@@ -115,11 +115,11 @@ node dist/index.js --help
 
 **Workflow modes**
 
-| Mode | Report sections | Notes |
-|------|-----------------|-------|
-| `structure` | Structure only | Fast layout-oriented snapshot (counts, depth, module-type heuristics). |
-| `public-api` | Public API only | Entry discovery (`package.json` `exports` first, then common entry files such as `src/index.ts`) and observed export names. |
-| `full` | Structure, Public API, Change impact, Hotspots | Change-impact observations appear **only** when `--changes` is provided (otherwise that section is empty). Hotspots are always computed in this mode from the snapshot topology. |
+| Mode         | Report sections                                | Notes                                                                                                                                                                            |
+| ------------ | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `structure`  | Structure only                                 | Fast layout-oriented snapshot (counts, depth, module-type heuristics).                                                                                                           |
+| `public-api` | Public API only                                | Entry discovery (`package.json` `exports` first, then common entry files such as `src/index.ts`) and observed export names.                                                      |
+| `full`       | Structure, Public API, Change impact, Hotspots | Change-impact observations appear **only** when `--changes` is provided (otherwise that section is empty). Hotspots are always computed in this mode from the snapshot topology. |
 
 Using `--changes` with `structure` or `public-api` is allowed but **has no effect** on the printed report today (those workflows never emit change-impact or hotspots).
 
