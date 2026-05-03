@@ -13,7 +13,7 @@ The long-term goal is to help engineers and maintainers inspect a codebase, unde
 
 ## Current Status
 
-- **Version**: `0.0.2`
+- **Version**: `0.1.0`
 - **Stage**: active early development (CLI flags, heuristics, and report wording may change)
 - **Implemented**: an end-to-end CLI pipeline — resolve the target directory and `tsconfig.json`, build a TypeScript Compiler API snapshot (file inventory, module graph, export/re-export graph, diagnostics), run analyzers, and print an observational text report to standard output
 - **Workflow modes** (`--workflow`): `structure` (layout metrics only), `public-api` (public surface only), `full` (structure, public API, change-impact, and hotspots). Change-impact and hotspots are produced only in `full`; change-impact additionally requires `--changes` with a newline-delimited list of paths
