@@ -131,6 +131,23 @@ describe('resolveProjectContext', () => {
     expect(result.value.packageExports).toEqual([]);
   });
 
+  it('should resolve dist declaration targets and non-priority export conditions', () => {
+    const result = resolveProjectContext(resolve('test/fixtures/resolver-exports-branches'));
+
+    expect(result.ok).toBe(true);
+    if (!result.ok) {
+      return;
+    }
+
+    expect(result.value.packageExports).toEqual([
+      { subpath: '.', target: './dist/index.d.ts', resolvedFile: 'src/index.ts' },
+      { subpath: './feature', target: './src/feature.ts', resolvedFile: 'src/feature.ts' },
+    ]);
+    expect(
+      result.value.fileNames.map((fileName) => fileName.split('/').slice(-2).join('/')).toSorted(),
+    ).toEqual(['src/feature.ts', 'src/index.ts']);
+  });
+
   it('should return a typed error when tsconfig cannot be read as a file', () => {
     expect(resolveProjectContext(resolve('test/fixtures/read-error-tsconfig'))).toEqual({
       ok: false,

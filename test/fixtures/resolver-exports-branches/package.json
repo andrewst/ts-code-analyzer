@@ -1,0 +1,13 @@
+{
+  "name": "resolver-exports-branches",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.d.ts",
+    "./feature": {
+      "custom-key": "./src/feature.ts"
+    },
+    "./skip-null-import": {
+      "import": null
+    }
+  }
+}
