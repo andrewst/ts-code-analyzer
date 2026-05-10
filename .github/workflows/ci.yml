@@ -69,10 +69,23 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Test
-        run: pnpm test:coverage
+        run: pnpm test:ci
 
       - name: Upload coverage reports
         uses: actions/upload-artifact@v7
         with:
           name: coverage-report
           path: coverage/
+
+      - name: Upload coverage reports to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/codecov-action@v6
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload test results to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/test-results-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}\
+          report-type: test_results

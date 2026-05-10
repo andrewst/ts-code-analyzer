@@ -35,7 +35,7 @@
     "ts-code-analyzer": "dist/index.js"
   },
   "dependencies": {
-    "typescript": "~6.0.2"
+    "typescript": "~6.0.3"
   },
   "scripts": {
     "dev": "tsc --watch --noEmit",
@@ -49,6 +49,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
+    "test:ci": "vitest run --coverage --reporter=junit --outputFile=test-report.junit.xml",
     "oxlint": "oxlint",
     "oxlint:fix": "oxlint --fix",
     "lint": "concurrently --names 'LINT,FMT' 'pnpm oxlint' 'pnpm format:check'",
@@ -61,12 +62,12 @@
     "dist"
   ],
   "devDependencies": {
-    "@types/node": "^25.6.0",
-    "@typescript/native-preview": "^7.0.0-dev.20260415.1",
+    "@types/node": "^25.6.2",
+    "@typescript/native-preview": "^7.0.0-dev.20260508.1",
     "@vitest/coverage-v8": "^4.1.4",
     "concurrently": "^9.2.1",
-    "esbuild": "^0.27.7",
-    "oxlint": "^1.60.0",
+    "esbuild": "^0.28.0",
+    "oxlint": "^1.63.0",
     "prettier": "^3.8.3",
     "tsx": "^4.21.0",
     "vitest": "^4.1.4"
