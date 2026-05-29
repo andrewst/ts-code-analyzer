@@ -49,7 +49,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "test:ci": "vitest run --coverage --reporter=junit --outputFile=test-report.junit.xml",
+    "test:ci": "vitest run --coverage --reporter=junit --reporter=verbose --outputFile=test-report.junit.xml",
     "oxlint": "oxlint",
     "oxlint:fix": "oxlint --fix",
     "lint": "concurrently --names 'LINT,FMT' 'pnpm oxlint' 'pnpm format:check'",
