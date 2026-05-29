@@ -46,3 +46,18 @@ Helps engineers understand TypeScript codebases faster and maintain them more co
 - The tool produces signals that are useful for maintenance and change analysis
 - The CLI output is clear, practical, and usable in everyday development workflows
 - The product can support both codebase understanding and ongoing maintenance tasks
+
+---
+
+## Next Phase: v0.2.0 (Planned)
+
+### Focus Areas
+
+- Machine-readable output (JSON/Markdown) for automation.
+- Calibrated maintenance-risk metrics (e.g., exposure ratios).
+- Improved handling of complex repository layouts (monorepos, multiple tsconfigs).
+
+### Open Questions for PD
+
+- Should we support multiple output targets in a single run?
+- How should we normalize "risk" scores across different project sizes?
